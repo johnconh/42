@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:05:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/09/24 19:11:26 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:02:45 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	ft_putnbr(int n)
 	int	len;
 
 	len = 0;
-	if (n == "-2147483648")
+	if (n == -2147483648)
 		return (ft_putstr("-2147483648"));
 	if (n < 0)
 	{
 		n *= -1;
-		len = ft_putchar("-");
+		len = ft_putchar('-');
 	}
 	if (n > 9)
 		len += ft_putnbr(n / 10);
