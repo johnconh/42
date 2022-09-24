@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:05:18 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/09/24 19:08:36 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:14:12 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static int	ft_write(va_list arg, char format, int len)
 		len += ft_puthex(va_arg (arg, unsigned int), format);
 	else if (format == '%')
 		len += ft_putchar('%');
+	return (len);
 }
 
 int	ft_printf(char const *format, ...)
