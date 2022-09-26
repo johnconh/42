@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 13:51:46 by jdasilva          #+#    #+#              #
-#    Updated: 2022/09/26 16:31:45 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/09/26 19:21:43 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC =	ft_printf.c \
 		ft_strlen.c
 		
 CC = gcc		
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 AR = ar rc
 OBJS = $(SRC:%.c=%.o)
 
