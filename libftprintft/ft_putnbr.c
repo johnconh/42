@@ -6,11 +6,11 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:05:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/09/24 21:02:45 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:43:16 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int n)
 {

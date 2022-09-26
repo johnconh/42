@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prinft.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:05:18 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/09/24 21:14:12 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:47:19 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_write(va_list arg, char format, int len)
 {
@@ -19,7 +19,7 @@ static int	ft_write(va_list arg, char format, int len)
 	else if (format == 's')
 		len += ft_putstr(va_arg (arg, char *));
 	else if (format == 'p')
-		len += ft_putstr("0X") + ft_puthex (va_arg (arg, size_t), format);
+		len += ft_putstr("0x") + ft_puthex (va_arg (arg, size_t), format);
 	else if (format == 'd' || format == 'i')
 		len += ft_putnbr(va_arg (arg, int));
 	else if (format == 'u')
