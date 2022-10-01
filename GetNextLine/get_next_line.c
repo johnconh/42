@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:42:52 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/01 19:53:15 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/01 19:55:02 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ char	*get_next_line(int fd)
 		return (0);
 	line = ft_read_line(fd, backup, buff);
 	free(buff);
-	buff = NULL;
 	if (!line)
 	{
 		free(backup);
