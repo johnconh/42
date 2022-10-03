@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:42:52 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/03 19:26:39 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:40:10 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*get_next_line(int fd)
 	char			*buff;
 	static char		*backup[300];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 300 || BUFFER_SIZE <= 0)
 		return (0);
 	buff = (char *)malloc(BUFFER_SIZE + 1 * (sizeof(*buff)));
 	if (!buff)
