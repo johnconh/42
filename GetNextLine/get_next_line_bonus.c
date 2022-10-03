@@ -6,11 +6,11 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:42:52 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/03 17:35:18 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:26:39 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_read_line(int fd, char *backup, char *buff)
 {
