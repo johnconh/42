@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   Check_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 13:10:09 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/15 17:34:25 by jdasilva         ###   ########.fr       */
+/*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
+/*   Updated: 2022/10/15 19:54:21 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_check_error(t_stack *stack)
 {
-	int			sign;
-	long int	num;
+	t_stack	*temp;
 
-	num = 0;
-	sign = 1;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+	while (stack)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		temp = stack;
+		while(temp->sig)
+		{
+			temp = temp->sig;
+			if(temp->num == stack->num)
+				return (0);
+		}
+		stack = stack->sig;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 + (*str - '0');
-		str++;
-	}
-	if((num*sign) < INT_MIN || (num*sign) > INT_MAX)
-	{
-		write(2, "Error\n", 6);
-		exit(-1);
-	} 
-	return (num * sign);
+	return (1);
 }

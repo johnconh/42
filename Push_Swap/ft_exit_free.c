@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_exit_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 13:10:09 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/15 17:34:25 by jdasilva         ###   ########.fr       */
+/*   Created: 2022/10/15 19:30:38 by jdasilva          #+#    #+#             */
+/*   Updated: 2022/10/15 19:50:52 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+void ft_exit_free_stack_a(t_stack *stack_a)
 {
-	int			sign;
-	long int	num;
+	t_stack *aux;
 
-	num = 0;
-	sign = 1;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+	while(stack_a)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		aux = stack_a;
+		stack_a = stack_a ->sig;
+		free (aux);
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 + (*str - '0');
-		str++;
-	}
-	if((num*sign) < INT_MIN || (num*sign) > INT_MAX)
-	{
-		write(2, "Error\n", 6);
-		exit(-1);
-	} 
-	return (num * sign);
+	write(2, "Error\n", 6);
+	exit (-1);
 }

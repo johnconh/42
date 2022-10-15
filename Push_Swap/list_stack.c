@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:50:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/13 16:59:16 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:38:37 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void *ft_stack_full(t_stack **stack, t_stack *new)
 	}
 	ultimo = ft_stacklast(*stack);
 	ultimo -> sig = new;
+	new -> sig = NULL;
 	return (0);
 }
