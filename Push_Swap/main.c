@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/15 19:50:36 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/17 20:31:59 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ t_stack *ft_stack_nbr(int argc, char **argv)
 	while (str[i])
 	{
 		nbr = ft_atoi(str[i]);
-		if (!nbr)
-		{
-			write(2, "Error\n", 6);
-			exit (-1);
-		}
 		if(i ++ == 0)
 			stack_a = ft_newstack(nbr);	
 		else
@@ -48,11 +43,6 @@ t_stack	*ft_multi_stack_nbr(int argc, char **argv)
 	while (i < argc)
 	{
 		nbr = ft_atoi(argv[i]);
-		if (!nbr)
-		{
-			write(2, "Error\n", 6);
-			exit (-1);
-		}
 		if(i ++ == 1)
 			stack_a = ft_newstack(nbr);	
 		else
@@ -68,18 +58,21 @@ int main (int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	
 	stack_b = NULL;
+	if(!(ft_check_error(argc, argv)))
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
 	if (argc == 2)
 		stack_a = ft_stack_nbr(argc, argv);
 	else if(argc > 2)
 		stack_a = ft_multi_stack_nbr(argc, argv);
- 	if(!ft_check_error(stack_a))
+	if(!ft_check_doblenum_error(stack_a))
 		ft_exit_free_stack_a(stack_a);
-	while (stack_a->sig)
+	while (stack_a)
 	{
 		printf("stack:%d\n", stack_a->num);
 		stack_a = stack_a->sig;
 	}
-	printf("stack:%d\n", stack_a->num);
 }
