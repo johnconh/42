@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/17 20:31:59 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:15:41 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stack *ft_stack_nbr(int argc, char **argv)
+t_stack *ft_stack_nbr(char **argv)
 {
 	t_stack		*stack_a;
 	long int	nbr;
@@ -58,6 +58,7 @@ int main (int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	stack_a = NULL;
 	stack_b = NULL;
 	if(!(ft_check_error(argc, argv)))
 	{
@@ -65,7 +66,7 @@ int main (int argc, char **argv)
 		return (0);
 	}
 	if (argc == 2)
-		stack_a = ft_stack_nbr(argc, argv);
+		stack_a = ft_stack_nbr(argv);
 	else if(argc > 2)
 		stack_a = ft_multi_stack_nbr(argc, argv);
 	if(!ft_check_doblenum_error(stack_a))

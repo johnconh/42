@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/17 20:39:52 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:15:25 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
  
 int	ft_check_error(int argc, char **argv) //verifica que si hay algo que no sea un numero de error.
 {
-	size_t i;
-	size_t j;
+	int i;
+	int j;
 
 	i = 0;
 	while(++i < argc)
