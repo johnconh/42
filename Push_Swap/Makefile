@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:00:06 by jdasilva          #+#    #+#              #
-#    Updated: 2022/10/18 17:16:09 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/10/18 17:21:15 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = push_swap.c check_list.c ft_atoi.c ft_exit_free.c ft_split.c \
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-OBJS = $(SRC:%.o = %.c)
+OBJS = $(SRC:%.c=%.o)
 
 all = $(NAME)
 	
@@ -31,7 +31,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	@echo "Archivos eliminados"
+	@echo "Fichero push_swap eliminado"
 	
 re: fclean all
 
