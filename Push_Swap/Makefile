@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:00:06 by jdasilva          #+#    #+#              #
-#    Updated: 2022/10/18 17:21:15 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/10/18 17:33:31 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRC:%.c=%.o)
 
-all = $(NAME)
+all: $(NAME)
 	
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
@@ -27,11 +27,11 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -rf $(OBJS)
-	@echo "Archivo .o eliminados"
+	@echo "Archivos .o eliminados"
 
 fclean: clean
 	rm -rf $(NAME)
-	@echo "Fichero push_swap eliminado"
+	@echo "Archivo push_swap eliminado"
 	
 re: fclean all
 
