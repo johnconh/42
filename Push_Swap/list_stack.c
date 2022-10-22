@@ -6,59 +6,50 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:50:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/21 20:19:57 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:02:35 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//La ultima posicion de la pila
-t_stack *ft_stacklast (t_stack *stack)
+//Cabeza nueva creada.
+t_stack	*ft_newpeek(void)
 {
-	while (stack && stack->peek->sig != NULL)
-		stack = stack->peek->sig;
-	return (stack);
-}
+	t_stack	*new;
 
-//Stack nuevo creado, devuelve el tamaño de la pila creada.
-t_stack *ft_newstack(int nbr)
+	new =(t_stack *)malloc(sizeof(t_stack));
+	if(!new)
+		return (0);
+	new->peek = NULL;
+	return (new);
+}
+//Nodo nuevo creado, devuelve el tamaño de la pila creada.
+t_nodo	*ft_newnodo(int nbr)
 {
-	t_nodo *new;
+	t_nodo	*new;
 	
-	new = malloc(sizeof (t_stack));
+	new = (t_nodo *)malloc(sizeof (t_nodo));
 	if(!new)
 		return (0);
 	new -> num = nbr;
-	new -> sig = NULL;
+	new -> next = NULL;
 	return(new);
 }
-
-//Relleno la lista agregando los datos de la pila en la ultima posicion
-void *ft_stack_full(t_stack *stack, t_stack *new)
+//Relleno la lista agregando los datos de la pila en la ultima posicion.
+void	*ft_stack_full(t_stack *stack, int nbr)
 {
-	t_nodo	*ultimo;
-	
-	if(!new)
-		return (0);
-	if(!stack)
+	t_nodo	*nodo;
+	t_nodo *pointer;
+
+	nodo = ft_newnodo(nbr);
+	if(stack->peek)
 	{
-		stack = new;
-		return (0);	
+		pointer = stack->peek;
+		while(pointer->next)
+			pointer = pointer->next;
+		pointer->next = nodo;
 	}
-	ultimo = ft_stacklast(stack);
-	ultimo -> sig = new;
-	new ->peek-> sig = NULL;
+	else
+		stack->peek = nodo;
+	stack->len++;
 	return (0);
-}
-
-size_t ft_size_list(t_stack *stack)
-{
-	size_t size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;	
-		stack = stack->sig;
-	}
-	return (size);
 }

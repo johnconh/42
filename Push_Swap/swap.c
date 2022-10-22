@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:40:23 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/21 20:24:24 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:32:14 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,27 @@ void	ft_sa(t_stack *stack, int flag)
 {
 	t_nodo	*aux;
 
-	if(!stack || !stack->peek->sig)
+	if(!stack->peek || !stack->peek->next)
 		return ;
-	printf("sa:%d\n", stack->num);
 	aux = stack->peek;
-	stack->peek = stack->peek->sig;
-	stack->peek->sig = aux;
+	stack->peek = aux->next;;
+	aux->next = aux->next->next;;
+	stack->peek->next = aux;
 	if(flag == 1)
 		write(1, "sa\n", 3);
 }
 
 void	ft_sb(t_stack *stack, int flag)
 {
-	t_stack	*aux;
+	t_nodo	*aux;
 
 	aux = NULL;
-	if(!stack->num || !stack->sig->num)
+	if(!stack->peek || !stack->peek->next)
 		return ;
-	aux->num = stack->num;
-	stack->num = stack->sig->num;
-	stack->sig->num = aux->num;
+	aux = stack->peek;
+	stack->peek = aux->next;
+	aux->next = aux->next->next;
+	stack->peek->next = aux;
 	if(flag == 1)
 		write(1, "sb\n", 3);
 }

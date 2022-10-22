@@ -6,36 +6,30 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/21 19:56:08 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:07:53 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stack *ft_stack_nbr(char **argv)
+void ft_stack_nbr(char **argv, t_stack *stack)
 {
-	t_stack		*stack_a;
 	long int	nbr;
 	int			i;
 	char		**str;
 
-	i = 0;
+	i = -1;
 	str = ft_split(argv[1], ' ');
-	while (str[i])
+	 while (str[++i])
 	{
 		nbr = ft_atoi(str[i]);
-		if(i ++ == 0)
-			stack_a = ft_newstack(nbr);	
-		else
-			ft_stack_full(stack_a, ft_newstack(nbr));
+		ft_stack_full(stack, nbr); 
 	}
-	return (stack_a);
-}
+} 
 
-t_stack	*ft_multi_stack_nbr(int argc, char **argv)
+void	*ft_multi_stack_nbr(int argc, char **argv, t_stack *stack)
 {
-	t_stack		*stack_a;
 	long int	nbr;
 	int			i;
 
@@ -43,14 +37,11 @@ t_stack	*ft_multi_stack_nbr(int argc, char **argv)
 	while (i < argc)
 	{
 		nbr = ft_atoi(argv[i]);
-		if(i ++ == 1)
-			stack_a = ft_newstack(nbr);	
-		else
-			ft_stack_full(stack_a, ft_newstack(nbr));
+		ft_stack_full(stack, nbr);
+		i++;
 	}
-	return (stack_a);
+	return (0);
 }
-
 /* void ft_push_swap (t_stack **stack_a, t_stack **stack_b)
 {
 	size_t	listsize;
@@ -73,23 +64,24 @@ int main (int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
 	if(!(ft_check_error(argc, argv)))
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
+	stack_a = ft_newpeek();
+	stack_b = ft_newpeek();
 	if (argc == 2)
-		stack_a = ft_stack_nbr(argv);
+		ft_stack_nbr(argv, stack_a);
 	else if(argc > 2)
-		stack_a = ft_multi_stack_nbr(argc, argv);
+		ft_multi_stack_nbr(argc, argv, stack_a);
 	if(!ft_check_doblenum_error(stack_a))
 		ft_exit_free_stack_a(stack_a, 0);
-	while (stack_a)
-	{
-		printf("stack:%d\n", stack_a->num);
-		stack_a = stack_a->sig;
-	}
 	ft_sa(stack_a, 1);
+	while (stack_a->peek)
+	{
+		printf("stack:%d\n", stack_a->peek->num);
+		stack_a->peek = stack_a->peek->next;
+	}
+	return (0);
 }

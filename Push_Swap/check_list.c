@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/21 20:08:15 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:50:57 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,31 @@ int	ft_check_error(int argc, char **argv) //verifica que si hay algo que no sea 
 int	ft_check_doblenum_error(t_stack *stack) //verifica si hay un numero repetido en la lista.
 {
 	t_nodo	*temp;
+	t_nodo	*pointer;
 
-	while (stack)
+	pointer = stack->peek;
+	while (pointer->next)
 	{
-		temp = stack->peek->sig;
+		temp = pointer->next;
 		while(temp)
 		{
-			if(temp->num == stack->peek->num)
+			if(temp->num == pointer->num)
 				return (0);
-			temp = temp->sig;
+			temp = temp->next;
 		}
-		stack = stack->peek->sig;
+		pointer = pointer->next;
 	}
 	return (1);
 }
 
 int	ft_check_list(t_stack *stack)
 {
-	while(!(stack->peek->num < stack->peek->sig->num) && stack)
-		stack = stack->peek->sig;
-	if(stack->peek->sig == NULL)
+	t_nodo	*pointer;
+
+	pointer = stack->peek;
+	while(!(pointer->num < pointer->next->num) && pointer->next)
+		pointer = pointer->next;
+	if(pointer->next == NULL)
 		return (1);
 	return (0);
 }
