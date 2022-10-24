@@ -6,45 +6,45 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 12:50:19 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/19 13:31:18 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:28:53 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra(t_stack	**stack, int flag)
+void	ft_ra(t_stack	*stack, int flag)
 {
-	t_stack *aux;
-	t_stack *last_aux;
+	t_nodo *aux;
+	t_nodo *last_aux;
 
-	aux = *stack;
-	*stack = (*stack)->sig;
-	last_aux = (*stack)->sig;
-	while(last_aux->sig != NULL)
-		last_aux = last_aux->sig;
-	last_aux->sig = aux;
-	aux->sig = NULL;
+	aux = stack->peek;
+	stack->peek = stack->peek->next;
+	last_aux = stack->peek->next;
+	while(last_aux->next != NULL)
+		last_aux = last_aux->next;
+	last_aux->next = aux;
+	aux->next = NULL;
 	if(flag == 1)
 		write(1, "ra\n", 3);
 }
 
-void	ft_rb(t_stack	**stack, int flag)
+void	ft_rb(t_stack	*stack, int flag)
 {
-	t_stack *aux;
-	t_stack *last_aux;
+	t_nodo *aux;
+	t_nodo *last_aux;
 
-	aux = *stack;
-	*stack = (*stack)->sig;
-	last_aux = (*stack)->sig;
-	while(last_aux->sig != NULL)
-		last_aux = last_aux->sig;
-	last_aux->sig = aux;
-	aux->sig = NULL;
+	aux = stack->peek;
+	stack->peek = stack->peek->next;
+	last_aux = stack->peek->next;
+	while(last_aux->next != NULL)
+		last_aux = last_aux->next;
+	last_aux->next = aux;
+	aux->next = NULL;
 	if(flag == 1)
 		write(1, "rb\n", 3);
 }
 
-void	ft_rr(t_stack	**stack_a, t_stack **stack_b)
+void	ft_rr(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_ra(stack_a, 0);
 	ft_rb(stack_b, 0);
