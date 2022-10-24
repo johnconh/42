@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:50:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/22 21:02:35 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:46:30 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_newpeek(void)
 	if(!new)
 		return (0);
 	new->peek = NULL;
+	new->len = 0;
 	return (new);
 }
 //Nodo nuevo creado, devuelve el tamaño de la pila creada.

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 20:35:23 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:48:07 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int main (int argc, char **argv)
 		ft_multi_stack_nbr(argc, argv, stack_a);
 	ft_check_doblenum_error(stack_a);
 	ft_check_list(stack_a);
-	ft_rra(stack_a, 1);
 	while (stack_a->peek)
 	{
 		printf("stack A:%d\n", stack_a->peek->num);
@@ -83,5 +82,6 @@ int main (int argc, char **argv)
 		printf("stack B:%d\n", stack_b->peek->num);
 		stack_b->peek = stack_b->peek->next;
 	}
+	printf("len:%zu", stack_a->len);
 	return (0);
 }
