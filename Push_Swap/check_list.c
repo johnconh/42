@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 20:12:12 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/25 19:14:45 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ void	ft_check_doblenum_error(t_stack *stack) //verifica si hay un numero repetid
 		while(temp)
 		{
 			if(temp->num == pointer->num)
-				ft_exit_free_stack_a(stack, 0);
+				ft_exit_free_stack(stack, 0);
 			temp = temp->next;
 		}
 		pointer = pointer->next;
 	}
 }
 
-void	ft_check_list(t_stack *stack) //verifica si la lista esta ordenada.
+int	ft_check_list(t_stack *stack) //verifica si la lista esta ordenada.
 {
 	t_nodo	*pointer;
 
@@ -66,10 +66,11 @@ void	ft_check_list(t_stack *stack) //verifica si la lista esta ordenada.
 		if(pointer->next)
 		{
 			if(pointer->num > pointer->next->num)
-				break ;
+				return (1);
 		}
 		else 
-			ft_exit_free_stack_a(stack, 1);
+			return (0);
 		pointer = pointer->next;
 	}
-} 
+	return (0);
+}

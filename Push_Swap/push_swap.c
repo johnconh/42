@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 20:48:07 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/25 19:40:36 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,18 @@ void	ft_multi_stack_nbr(int argc, char **argv, t_stack *stack)
 	i = 0;
 	while (++i < argc)
 		ft_stack_nbr(argv[i], stack);
-
 }
-/* void ft_push_swap (t_stack **stack_a, t_stack **stack_b)
+
+void ft_push_swap (t_stack *stack_a, t_stack *stack_b)
 {
-	size_t	listsize;
-	
-	if (!ft_check_list(stack_a))
-		ft_exit_free_stack_a(stack_a, 1);
-	listsize = ft_size_list(stack_a);
-	if(listsize == 3)
-		ft_stack_in_3(stack_a);
-	else if(listsize == 5)
-		ft_stack_in_5(stack_a, stack_b);
-	else
-		
-} */
+	if(stack_a->len<= 3)
+		ft_sort_small_stack_3(stack_a);
+	else if(stack_a->len <= 5)
+		ft_sort_small_stack_5(stack_a, stack_b);
+	/*else
+		ft_sort_big_stack(stack_a, stack_b);*/
+
+} 
 
 int main (int argc, char **argv)
 {
@@ -71,7 +67,9 @@ int main (int argc, char **argv)
 	else if(argc > 2)
 		ft_multi_stack_nbr(argc, argv, stack_a);
 	ft_check_doblenum_error(stack_a);
-	ft_check_list(stack_a);
+	if(!ft_check_list(stack_a))
+		ft_exit_free_stack(stack_a, 1);
+	ft_push_swap(stack_a, stack_b);
 	while (stack_a->peek)
 	{
 		printf("stack A:%d\n", stack_a->peek->num);

@@ -6,14 +6,14 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:00:06 by jdasilva          #+#    #+#              #
-#    Updated: 2022/10/24 20:35:10 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/10/25 19:15:22 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =push_swap
 
 SRC = push_swap.c check_list.c ft_atoi.c ft_exit_free.c list_stack.c ft_split.c\
-		swap.c push.c rotate.c reserve_rotate.c
+		swap.c push.c rotate.c reserve_rotate.c algorithm.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRC:%.c=%.o)
