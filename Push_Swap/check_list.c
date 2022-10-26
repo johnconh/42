@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/25 19:14:45 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/26 20:00:06 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ int	ft_check_list(t_stack *stack) //verifica si la lista esta ordenada.
 			if(pointer->num > pointer->next->num)
 				return (1);
 		}
-		else 
-			return (0);
 		pointer = pointer->next;
 	}
 	return (0);

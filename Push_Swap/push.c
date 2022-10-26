@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:15:24 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 18:35:35 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:44:16 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_pa(t_stack *stack_a, t_stack *stack_b)
 	stack_b->peek->next = stack_a->peek;
 	stack_a->peek = stack_b->peek;
 	stack_b->peek = aux;
+	stack_a->len ++;
+	stack_b->len --;
 	write(1, "pa\n", 3);
 }
 
@@ -35,5 +37,7 @@ void	ft_pb(t_stack *stack_a, t_stack *stack_b)
 	stack_a->peek->next = stack_b->peek;
 	stack_b->peek = stack_a->peek;
 	stack_a->peek = aux;
+	stack_a->len --;
+	stack_b->len ++;
 	write(1, "pb\n", 3);
 }

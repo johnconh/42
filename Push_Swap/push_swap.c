@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/25 19:40:36 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:21:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int main (int argc, char **argv)
 		printf("stack B:%d\n", stack_b->peek->num);
 		stack_b->peek = stack_b->peek->next;
 	}
-	printf("len:%zu", stack_a->len);
+	printf("lenA:%zu lenB:%zu", stack_a->len, stack_b->len);
 	return (0);
 }

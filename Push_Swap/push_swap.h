@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:08:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/25 19:11:48 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/26 19:25:03 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ void	ft_rr(t_stack	*stack_a, t_stack *stack_b);
 void	ft_rra(t_stack *stack, int flag);
 void	ft_rrb(t_stack *stack, int flag);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
+//##### ORGANIZE #######
+t_nodo	*ft_num_max_or_min(t_stack *stack, int type);
+int 	ft_position_max_or_min(t_stack *stack, t_nodo *num);
+void	ft_first_position (t_stack *stack, int pos);
 //##### ALGORITHM #######
 void	ft_sort_small_stack_3(t_stack *stack);
+void	ft_sort_small_stack_5(t_stack *stack_a, t_stack *stack_b);
 #endif
