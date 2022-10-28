@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 17:17:34 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/26 20:53:59 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/28 19:54:59 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,38 @@ void	ft_sort_small_stack_5(t_stack *stack_a, t_stack *stack_b)
 			ft_sort_small_stack_3(stack_a);
 	ft_pa(stack_a, stack_b);
 	ft_ra(stack_a, 1);
+}
+
+void	ft_sort_big_stack(t_stack *stack_a)
+{
+	ft_assign_index(stack_a);
+	
+}
+
+void ft_assign_index(t_stack *stack)
+{
+	int		i;
+	t_nodo	*minnum;
+	t_nodo	*ptr; //ptr = pointer.
+	t_nodo 	*ptrnum;
+
+	i = 0;
+	minnum = ft_num_max_or_min(stack, 0);
+	minnum->index = i;
+	ptr = stack->peek;
+	ptrnum = ptr;
+	
+	while(ptr->num > minnum->num)
+	{
+		while(ptr)
+		{
+			if(ptr->num < ptrnum->num && ptr->num > minnum->num)
+				ptrnum = ptr;
+			ptr = ptr->next;
+		}
+		ptrnum->index = ++i;
+		minnum = ptrnum;
+		ptr = stack->peek;
+		ptrnum = ptr;
+	}
 }

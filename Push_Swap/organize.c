@@ -6,12 +6,12 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:41:20 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/26 21:04:37 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:49:27 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//Selecciona cual es el numero maxo o min de la pila.
 t_nodo	*ft_num_max_or_min(t_stack *stack, int type)
 {
 	t_nodo	*pointer;
@@ -29,7 +29,7 @@ t_nodo	*ft_num_max_or_min(t_stack *stack, int type)
 	}
 	return (select);
 }
-
+//Me indica la posicion del numero max o min de la pila.
 int	ft_position_max_or_min(t_stack *stack, t_nodo *num)
 {
 	t_nodo	*pointer;
@@ -46,7 +46,7 @@ int	ft_position_max_or_min(t_stack *stack, t_nodo *num)
 	}
 	return (pos);
 }
-
+//Coloca el numero en primera posicion dependiendo de su puesto en la pila.
 void	ft_first_position (t_stack *stack, int pos)
 {
 	if(pos == 2)
