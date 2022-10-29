@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:50:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 20:46:30 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/29 20:52:42 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,38 @@ t_stack	*ft_newpeek(void)
 {
 	t_stack	*new;
 
-	new =(t_stack *)malloc(sizeof(t_stack));
-	if(!new)
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
 		return (0);
 	new->peek = NULL;
 	new->len = 0;
 	return (new);
 }
+
 //Nodo nuevo creado, devuelve el tamaño de la pila creada.
 t_nodo	*ft_newnodo(int nbr)
 {
 	t_nodo	*new;
-	
+
 	new = (t_nodo *)malloc(sizeof (t_nodo));
-	if(!new)
+	if (!new)
 		return (0);
 	new -> num = nbr;
 	new -> next = NULL;
-	return(new);
+	return (new);
 }
+
 //Relleno la lista agregando los datos de la pila en la ultima posicion.
 void	*ft_stack_full(t_stack *stack, int nbr)
 {
 	t_nodo	*nodo;
-	t_nodo *pointer;
+	t_nodo	*pointer;
 
 	nodo = ft_newnodo(nbr);
-	if(stack->peek)
+	if (stack->peek)
 	{
 		pointer = stack->peek;
-		while(pointer->next)
+		while (pointer->next)
 			pointer = pointer->next;
 		pointer->next = nodo;
 	}

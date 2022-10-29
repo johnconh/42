@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:10:09 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/15 17:34:25 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/29 20:34:49 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (*str - '0');
 		str++;
 	}
-	if((num*sign) < INT_MIN || (num*sign) > INT_MAX)
+	if ((num * sign) < INT_MIN || (num * sign) > INT_MAX)
 	{
 		write(2, "Error\n", 6);
 		exit(-1);
-	} 
+	}
 	return (num * sign);
 }

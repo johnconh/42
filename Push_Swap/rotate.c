@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 12:50:19 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 20:28:53 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/29 21:00:18 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 void	ft_ra(t_stack	*stack, int flag)
 {
-	t_nodo *aux;
-	t_nodo *last_aux;
+	t_nodo	*aux;
+	t_nodo	*last_aux;
 
 	aux = stack->peek;
 	stack->peek = stack->peek->next;
 	last_aux = stack->peek->next;
-	while(last_aux->next != NULL)
+	while (last_aux->next != NULL)
 		last_aux = last_aux->next;
 	last_aux->next = aux;
 	aux->next = NULL;
-	if(flag == 1)
+	if (flag == 1)
 		write(1, "ra\n", 3);
 }
 
 void	ft_rb(t_stack	*stack, int flag)
 {
-	t_nodo *aux;
-	t_nodo *last_aux;
+	t_nodo	*aux;
+	t_nodo	*last_aux;
 
 	aux = stack->peek;
 	stack->peek = stack->peek->next;
 	last_aux = stack->peek->next;
-	while(last_aux->next != NULL)
+	while (last_aux->next != NULL)
 		last_aux = last_aux->next;
 	last_aux->next = aux;
 	aux->next = NULL;
-	if(flag == 1)
+	if (flag == 1)
 		write(1, "rb\n", 3);
 }
 

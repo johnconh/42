@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:23:30 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/24 20:40:31 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/29 20:59:43 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_rra(t_stack *stack, int flag)
 {
 	t_nodo	*aux;
-	t_nodo *firts_aux;
-	
+	t_nodo	*firts_aux;
+
 	aux = stack->peek;
-	while(aux->next->next)
+	while (aux->next->next)
 		aux = aux->next;
 	firts_aux = aux->next;
 	firts_aux->next = stack->peek;
@@ -31,10 +31,10 @@ void	ft_rra(t_stack *stack, int flag)
 void	ft_rrb(t_stack *stack, int flag)
 {
 	t_nodo	*aux;
-	t_nodo *firts_aux;
-	
+	t_nodo	*firts_aux;
+
 	aux = stack->peek;
-	while(aux->next->next)
+	while (aux->next->next)
 		aux = aux->next;
 	firts_aux = aux->next;
 	firts_aux->next = stack->peek;

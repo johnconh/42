@@ -6,37 +6,37 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/26 20:00:06 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/29 20:31:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
- 
-int	ft_check_error(int argc, char **argv) //verifica que si hay algo que no sea un numero de error.
+//verifica que si hay algo que no sea un numero de error.
+int	ft_check_error(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(++i < argc)
+	while (++i < argc)
 	{
 		j = -1;
 		while (argv[i][++j])
 		{
-			if((argv[i][j] == '+' || argv[i][j] == '-') && 
-				(!((argv[i][j + 1]>= '0') && (argv[i][j + 1] <= '9'))))
+			if ((argv[i][j] == '+' || argv[i][j] == '-')
+			&& (!((argv[i][j + 1] >= '0') && (argv[i][j + 1] <= '9'))))
 				return (0);
-			if(!((argv[i][j] >= '0' && argv[i][j] <= '9') || 
-				argv[i][j] == 32 || (argv[i][j] >= 9 && argv[i][j]<= 13) 
+			if (!((argv[i][j] >= '0' && argv[i][j] <= '9')
+				|| argv[i][j] == 32 || (argv[i][j] >= 9 && argv[i][j] <= 13)
 					|| (argv[i][j] == '+' || argv[i][j] == '-')))
 				return (0);
 		}
 	}
 	return (1);
-
 }
 
-void	ft_check_doblenum_error(t_stack *stack) //verifica si hay un numero repetido en la lista.
+//verifica si hay un numero repetido en la lista.
+void	ft_check_doblenum_error(t_stack *stack)
 {
 	t_nodo	*temp;
 	t_nodo	*pointer;
@@ -45,9 +45,9 @@ void	ft_check_doblenum_error(t_stack *stack) //verifica si hay un numero repetid
 	while (pointer->next)
 	{
 		temp = pointer->next;
-		while(temp)
+		while (temp)
 		{
-			if(temp->num == pointer->num)
+			if (temp->num == pointer->num)
 				ft_exit_free_stack(stack, 0);
 			temp = temp->next;
 		}
@@ -55,17 +55,17 @@ void	ft_check_doblenum_error(t_stack *stack) //verifica si hay un numero repetid
 	}
 }
 
-int	ft_check_list(t_stack *stack) //verifica si la lista esta ordenada.
+//verifica si la lista esta ordenada.
+int	ft_check_list(t_stack *stack)
 {
 	t_nodo	*pointer;
 
 	pointer = stack->peek;
-	
-	while(pointer)
+	while (pointer)
 	{
-		if(pointer->next)
+		if (pointer->next)
 		{
-			if(pointer->num > pointer->next->num)
+			if (pointer->num > pointer->next->num)
 				return (1);
 		}
 		pointer = pointer->next;
