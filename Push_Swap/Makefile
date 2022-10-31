@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:00:06 by jdasilva          #+#    #+#              #
-#    Updated: 2022/10/29 20:11:15 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/10/31 19:31:53 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = push_swap.c check_list.c ft_atoi.c ft_exit_free.c list_stack.c ft_split.c\
 		swap.c push.c rotate.c reserve_rotate.c algorithm.c organize.c \
 			ft_assign_index.c ft_radix_sort.c
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 VAL = -g3
 OBJS = $(SRC:%.c=%.o)
 
