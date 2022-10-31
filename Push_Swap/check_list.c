@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/31 19:19:41 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/31 20:20:29 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	ft_check_doblenum_error(t_stack *stack)
 	t_nodo	*temp;
 	t_nodo	*pointer;
 
-	if(!stack)
-		return ;
 	pointer = stack->peek;
 	while (pointer->next)
 	{

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 19:30:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/31 20:15:01 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/10/31 20:19:58 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	ft_exit_free(t_stack *stack_a, t_stack *stack_b)
 			stack_a->peek = stack_a->peek->next;
 			free(aux);
 		}
-		
 	}
 	free(stack_a);
 	if (stack_b->peek)
