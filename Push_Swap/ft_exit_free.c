@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 19:30:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/31 20:19:58 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:39:06 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void	ft_exit_free_stack(t_stack *stack, int flags)
 {
 	t_nodo	*aux;
-	t_nodo	*pointer;
 
-	pointer = stack->peek;
-	while (pointer)
+	while (stack->peek)
 	{
-		aux = pointer;
-		pointer = pointer->next;
+		aux = stack->peek;
+		stack->peek = stack->peek->next;
 		free (aux);
 	}
 	free(stack);
@@ -55,4 +53,32 @@ void	ft_exit_free(t_stack *stack_a, t_stack *stack_b)
 	}
 	free(stack_b);
 	exit (0);
+}
+
+void	ft_free_stack(t_stack *stack)
+{
+	t_nodo	*aux;
+
+	while (stack->peek)
+	{
+		aux = stack->peek;
+		stack->peek = stack->peek->next;
+		free (aux);
+	}
+	free(stack);
+}
+
+void	ft_free_str(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	write(2, "Error\n", 6);
+	exit (-1);
 }

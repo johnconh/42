@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:06:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/31 20:20:29 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:40:06 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	ft_check_error(int argc, char **argv)
 
 	i = 0;
 	while (++i < argc)
-	{
-		j = -1;
-		while (argv[i][++j])
+	{	
+		j = 0;
+		if (argv[i][j] == '\0')
+			return (0);
+		while (argv[i][j])
 		{
 			if ((argv[i][j] == '+' || argv[i][j] == '-')
 			&& (!((argv[i][j + 1] >= '0') && (argv[i][j + 1] <= '9'))))
@@ -30,6 +32,7 @@ int	ft_check_error(int argc, char **argv)
 				|| argv[i][j] == 32 || (argv[i][j] >= 9 && argv[i][j] <= 13)
 					|| (argv[i][j] == '+' || argv[i][j] == '-')))
 				return (0);
+			j++;
 		}
 	}
 	return (1);
@@ -42,7 +45,7 @@ void	ft_check_doblenum_error(t_stack *stack)
 	t_nodo	*pointer;
 
 	pointer = stack->peek;
-	while (pointer->next)
+	while (pointer)
 	{
 		temp = pointer->next;
 		while (temp)

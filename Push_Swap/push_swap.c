@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/31 19:17:35 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:43:53 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_stack_nbr(char *argv, t_stack *stack)
 	str = ft_split(argv, ' ');
 	while (str[++i])
 	{
-		nbr = ft_atoi(str[i]);
+		if (!ft_atoi(str[i], stack))
+			ft_free_str(str);
+		nbr = ft_atoi(str[i], stack);
 		free(str[i]);
 		ft_stack_full(stack, nbr);
 	}
@@ -61,7 +63,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack_a = ft_newpeek();
-	stack_b = ft_newpeek();
 	if (argc == 2)
 		ft_stack_nbr(*++argv, stack_a);
 	else if (argc > 2)
@@ -69,6 +70,7 @@ int	main(int argc, char **argv)
 	ft_check_doblenum_error(stack_a);
 	if (!ft_check_list(stack_a))
 		ft_exit_free_stack(stack_a, 1);
+	stack_b = ft_newpeek();
 	ft_push_swap(stack_a, stack_b);
 	ft_exit_free(stack_a, stack_b);
 	return (0);
