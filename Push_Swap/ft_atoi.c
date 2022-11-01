@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:10:09 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/01 18:40:24 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:28:26 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_atoi(const char *str, t_stack *stack)
 		|| (*str == '+' || *str == '-'))
 	{
 		ft_free_stack(stack);
-		return (0);
+		return (-1);
 	}
 	return (num * sign);
 }
