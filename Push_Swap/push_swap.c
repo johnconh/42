@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:29:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/01 19:28:42 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/02 16:05:24 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	ft_stack_nbr(char *argv, t_stack *stack)
 	str = ft_split(argv, ' ');
 	while (str[++i])
 	{
-		if (ft_atoi(str[i], stack) == -1)
-			ft_free_str(str);
-		nbr = ft_atoi(str[i], stack);
+		nbr = ft_atoi(str[i], stack, str);
 		free(str[i]);
 		ft_stack_full(stack, nbr);
 	}

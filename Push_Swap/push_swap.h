@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:08:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/01 19:33:01 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/02 16:09:24 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_check_list(t_stack *stack);
 void	ft_free_stack(t_stack *stack);
 void	ft_free_str(char **str);
 //##### LIBFT #######
-int		ft_atoi(const char *str, t_stack *stack);
+int		ft_atoi(const char *str, t_stack *stack, char **del);
 char	**ft_split(char const *s, char c);
 //##### OPERATOR #####
 void	ft_sa(t_stack *stack, int flag);
