@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 17:17:34 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/29 20:24:47 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:10:41 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_sort_small_stack_3(t_stack *stack)
 {
 	if (stack->peek->num > stack->peek->next->num)
 	{
-		if (stack->peek->next->num < stack->peek->next->next->num
+		if (stack->len == 2)
+			ft_sa(stack, 1);
+		else if (stack->peek->next->num < stack->peek->next->next->num
 			&& stack->peek->num > stack->peek->next->next->num)
 			ft_ra(stack, 1);
 		else
