@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 19:30:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/04 16:41:45 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/05 17:05:31 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ void	ft_exit_free_stack(t_stack *stack, int flags)
 {
 	t_nodo	*aux;
 
-	while (stack->peek)
+	if (stack)
 	{
-		aux = stack->peek;
-		stack->peek = stack->peek->next;
-		free (aux);
+		while (stack->peek)
+		{
+			aux = stack->peek;
+			stack->peek = stack->peek->next;
+			free (aux);
+		}
+		free(stack);
 	}
-	free(stack);
 	if (flags == 0)
 		write(2, "Error\n", 6);
 	exit (-1);
@@ -59,13 +62,16 @@ void	ft_free_stack(t_stack *stack)
 {
 	t_nodo	*aux;
 
-	while (stack->peek)
-	{
-		aux = stack->peek;
-		stack->peek = stack->peek->next;
-		free (aux);
+	if (stack)
+	{	
+		while (stack->peek)
+		{
+			aux = stack->peek;
+			stack->peek = stack->peek->next;
+			free (aux);
+		}
+		free(stack);
 	}
-	free(stack);
 }
 
 void	ft_free_str(char **str)
@@ -73,12 +79,16 @@ void	ft_free_str(char **str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (str)
 	{
-		free(str[i]);
-		i++;
+		while (str[i])
+		{
+			if (str[i])
+				free(str[i]);
+			i++;
+		}
+		free(str);
 	}
-	free(str);
 	write(2, "Error\n", 6);
 	exit (-1);
 }

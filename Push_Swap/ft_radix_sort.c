@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 19:45:24 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/10/29 19:51:54 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/05 17:04:41 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_radix_sort(t_stack *stack_a, t_stack *stack_b, int bit)
 	{
 		pointer = stack_a->peek;
 		i = stack_a->len;
-		while (pointer && i --)
+		while (pointer && i--)
 		{
 			if ((pointer->index >> position & 1) == 0)
 			{
