@@ -1,0 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 12:03:15 by jdasilva          #+#    #+#             */
+/*   Updated: 2022/11/12 13:39:15 by jdasilva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pipex.h"
+
+char	**get_rutas(char **envp, char **argv)
+{
+	int		i;
+	char	**rutas;
+	
+	i = 0;
+	while(envp[i])
+	{
+		if(ft_strncmp(envp[i], "PATH=", 5) == 0)
+			rutas = ft_split(envp[i] + 5, ":");
+		i++;
+	}
+	return(rutas);
+}
+
+char	**get_cmd(char **argv)
+{
+	char **cmd;
+
+	cmd = ft_split(argv[0], ' ');
+	return(cmd);
+}
+
+char	*ruta_cmd(char **envp, char **argv)
+{
+	char	**rutas;
+	char	*temp;
+	char	*ruta;
+	char	**cmd;
+	int 	i;
+
+	cmd = get_cmd(argv);
+	rutas = get_rutas(envp, argv);
+	i = 0;
+	while(rutas[i])
+	{
+		rutas = ft_strjoin(rutas[i], "/");
+		rutas = ft_strjoin(rutas[i], cmd[0]);
+		temp = rutas[i];
+		if(access(temp, F_OK) == 0)
+			ruta = temp;
+		else
+			free(temp);
+		i++;
+	}
+	return(ruta);
+}
