@@ -6,11 +6,11 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:06:07 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/12 13:34:57 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:58:01 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../incs/pipex.h"
 
 static size_t	ft_count_line(char const *s, char c)
 {

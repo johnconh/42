@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 11:08:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/12 13:33:47 by jdasilva         ###   ########.fr       */
+/*   Created: 2022/09/14 13:54:55 by jdasilva          #+#    #+#             */
+/*   Updated: 2022/11/14 18:21:31 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../incs/pipex.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	dstlen;
-	size_t	count;
+	char	*dst;
+	size_t	lens1;
+	size_t	lens2;
 
-	dstlen = ft_strlen(dst);
-	count = dstlen + ft_strlen(src);
-	if (dstlen >= dstsize)
-		return (ft_strlen(src) + dstsize);
-	while (*src && dstsize - dstlen - 1)
-		*(dst + dstlen++) = *src++;
-	*(dst + dstlen) = '\0';
-	return (count);
+	if (!s1 || !s2)
+		return (0);
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	dst = (char *)malloc(sizeof(char) * (lens1 + lens2 + 1));
+	if (!dst)
+		return (0);
+	ft_strlcpy(dst, s1, lens1 + 1);
+	ft_strlcat(&dst[lens1], s2, lens2 + 1);
+	return (dst);
 }

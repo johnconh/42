@@ -6,11 +6,11 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 12:20:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/12 13:32:18 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:57:14 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../incs/pipex.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

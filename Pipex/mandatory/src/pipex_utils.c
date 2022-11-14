@@ -6,33 +6,33 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:03:15 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/12 13:39:15 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:36:48 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../incs/pipex.h"
 
-char	**get_rutas(char **envp, char **argv)
+char	**get_rutas(char **envp)
 {
 	int		i;
 	char	**rutas;
-	
+
 	i = 0;
-	while(envp[i])
+	while (envp[i])
 	{
-		if(ft_strncmp(envp[i], "PATH=", 5) == 0)
-			rutas = ft_split(envp[i] + 5, ":");
+		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
+			rutas = ft_split(envp[i] + 5, ':');
 		i++;
 	}
-	return(rutas);
+	return (rutas);
 }
 
 char	**get_cmd(char **argv)
 {
-	char **cmd;
+	char	**cmd;
 
 	cmd = ft_split(argv[0], ' ');
-	return(cmd);
+	return (cmd);
 }
 
 char	*ruta_cmd(char **envp, char **argv)
@@ -41,21 +41,35 @@ char	*ruta_cmd(char **envp, char **argv)
 	char	*temp;
 	char	*ruta;
 	char	**cmd;
-	int 	i;
+	int		i;
 
 	cmd = get_cmd(argv);
-	rutas = get_rutas(envp, argv);
+	rutas = get_rutas(envp);
 	i = 0;
-	while(rutas[i])
+	while (rutas[i])
 	{
-		rutas = ft_strjoin(rutas[i], "/");
-		rutas = ft_strjoin(rutas[i], cmd[0]);
+		rutas[i] = ft_strjoin(rutas[i], "/");
+		rutas[i] = ft_strjoin(rutas[i], cmd[0]);
 		temp = rutas[i];
-		if(access(temp, F_OK) == 0)
+		if (access(temp, F_OK) == 0)
 			ruta = temp;
 		else
 			free(temp);
 		i++;
 	}
-	return(ruta);
+	return (ruta);
+}
+
+void	ft_free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+	{
+		if (str[i])
+			free(str[i]);
+		i++;
+	}
+	free(str);
 }

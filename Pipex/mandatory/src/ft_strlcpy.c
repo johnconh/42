@@ -6,11 +6,11 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 10:53:31 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/12 13:33:38 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:57:26 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../incs/pipex.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
