@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:49:53 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 17:58:05 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/16 20:59:15 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -22,12 +22,20 @@
 
 # define READ_END  0  /* index pipe extremo escritura */
 # define WRITE_END 1  /* index pipe extremo lectura */
-
+//#### GNL ####
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 200
+# endif
+//#### MAIN #####
+void	ft_pipe(char **argv, char **envp);
+void	ft_padre(int *fd, char **argv, char **envp);
+void	ft_hijo(int *fd, char **argv, char **envp);
 //##### UTILS #####
 char	**get_rutas(char **envp);
 char	**get_cmd(char **argv);
 char	*ruta_cmd(char **envp, char **argv);
 void	ft_free_split(char **str);
+void	ft_heredoc(char **argv);
 //###### LIBFT ######
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -35,4 +43,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strdup(const char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+//##### GNL ######
+char	*get_next_line(int fd);
 #endif

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:55:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 17:59:16 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:03:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/pipex.h"
+#include "../incs/pipex_bonus.h"
 
 void	ft_hijo(int *fd, char **argv, char **envp)
 {
 	char	*ruta;
 	char	**cmd;
 
-	ruta = ruta_cmd(envp, &argv[2]);
-	cmd = get_cmd(&argv[2]);
+	ruta = ruta_cmd(envp, argv);
+	cmd = get_cmd(argv);
 	close(fd[READ_END]);
 	dup2(fd[WRITE_END], STDOUT_FILENO);
 	close(fd[WRITE_END]);
@@ -31,8 +31,8 @@ void	ft_padre(int *fd, char **argv, char **envp)
 	char	*ruta;
 	char	**cmd;
 
-	ruta = ruta_cmd(envp, &argv[3]);
-	cmd = get_cmd(&argv[3]);
+	ruta = ruta_cmd(envp, argv);
+	cmd = get_cmd(argv);
 	close(fd[WRITE_END]);
 	dup2(fd[READ_END], STDIN_FILENO);
 	close(fd[READ_END]);
@@ -62,18 +62,23 @@ int	main(int argc, char **argv, char **envp)
 {
 	int	infile;
 	int	outfile;
+	int	i;
 
-	if (argc == 5)
+	if (argc >= 5)
 	{
+		if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+			ft_heredoc(argv);
 		infile = open(argv[1], O_RDONLY);
 		if (infile == -1)
 			perror("Error");
-		outfile = open(argv[4], O_CREAT | O_TRUNC | O_RDWR, 0644);
+		dup2(infile, STDIN_FILENO);
+		outfile = open(argv[argc - 1], O_CREAT | O_TRUNC | O_RDWR, 0644);
 		if (outfile == -1)
 			perror("Error");
-		dup2(infile, STDIN_FILENO);
 		dup2(outfile, STDOUT_FILENO);
-		ft_pipe(argv, envp);
+		i = 1;
+		while (++i < argc - 2)
+			ft_pipe(&argv[i], envp);
 	}
 	else
 		write(2, "Error\n", 7);
