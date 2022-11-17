@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 16:33:38 by jdasilva          #+#    #+#              #
-#    Updated: 2022/11/16 21:00:07 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/11/17 17:46:46 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ BONUS_OBJS = $Jpipex_bonus.o $Jpipex_utils_bonus.o $Jft_strncmp_bonus.o\
 	$Jft_strlcat_bonus.o $Jft_heredoc.o\
 	$Jget_next_line_bonus.o $Jget_next_line_utils_bonus.o
 
-CC = gcc -Wall -Werror -Wextra -g3
+CC = gcc -Wall -Werror -Wextra  -fsanitize=address -g3
 
 all: $(NAME)
 

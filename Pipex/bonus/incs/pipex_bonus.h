@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:49:53 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 20:59:15 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:22:08 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 #  define BUFFER_SIZE 200
 # endif
 //#### MAIN #####
-void	ft_pipe(char **argv, char **envp);
+void	ft_pipe(char **argv, char **envp, int i);
 void	ft_padre(int *fd, char **argv, char **envp);
 void	ft_hijo(int *fd, char **argv, char **envp);
 //##### UTILS #####

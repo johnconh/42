@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:03:15 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 17:56:22 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:01:40 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	**get_cmd(char **argv)
 	char	**cmd;
 
 	cmd = ft_split(argv[0], ' ');
+	printf("%s", cmd[0]);
 	return (cmd);
 }
 
@@ -52,7 +53,10 @@ char	*ruta_cmd(char **envp, char **argv)
 		rutas[i] = ft_strjoin(rutas[i], cmd[0]);
 		temp = rutas[i];
 		if (access(temp, F_OK) == 0)
+		{
 			ruta = temp;
+			printf("%s", ruta);
+		}
 		else
 			free(temp);
 		i++;
