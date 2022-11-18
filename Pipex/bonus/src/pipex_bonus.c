@@ -6,96 +6,72 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:55:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/17 21:22:45 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/18 21:13:47 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex_bonus.h"
 
-void	ft_hijo(int *fd, char **argv, char **envp, int i)
+void ft_execve(char **argv, char **envp)
 {
-	char	*ruta;
-	char	**cmd;
+	char *ruta;
+	char **cmd;
 
 	ruta = ruta_cmd(envp, argv);
 	cmd = get_cmd(argv);
-	close(fd[READ_END]);
-	dup2(fd[WRITE_END], STDOUT_FILENO);
-	close(fd[WRITE_END]);
 	execve(ruta, cmd, envp);
-	ft_free_split(cmd);
 }
 
-void	ft_padre(int *fd, char **argv, char **envp, int i)
+void ft_pipex (char **argv, char **envp)
 {
-	char	*ruta;
-	char	**cmd;
+	int	fd[2];
+	int	pid;
 
-	ruta = ruta_cmd(envp, argv);
-	cmd = get_cmd(argv);
-	close(fd[WRITE_END]);
-	dup2(fd[READ_END], STDIN_FILENO);
-	close(fd[READ_END]);
-	execve(ruta, cmd, envp);
-	ft_free_split(cmd);
-}
-
-void	ft_pipe(char **argv, char **envp, int i)
-{
-	int		fd[2];
-	pid_t	pid;
-	char	*ruta;
-	char	**cmd;
-	
-	ruta = ruta_cmd(envp, argv);
-	cmd = get_cmd(argv);
-	pipe(fd);
+	if (pipe(fd) == -1)
+		ft_perror("Error Pipe");
 	pid = fork();
-	printf("entra\n");
-	if (pid == -1)
-		perror("Error");
 	if (pid == 0)
-		ft_hijo(fd, argv, envp, );
+	{
+		close(fd[READ_END]);
+		if(dup2(fd[WRITE_END], STDOUT_FILENO) == -1)
+			ft_perror("Error");
+		close(fd[WRITE_END]);
+		ft_execve(argv, envp);
+	}
 	else
 	{
+		close(fd[WRITE_END]);
+		if(dup2(fd[READ_END], STDIN_FILENO) == -1)
+			ft_perror("ERROR");
+		close(fd[READ_END]);
 		waitpid(pid, NULL, 0);
-		ft_padre(fd, argv, envp, );
 	}
 }
-
 int	main(int argc, char **argv, char **envp)
 {
-	int	infile;
-	int	outfile;
-	int	i;
-
-	if (argc >= 5)
-	{
-	/* 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
-		{
-			ft_heredoc(argv);
-			outfile = open(argv[argc - 1], O_CREAT | O_APPEND | O_WRONLY, 0644);
-			if (outfile == -1)
-				perror("Error");
-			dup2(outfile, STDOUT_FILENO);
-		} */
+	int num;
+	int infile;
+	int outfile;
 	
-			infile = open(argv[1], O_RDONLY);
-			if (infile == -1)
-				perror("Error");
-			outfile = open(argv[argc - 1], O_CREAT | O_TRUNC | O_WRONLY, 0644);
-			if (outfile == -1)
-				perror("Error");
-			dup2(infile, STDIN_FILENO);
-			dup2(outfile, STDOUT_FILENO);
-
-		i = 1;
-		while (++i < argc - 2)
-		{
-			ft_pipe(argv, envp, i);
-		}
+	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+	{
+		num = 3;
+		ft_heredoc(argc, argv);
+		outfile = open(argv[argc -1], O_CREAT | O_WRONLY | O_APPEND, 0777);
 	}
 	else
-		write(2, "Error\n", 7);
-	return (0);
+	{
+		num = 2;
+		if((infile = open(argv[1],  O_RDONLY, 0777)) == -1)
+			ft_perror("Error infile");
+		if((outfile = open(argv[argc -1], O_CREAT | O_WRONLY | O_TRUNC, 0777)) == -1)
+			ft_perror("Error outfile");
+		if(dup2(infile, STDIN_FILENO) == -1)
+			ft_perror("Error");
+	}
+	while (num < argc - 2)
+		ft_pipex(&argv[num++], envp);
+	if (dup2(outfile, STDOUT_FILENO) == -1)
+		ft_perror("ERROR");
+	ft_execve(&argv[argc - 2], envp);
 }

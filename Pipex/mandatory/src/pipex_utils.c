@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:03:15 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/17 21:04:06 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:28:46 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,4 @@ char	*ruta_cmd(char **envp, char **argv)
 		i++;
 	}
 	return (ruta);
-}
-
-void	ft_free_split(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i])
-			free(str[i]);
-		i++;
-	}
-	free(str);
 }

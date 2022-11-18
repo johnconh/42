@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:49:53 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/17 21:22:08 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/18 20:21:06 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,21 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-# define READ_END  0  /* index pipe extremo escritura */
-# define WRITE_END 1  /* index pipe extremo lectura */
+# define READ_END		0  /* index pipe extremo escritura */
+# define WRITE_END		1  /* index pipe extremo lectura */
+
 //#### GNL ####
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 200
 # endif
-//#### MAIN #####
-void	ft_pipe(char **argv, char **envp, int i);
-void	ft_padre(int *fd, char **argv, char **envp);
-void	ft_hijo(int *fd, char **argv, char **envp);
+
 //##### UTILS #####
 char	**get_rutas(char **envp);
 char	**get_cmd(char **argv);
 char	*ruta_cmd(char **envp, char **argv);
 void	ft_free_split(char **str);
-void	ft_heredoc(char **argv);
+void	ft_heredoc(int argc, char **argv);
+void	ft_perror(char *str);
 //###### LIBFT ######
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);

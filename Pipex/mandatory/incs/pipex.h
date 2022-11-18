@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:49:53 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 17:58:05 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/18 18:19:13 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	**get_rutas(char **envp);
 char	**get_cmd(char **argv);
 char	*ruta_cmd(char **envp, char **argv);
 void	ft_free_split(char **str);
+void	ft_perror(char *str);
 //###### LIBFT ######
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
