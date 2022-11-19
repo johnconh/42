@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:49:53 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/18 20:21:06 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:17:43 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ char	*ruta_cmd(char **envp, char **argv);
 void	ft_free_split(char **str);
 void	ft_heredoc(int argc, char **argv);
 void	ft_perror(char *str);
+int		ft_open(char *path, char flags);
 //###### LIBFT ######
 char	**ft_split(char const *s, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char const *s1, char const *s2, int i);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);

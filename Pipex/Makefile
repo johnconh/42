@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 16:33:38 by jdasilva          #+#    #+#              #
-#    Updated: 2022/11/18 20:23:50 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/11/19 21:21:29 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,22 +18,22 @@ J = bonus/objs/
 NAME = pipex
 
 SRC = $Spipex.c $Spipex_utils.c $Sft_strncmp.c $Sft_strlen.c \
-	$Sft_strlcpy.c $Sft_split.c $Sft_strjoin.c $Sft_strlcat.c $Sft_perror.c
+	$Sft_strlcpy.c $Sft_split.c $Sft_strjoin.c $Sft_strlcat.c
 
 OBJS = $Opipex.o $Opipex_utils.o $Oft_strncmp.o $Oft_strlen.o \
-	$Oft_strlcpy.o $Oft_split.o $Oft_strjoin.o $Oft_strlcat.o $Oft_perror.o
+	$Oft_strlcpy.o $Oft_split.o $Oft_strjoin.o $Oft_strlcat.o 
 
 BONUS_SRC = $Bpipex_bonus.c $Bpipex_utils_bonus.c $Bft_strncmp_bonus.c\
-	$Bft_strlcpy_bonus.c $Bft_split_bonus.c $Bft_perror_bonus.c\
-	$Bft_strlcat_bonus.c $Bft_heredoc.c\
+	$Bft_strlcpy_bonus.c $Bft_split_bonus.c\
+	$Bft_strlcat_bonus.c $Bft_heredoc_bonus.c\
 	$Bget_next_line_bonus.c $Bget_next_line_utils_bonus.c
 
 BONUS_OBJS = $Jpipex_bonus.o $Jpipex_utils_bonus.o $Jft_strncmp_bonus.o\
-	$Jft_strlcpy_bonus.o $Jft_split_bonus.o $Jft_perror_bonus.o\
-	$Jft_strlcat_bonus.o $Jft_heredoc.o\
+	$Jft_strlcpy_bonus.o $Jft_split_bonus.o\
+	$Jft_strlcat_bonus.o $Jft_heredoc_bonus.o\
 	$Jget_next_line_bonus.o $Jget_next_line_utils_bonus.o
 
-CC = gcc -Wall -Werror -Wextra -g3
+CC = gcc -Wall -Werror -Wextra  -g3
 
 all: $(NAME)
 

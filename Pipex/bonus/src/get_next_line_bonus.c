@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:42:52 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 20:05:02 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:44:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*ft_read_line(int fd, char *backup, char *buff)
 		if (!backup)
 			backup = ft_strdup ("");
 		aux = backup;
-		backup = ft_strjoin(aux, buff);
+		backup = ft_strjoin(aux, buff, 0);
 		free(aux);
 		aux = NULL;
 		if (ft_strchr(buff, '\n'))

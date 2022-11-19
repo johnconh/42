@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:06:07 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/14 16:58:01 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:13:42 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ static char	*ft_splitdup(char const *s, size_t start, size_t end)
 
 	dst = (char *)malloc(sizeof(char) * (end - start) + 1);
 	if (!dst)
+	{
+		free(dst);
 		return (0);
+	}
 	i = 0;
 	while (end > start)
 		dst[i++] = s[start++];

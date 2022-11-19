@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:43:39 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/16 20:04:28 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:53:11 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strdup(const char *str)
 	return (dst);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(const char *s1, const char *s2, int f)
 {
 	char	*dst;
 	int		i;
@@ -71,6 +71,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	while (s2[++j])
 		dst[i + j] = s2[j];
 	dst[i + j] = '\0';
+	if (f == 1)
+		free((char *)s1);
 	return (dst);
 }
 

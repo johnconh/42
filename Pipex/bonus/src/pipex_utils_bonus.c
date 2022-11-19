@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:03:15 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/18 16:32:32 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:19:29 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,43 +27,6 @@ char	**get_rutas(char **envp)
 	return (rutas);
 }
 
-char	**get_cmd(char **argv)
-{
-	char	**cmd;
-
-	cmd = ft_split(argv[0], ' ');
-	printf("%s", cmd[0]);
-	return (cmd);
-}
-
-char	*ruta_cmd(char **envp, char **argv)
-{
-	char	**rutas;
-	char	*temp;
-	char	*ruta;
-	char	**cmd;
-	int		i;
-
-	cmd = get_cmd(argv);
-	rutas = get_rutas(envp);
-	i = 0;
-	while (rutas[i])
-	{
-		rutas[i] = ft_strjoin(rutas[i], "/");
-		rutas[i] = ft_strjoin(rutas[i], cmd[0]);
-		temp = rutas[i];
-		if (access(temp, F_OK) == 0)
-		{
-			ruta = temp;
-			printf("%s", ruta);
-		}
-		else
-			free(temp);
-		i++;
-	}
-	return (ruta);
-}
-
 void	ft_free_split(char **str)
 {
 	int	i;
@@ -76,4 +39,26 @@ void	ft_free_split(char **str)
 		i++;
 	}
 	free(str);
+}
+
+void	ft_perror(char *str)
+{
+	perror(str);
+	exit(EXIT_FAILURE);
+}
+
+int	ft_open(char *path, char flags)
+{
+	int	fd;
+
+	fd = -1;
+	if (flags == 'r')
+		fd = open(path, O_RDONLY);
+	else if (flags == 'w')
+		fd = open(path, O_CREAT | O_WRONLY | O_TRUNC, 0777);
+	else if (flags == 'a')
+		fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0777);
+	if (fd == -1)
+		ft_perror("Error file");
+	return (fd);
 }

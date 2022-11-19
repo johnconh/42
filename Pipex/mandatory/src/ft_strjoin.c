@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:54:55 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/14 18:21:31 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:37:11 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	ft_strlcpy(dst, s1, lens1 + 1);
 	ft_strlcat(&dst[lens1], s2, lens2 + 1);
+	free((char *)s1);
 	return (dst);
 }
