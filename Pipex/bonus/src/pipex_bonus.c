@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:55:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/19 21:19:00 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:45:52 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_pipex(char **argv, char **envp)
 	}
 }
 
-int	main(int argc, char **argv, char **envp)
+void	pipex_main(int argc, char **argv, char **envp)
 {
 	int	num;
 	int	infile;
@@ -87,4 +87,15 @@ int	main(int argc, char **argv, char **envp)
 	if (dup2(outfile, STDOUT_FILENO) == -1)
 		ft_perror("ERROR");
 	ft_execve(argv[argc - 2], envp);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	if (argc < 5)
+	{
+		write(2, "Argumentos insuficientes\n", 25);
+		exit (-1);
+	}	
+	pipex_main(argc, argv, envp);
+	return (0);
 }
