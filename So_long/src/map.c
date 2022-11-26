@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/26 21:20:19 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:23:05 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_check_extension(const char *map, const char *ext, t_game *game)
 {
 	int len;
 
-	if (!map || !ext)
+	if (!map)
 	{
 		write(2, "No hay mapa", 11);
 		exit(-1);
