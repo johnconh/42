@@ -6,15 +6,32 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/26 21:03:21 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:20:19 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long.h"
 
-static ft_check_extension(char *map, char *ext, t_game *game)
+static void	ft_check_extension(const char *map, const char *ext, t_game *game)
 {
-	
+	int len;
+
+	if (!map || !ext)
+	{
+		write(2, "No hay mapa", 11);
+		exit(-1);
+	}
+	len = ft_strlen(map) - 4;
+	while(*(map + len) && *ext)
+	{
+		if(*(map + len) != *ext)
+		{
+			write(2, "no es extension .ber", 20);
+			exit (-1);
+		}
+		len++;
+		ext++;
+	}
 }
 
 static void ft_map_in_str(int fd, t_game **map)
