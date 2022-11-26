@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:27:08 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/26 20:27:19 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:32:09 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ int main (int argc, char **argv)
 		exit (-1);
 	ft_initgame(game);
 	ft_getmap(argv[1], game);
-	
+	ft_checkmap(game);
 }
