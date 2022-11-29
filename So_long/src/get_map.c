@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/26 21:31:28 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:36:08 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long.h"
 
-static void	ft_check_extension(const char *map, const char *ext, t_game *game)
+static void	ft_check_extension(const char *map, const char *ext)
 {
 	int len;
 
@@ -34,7 +34,7 @@ static void	ft_check_extension(const char *map, const char *ext, t_game *game)
 	}
 }
 
-static void ft_map_in_str(int fd, t_game **map)
+static void ft_save_map(int fd, t_game **map)
 {
 	char	*str;
 	int		i;
@@ -71,12 +71,12 @@ void ft_getmap(char *map, t_game *game)
 {
 	int	fd;
 	
-	ft_check_extension(map, ".ber", game);
+	ft_check_extension(map, ".ber");
 	fd = open(map, O_RDONLY);
 	if(fd <= 0)
 		exit (-1);
-	game->map_save = ft_map_size(fd);
-	game->map = (char **)malloc(sizeof(char*) * (game->map_save + 1));
-	ft_map_in_str(fd, game->map);
+	game->map_size = ft_map_size(fd);
+	game->map = (char **)malloc(sizeof(char*) * (game->map_size + 1));
+	ft_save_map(fd, game->map);
 	close(fd);
 }

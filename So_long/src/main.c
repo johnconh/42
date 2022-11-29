@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:27:08 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/26 21:32:09 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/29 16:45:18 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	ft_initgame(t_game *game)
 {
-	game->mlx = 0;
-	game->win = 0;
-	game->map = 0;
-	game->map_save = 0;
-	game->img = 0;
+	game->mlx = NULL;
+	game->win = NULL;
+	game->map = NULL;
+	game->map_size = 0;
+	game->img = NULL;
 	game->mov = 0;
 	game->rupias = 0;
 	game->link = 0;
