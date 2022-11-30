@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/29 17:36:08 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:23:19 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ static void	ft_check_extension(const char *map, const char *ext)
 {
 	int len;
 
-	if (!map)
+	if	(!map)
 	{
 		write(2, "No hay mapa", 11);
 		exit(-1);
 	}
 	len = ft_strlen(map) - 4;
-	while(*(map + len) && *ext)
+	while (*(map + len) && *ext)
 	{
-		if(*(map + len) != *ext)
+		if (*(map + len) != *ext)
 		{
 			write(2, "no es extension .ber", 20);
 			exit (-1);
@@ -34,7 +34,7 @@ static void	ft_check_extension(const char *map, const char *ext)
 	}
 }
 
-static void ft_save_map(int fd, t_game **map)
+static void	ft_save_map(int fd, t_game **map)
 {
 	char	*str;
 	int		i;
@@ -42,14 +42,14 @@ static void ft_save_map(int fd, t_game **map)
 	str = get_next_line(fd);
 	i = 0;
 	*(map + i++) = str;
-	while(str)
+	while (str)
 	{
 		str = get_next_line(fd);
 		*(map + i++)= str;
 	}
 }
 
-static int ft_map_size(int fd)
+static int	ft_map_size(int fd)
 {
 	int		cont;
 	char	*buff;
@@ -57,26 +57,26 @@ static int ft_map_size(int fd)
 	
 	cont = 0;
 	c = 1;
-	while(c)
+	while (c)
 	{
 		c = read(fd, buff, 1);
 		buff[c] = '\0';
-		if(buff[0] == '\n')
+		if (buff[0] == '\n')
 			cont++;
 	}
 	return (cont);
 }
 
-void ft_getmap(char *map, t_game *game)
+void	ft_getmap(char *map, t_game *game)
 {
 	int	fd;
 	
 	ft_check_extension(map, ".ber");
 	fd = open(map, O_RDONLY);
-	if(fd <= 0)
+	if (fd <= 0)
 		exit (-1);
 	game->map_size = ft_map_size(fd);
-	game->map = (char **)malloc(sizeof(char*) * (game->map_size + 1));
+	game->map = (char **)malloc(sizeof(char *) * (game->map_size + 1));
 	ft_save_map(fd, game->map);
 	close(fd);
 }

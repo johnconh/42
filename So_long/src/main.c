@@ -6,11 +6,27 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:27:08 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/29 16:45:18 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:30:32 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long.h"
+
+static void ft_startgame(t_game *game)
+{
+	int x;
+	int y;
+	
+	x = ft_strlen(game->map[0] - 1);
+	y = game->map_size;
+	game->mlx = mlx_init();
+	if(game->mlx == NULL)
+		ft_exit_and_free;
+	game->win = mlx_new_window(game->mlx, x * 16, y * 16, "so_long");
+	if(game->win == NULL)
+		ft_exit_and_free;
+	ft_places_imgs(game->map, game);
+}
 
 static void	ft_initgame(t_game *game)
 {
@@ -18,14 +34,10 @@ static void	ft_initgame(t_game *game)
 	game->win = NULL;
 	game->map = NULL;
 	game->map_size = 0;
-	game->img = NULL;
 	game->mov = 0;
 	game->rupias = 0;
 	game->link = 0;
 	game->exit = 0;
-	game->link_pos = 0;
-	game->rupias_pos = 0;
-	game->exit_pos = 0;
 }
 
 int main (int argc, char **argv)
@@ -40,4 +52,5 @@ int main (int argc, char **argv)
 	ft_initgame(game);
 	ft_getmap(argv[1], game);
 	ft_checkmap(game);
+	ft_startgame(game); 
 }
