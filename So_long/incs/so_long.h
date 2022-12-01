@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:34:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/30 21:24:31 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/01 19:28:01 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_game
 	int		link;
 	int		exit;
 	int		link_pos[2];
-	int		exit_pos[2];
 }	t_game;
 
 /*----------MAP--------*/
@@ -50,6 +49,10 @@ size_t	ft_strlen(const char *str);
 /*--------FREE-EXIT---------*/
 void	ft_exit_and_free(t_game *game);
 void	ft_invalid_map(t_game *game);
+void	ft_boton_x(int keycode, t_game *game);
+void	ft_end_game (t_game *game);
 /*-------PLACES-IMGS--------*/
 void	ft_places_imgs(char **map, t_game *game);
+/*--------KEY-HOOK---------*/
+int ft_key_hook (int key, t_game *game);
 #endif
