@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 21:34:15 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/30 18:39:43 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/02 19:42:09 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,19 @@ static void	ft_checkelements(t_game *game)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (game->map[++i] && game->map_size - 1 > i)
+	i = -1;
+	while (game->map[++i])
 	{
 		j = -1;
-		while(*(*(game->map + i) + ++j))
+		while(game->map[i][++j] != '\n')
 		{
 			if(game->map[i][j] != '0' && game->map[i][j] != '1'\
 				&& game->map[i][j] != 'C' && game->map[i][j] != 'E'\
 					&& game->map[i][j] != 'P')
-			ft_invalid_map(game);
+			{
+				printf("4entra");
+				ft_invalid_map(game);
+			}
 			if(game->map[i][j] == 'C')
 				game->rupias++;
 			if(game->map[i][j] == 'E')
@@ -55,32 +58,42 @@ static void	ft_checkwalls(t_game *game)
 	j = -1;
 	while (*(*(game->map + i) + ++j))
 	{
-		if ((game->map[i][++j]!= '1') && (game->map != '\0'))
+		if ((game->map[i][j]!= '1') && (game->map[i][j] != '\n'))
+		{
+			printf("1entra");
 			ft_invalid_map(game);
+		}
 	}
 	while (game->map_size - 1 > ++i)
 	{
-		if (game->map[i][0] != '1' || game->map[i][ft_strlen(game->map) - 1] != '1')
+		if (game->map[i][0] != '1' || game->map[i][ft_strlen(game->map[i]) - 2] != '1')
+		{
+			printf("2entra: %c", game->map[i][ft_strlen(game->map[i]) - 2]);
 			ft_invalid_map(game);
+		}
 	}
 	j = -1;
 	while (*(*(game->map + i) + ++j))
 	{
-		if ((game->map[i][++j]!= '1') && (game->map != '\0'))
+		if ((game->map[i][j]!= '1') && (game->map[i][j] != '\n'))
+		{
+			printf("3entra");
 			ft_invalid_map(game);
+		}
 	}
 }
 
 static void ft_checkrectangle(t_game *game)
 {
-	int i;
-	int width;
+	size_t	i;
+	size_t	width;
 	
 	i = 0;
 	width = ft_strlen(*(game->map + i));
+	
 	while (*(game->map + i))
 	{
-		if (*(game->map + 1) != width ||  game->map_size == width)
+		if (ft_strlen(*(game->map + i)) != width)
 			ft_invalid_map(game);
 		i++;
 	}

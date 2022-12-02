@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:23:27 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/30 21:07:32 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:50:34 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_get_imgs(t_game *game)
 		&width, &height);
 	game->img[4] = mlx_xpm_file_to_image(game->mlx, \
 		"./sprites/link_down.xpm", &width, &height);
-	game->img[5] = mlx_xpm_file_to_imge(game->mlx, "./sprites/link_up.xpm", \
+	game->img[5] = mlx_xpm_file_to_image(game->mlx, "./sprites/link_up.xpm", \
 		&width, &height);
 	game->img[6] = mlx_xpm_file_to_image(game->mlx, \
 		"./sprites/link_left.xpm", &width, &height);

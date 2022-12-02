@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:35:47 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/01 19:23:24 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:22:03 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_free_map(char **str)
 	}
 	free(str);
 }
-void ft_boton_x(int keycode, t_game *game)
+int	ft_boton_x(int keycode, t_game *game)
 {
 	if (keycode == 53)
 		ft_end_game(game);

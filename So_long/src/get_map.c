@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/11/30 21:23:19 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/02 19:16:40 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,31 @@ static void	ft_check_extension(const char *map, const char *ext)
 	}
 }
 
-static void	ft_save_map(int fd, t_game **map)
+static void	ft_save_map(int fd, char **map)
 {
 	char	*str;
 	int		i;
 
 	str = get_next_line(fd);
 	i = 0;
-	*(map + i++) = str;
+	map[i++] = str;
 	while (str)
 	{
 		str = get_next_line(fd);
-		*(map + i++)= str;
+		map[i++] = str;
 	}
+	int j = -1;
+	while(map[++j])
+		printf("map: %s", map[j]);
 }
 
 static int	ft_map_size(int fd)
 {
 	int		cont;
-	char	*buff;
+	char	buff[2];
 	int		c;
-	
-	cont = 0;
+
+	cont = 1;
 	c = 1;
 	while (c)
 	{
@@ -63,6 +66,8 @@ static int	ft_map_size(int fd)
 		buff[c] = '\0';
 		if (buff[0] == '\n')
 			cont++;
+		else if (buff[0] == '\0')
+			cont--;
 	}
 	return (cont);
 }
@@ -76,7 +81,11 @@ void	ft_getmap(char *map, t_game *game)
 	if (fd <= 0)
 		exit (-1);
 	game->map_size = ft_map_size(fd);
+	printf("size: %d\n", game->map_size);
+	close(fd);
 	game->map = (char **)malloc(sizeof(char *) * (game->map_size + 1));
+	fd = open(map, O_RDONLY);
 	ft_save_map(fd, game->map);
+	
 	close(fd);
 }

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 16:34:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/01 18:49:17 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:49:32 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_manager(t_game *game, int i, int j)
 {
 	if (game->map[i][j] == 'C')
 	{
-		game->map[i][j] == '0';
+		game->map[i][j] = '0';
 		game->rupias--;
 		if (game->rupias == 0)
 			game->exit = 0;
