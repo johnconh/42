@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:23:27 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/02 16:50:34 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:25:17 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	ft_get_imgs(t_game *game)
 		"./sprites/link_right.xpm", &width, &height);
 }
 
-static void	ft_put_image(t_game *game, char *img , int x, int y)
+static void	ft_put_image(t_game *game, void *img , int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, img, x, y);
+	mlx_put_image_to_window(game->mlx, game->win, img, x * 16, y * 16);
 }
 
 void	ft_places_imgs(char **map, t_game *game)
@@ -59,9 +59,15 @@ void	ft_places_imgs(char **map, t_game *game)
 			if (map[i][j] == 'E')
 				ft_put_image(game, game->img[2], j, i);
 			if (map[i][j] == 'C')
+			{
+				ft_put_image(game, game->img[0], j, i);
 				ft_put_image(game, game->img[3], j, i);
+			}
 			if (map[i][j] == 'P')
+			{
+				ft_put_image(game, game->img[0], j, i);
 				ft_put_image(game, game->img[4], j, i);
+			}
 		}
 	}
 }

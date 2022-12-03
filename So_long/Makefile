@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 16:26:33 by jdasilva          #+#    #+#              #
-#    Updated: 2022/12/02 17:10:49 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/12/03 18:40:11 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ O = objs/
 NAME = so_long
 
 CC = gcc -g3
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 
 SRCS = $Smain.c $Sget_next_line.c $Sget_next_line_utils.c $Sget_map.c\
@@ -34,7 +34,7 @@ $O:
 $(OBJS): | $O
 
 $(OBJS): $O%.o: $S%.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx  -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(MAKE) -C mlx 2>logs
@@ -53,5 +53,8 @@ fclean : clean
 	@echo "so_long eliminado"
 
 re: fclean all
+
+debug:
+	lldb ./so_long maps/big.ber
 
 .PHONY: all clean fclean re

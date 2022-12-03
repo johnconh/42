@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 16:34:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/02 16:49:32 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:24:59 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	write(1, "\n", 1);
 }
 
-static void	ft_putnbr (int n)
+static void	ft_putnbr(int n)
 {
 	if (n < 0)
 	{
@@ -68,7 +67,7 @@ static void	ft_link_move(t_game *game, int i, int j, int s)
 		mlx_put_image_to_window(game->mlx, game->win, game->img[0], \
 			j * 16, i * 16);
 	else if (manager == 2)
-		mlx_put_image_to_window(game->mlx, game->win, game->img[3], \
+		mlx_put_image_to_window(game->mlx, game->win, game->img[2], \
 			j * 16, i * 16);
 	mlx_put_image_to_window(game->mlx, game->win, game->img[s],\
 		j * 16, i * 16);
@@ -76,6 +75,7 @@ static void	ft_link_move(t_game *game, int i, int j, int s)
 	game->link_pos[1] = j;
 	game->mov++;
 	ft_putnbr(game->mov);
+	write(1, "\n", 1);
 }
 
 int ft_key_hook (int keycode, t_game *game)
@@ -84,10 +84,10 @@ int ft_key_hook (int keycode, t_game *game)
 		ft_link_move(game, game->link_pos[0], game->link_pos[1] - 1, 6);
 	else if(keycode == 2 && game->map[game->link_pos[0]][game->link_pos[1] + 1] != '1')
 		ft_link_move(game, game->link_pos[0], game->link_pos[1] + 1, 7);
-	else if(keycode == 1 && game->map[game->link_pos[0] - 1][game->link_pos[1]] != '1')
-		ft_link_move(game, game->link_pos[0] - 1, game->link_pos[1], 4);
-	else if(keycode == 13 && game->map[game->link_pos[0] + 1][game->link_pos[1]] != '1')
-		ft_link_move(game, game->link_pos[0] + 1, game->link_pos[1], 5);
+	else if(keycode == 1 && game->map[game->link_pos[0] + 1][game->link_pos[1]] != '1')
+		ft_link_move(game, game->link_pos[0] + 1, game->link_pos[1], 4);
+	else if(keycode == 13 && game->map[game->link_pos[0] - 1][game->link_pos[1]] != '1')
+		ft_link_move(game, game->link_pos[0] - 1, game->link_pos[1], 5);
 	else if (keycode == 53)
 		ft_end_game(game);
 	return (0);
