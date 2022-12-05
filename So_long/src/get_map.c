@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/03 19:41:05 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:21:08 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ static void	ft_save_map(int fd, char **map)
 		str = get_next_line(fd);
 		map[i++] = str;
 	}
+	int  j = -1;
+	while (map[++j])
+	{
+		printf("map: %s", map[j]);
+	}
 }
 
 static int	ft_map_size(int fd)
@@ -63,8 +68,8 @@ static int	ft_map_size(int fd)
 		buff[c] = '\0';
 		if (buff[0] == '\n')
 			cont++;
-		else if (buff[0] == '\0')
-			cont--;
+	/* 	else if (buff[0] == '\0')
+			cont--; */
 	}
 	return (cont);
 }

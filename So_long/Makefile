@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 16:26:33 by jdasilva          #+#    #+#              #
-#    Updated: 2022/12/03 18:40:11 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/12/05 16:58:47 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ O = objs/
 
 NAME = so_long
 
-CC = gcc -g3
-CFLAGS = -Wall -Werror -Wextra
+CC = gcc -g3 -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra 
 RM = rm -rf
 
 SRCS = $Smain.c $Sget_next_line.c $Sget_next_line_utils.c $Sget_map.c\

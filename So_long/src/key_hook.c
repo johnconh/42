@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 16:34:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/03 19:24:59 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/05 18:17:41 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static int	ft_manager(t_game *game, int i, int j)
 {
 	if (game->map[i][j] == 'C')
 	{
-		game->map[i][j] = '0';
 		game->rupias--;
 		if (game->rupias == 0)
 			game->exit = 0;
@@ -66,7 +65,7 @@ static void	ft_link_move(t_game *game, int i, int j, int s)
 	if (manager == 1)
 		mlx_put_image_to_window(game->mlx, game->win, game->img[0], \
 			j * 16, i * 16);
-	else if (manager == 2)
+	else if(manager == 2)
 		mlx_put_image_to_window(game->mlx, game->win, game->img[2], \
 			j * 16, i * 16);
 	mlx_put_image_to_window(game->mlx, game->win, game->img[s],\
