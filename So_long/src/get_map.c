@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/05 18:21:08 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:40:46 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_check_extension(const char *map, const char *ext)
 	{
 		if (*(map + len) != *ext)
 		{
-			write(2, "no es extension .ber", 20);
+			write(2, "no es extension .ber\n", 21);
 			exit (-1);
 		}
 		len++;
@@ -34,7 +34,7 @@ static void	ft_check_extension(const char *map, const char *ext)
 	}
 }
 
-static void	ft_save_map(int fd, char **map)
+static void	ft_save_map(int fd, char **map, t_game *game)
 {
 	char	*str;
 	int		i;
@@ -47,11 +47,8 @@ static void	ft_save_map(int fd, char **map)
 		str = get_next_line(fd);
 		map[i++] = str;
 	}
-	int  j = -1;
-	while (map[++j])
-	{
-		printf("map: %s", map[j]);
-	}
+	if(map[i - 2][ft_strlen(map[i - 2]) - 1] == '\n')
+		game->map_size--;
 }
 
 static int	ft_map_size(int fd)
@@ -68,8 +65,6 @@ static int	ft_map_size(int fd)
 		buff[c] = '\0';
 		if (buff[0] == '\n')
 			cont++;
-	/* 	else if (buff[0] == '\0')
-			cont--; */
 	}
 	return (cont);
 }
@@ -88,6 +83,6 @@ void	ft_getmap(char *map, t_game *game)
 	fd = open(map, O_RDONLY);
 	if (fd <= 0)
 		exit (-1);
-	ft_save_map(fd, game->map);
+	ft_save_map(fd, game->map, game);
 	close(fd);
 }

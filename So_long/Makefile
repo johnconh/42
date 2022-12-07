@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 16:26:33 by jdasilva          #+#    #+#              #
-#    Updated: 2022/12/05 16:58:47 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/12/07 20:39:20 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 
 SRCS = $Smain.c $Sget_next_line.c $Sget_next_line_utils.c $Sget_map.c\
-	$Scheck_map.c $Sexit_free.c $Skey_hook.c $Splaces_imgs.c
+	$Scheck_map.c $Sexit_free.c $Skey_hook.c $Splaces_imgs.c $Scheck_path.c
 
 OBJS = $Omain.o $Oget_next_line.o $Oget_next_line_utils.o $Oget_map.o\
-	$Ocheck_map.o $Oexit_free.o $Okey_hook.o $Oplaces_imgs.o
+	$Ocheck_map.o $Oexit_free.o $Okey_hook.o $Oplaces_imgs.o $Ocheck_path.o
 
 all: $(NAME)
 
