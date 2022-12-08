@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 21:34:15 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/07 21:12:56 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/08 17:22:53 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ void	ft_checkmap(t_game *game)
 	ft_checkrectangle(game);
 	ft_checkwalls(game);
 	ft_checkelements(game);
-	//ft_checkpath(game);
+	ft_checkpath(game);
 }

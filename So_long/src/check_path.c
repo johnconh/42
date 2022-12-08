@@ -6,37 +6,47 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:17:26 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/07 21:20:51 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/08 21:04:33 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long.h"
 
-static int ft_paint(char **map, int i, int j)
+void ft_floodfill(char **c_map, char p, t_point size, t_point p_link)
 {
-	if(map[i][j] == '0' || map[i][j]== 'C' || map[i][j] == 'E' || map[i][j] == 'P')
+	
+}
+
+char **ft_copy_map(char **map, t_point size)
+{
+	char	**copy;
+	int		x;
+	int		y;
+	
+	copy = (char **)malloc(sizeof(char *) * size.y);
+	y = -1;
+	while(++y < size.y)
 	{
-		
+		x = -1;
+		copy[y] = (char *)malloc(sizeof(char) * size.x);
+		while(map[y][++x])
+			copy[y][x] = map[y][x];
 	}
+	return (copy);
 }
 
 void	ft_checkpath(t_game *game)
 {
-	int	i;
-	int	j;
-	char **ptr;
+	char **c_map;
+	char p;
+	t_point size;
+	t_point p_link;
 
-	ptr = game->map;
-	while(ptr[++i])
-	{
-		j = -1;
-		while(ptr[i][++j])
-		{
-			if(ptr[i][j] == 'P')
-			{
-				if(!ft_paint(ptr, i, j))
-					ft_invalid_map(game);
-			}
-		}
-	}
-}
+	size.y = game->map_size;
+	size.x = ft_strlen(game->map[0]);
+	p_link.x = game->link_pos[1];
+	p_link.y = game->link_pos[0];
+	c_map = ft_copy_map(game->map, size);
+	p = c_map[p_link.y][p_link.x];
+	ft_floodfill(c_map, p, size, p_link);
+}  

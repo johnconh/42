@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:34:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/07 18:21:07 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:56:22 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ typedef struct s_game
 	int		exit;
 	int		link_pos[2];
 }	t_game;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 /*----------MAP--------*/
 void	ft_getmap(char *argv, t_game *game);
