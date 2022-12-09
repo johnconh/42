@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 16:26:33 by jdasilva          #+#    #+#              #
-#    Updated: 2022/12/07 20:39:20 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/12/09 18:06:10 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ O = objs/
 
 NAME = so_long
 
-CC = gcc -g3 -fsanitize=address
+CC = gcc -g3
 CFLAGS = -Wall -Werror -Wextra 
 RM = rm -rf
 
