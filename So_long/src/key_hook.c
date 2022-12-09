@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 16:34:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/07 17:32:13 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:01:13 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ static int	ft_manager(t_game *game, int i, int j)
 		return (2);
 	else if (game->map[i][j] == 'E' && game->exit == 0)
 		ft_end_game(game);
-	return(0);
+	return (0);
 }
 
 static void	ft_link_move(t_game *game, int i, int j, int s)
 {
 	int	manager;
 
-	manager = ft_manager(game, i , j);
+	manager = ft_manager(game, i, j);
 	mlx_put_image_to_window(game->mlx, game->win, game->img[0], \
 		game->link_pos[1] * 16, game->link_pos[0] * 16);
 	if (game->map[game->link_pos[0]][game->link_pos[1]] == 'E')
@@ -66,10 +66,10 @@ static void	ft_link_move(t_game *game, int i, int j, int s)
 	if (manager == 1)
 		mlx_put_image_to_window(game->mlx, game->win, game->img[0], \
 			j * 16, i * 16);
-	else if(manager == 2)
+	else if (manager == 2)
 		mlx_put_image_to_window(game->mlx, game->win, game->img[2], \
 			j * 16, i * 16);
-	mlx_put_image_to_window(game->mlx, game->win, game->img[s],\
+	mlx_put_image_to_window(game->mlx, game->win, game->img[s], \
 		j * 16, i * 16);
 	game->link_pos[0] = i;
 	game->link_pos[1] = j;
@@ -78,15 +78,19 @@ static void	ft_link_move(t_game *game, int i, int j, int s)
 	write(1, "\n", 1);
 }
 
-int ft_key_hook (int keycode, t_game *game)
+int	ft_key_hook(int keycode, t_game *game)
 {
-	if(keycode == 0 && game->map[game->link_pos[0]][game->link_pos[1] - 1] != '1')
+	if (keycode == 0 && \
+		game->map[game->link_pos[0]][game->link_pos[1] - 1] != '1')
 		ft_link_move(game, game->link_pos[0], game->link_pos[1] - 1, 6);
-	else if(keycode == 2 && game->map[game->link_pos[0]][game->link_pos[1] + 1] != '1')
+	else if (keycode == 2 && \
+		game->map[game->link_pos[0]][game->link_pos[1] + 1] != '1')
 		ft_link_move(game, game->link_pos[0], game->link_pos[1] + 1, 7);
-	else if(keycode == 1 && game->map[game->link_pos[0] + 1][game->link_pos[1]] != '1')
+	else if (keycode == 1 && \
+		game->map[game->link_pos[0] + 1][game->link_pos[1]] != '1')
 		ft_link_move(game, game->link_pos[0] + 1, game->link_pos[1], 4);
-	else if(keycode == 13 && game->map[game->link_pos[0] - 1][game->link_pos[1]] != '1')
+	else if (keycode == 13 && \
+		game->map[game->link_pos[0] - 1][game->link_pos[1]] != '1')
 		ft_link_move(game, game->link_pos[0] - 1, game->link_pos[1], 5);
 	else if (keycode == 53)
 		ft_end_game(game);

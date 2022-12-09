@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/07 17:40:46 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:02:25 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	ft_check_extension(const char *map, const char *ext)
 {
-	int len;
+	int	len;
 
-	if	(!map)
+	if (!map)
 	{
 		write(2, "No hay mapa", 11);
 		exit(-1);
@@ -47,7 +47,7 @@ static void	ft_save_map(int fd, char **map, t_game *game)
 		str = get_next_line(fd);
 		map[i++] = str;
 	}
-	if(map[i - 2][ft_strlen(map[i - 2]) - 1] == '\n')
+	if (map[i - 2][ft_strlen(map[i - 2]) - 1] == '\n')
 		game->map_size--;
 }
 
@@ -72,7 +72,7 @@ static int	ft_map_size(int fd)
 void	ft_getmap(char *map, t_game *game)
 {
 	int	fd;
-	
+
 	ft_check_extension(map, ".ber");
 	fd = open(map, O_RDONLY);
 	if (fd <= 0)

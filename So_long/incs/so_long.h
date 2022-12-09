@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:34:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/09 18:02:46 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:10:37 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ size_t	ft_strlen(const char *str);
 /*--------FREE-EXIT---------*/
 void	ft_exit_and_free(t_game *game);
 void	ft_invalid_map(t_game *game);
-int		ft_end_game (t_game *game);
+int		ft_end_game(t_game *game);
 /*-------PLACES-IMGS--------*/
 void	ft_places_imgs(t_game *game);
 /*--------KEY-HOOK---------*/
-int		ft_key_hook (int key, t_game *game);
+int		ft_key_hook(int key, t_game *game);
 /*----CHECK-PATH------*/
 void	ft_checkpath(t_game *game);
 #endif

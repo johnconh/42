@@ -6,11 +6,26 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:23:27 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/03 19:58:59 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:54:50 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/so_long.h"
+
+static void	ft_check_imgs(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i <= 7)
+	{
+		if (game->img[i] == NULL)
+		{
+			write(2, "Error\n", 6);
+			ft_end_game(game);
+		}
+	}
+}
 
 static void	ft_get_imgs(t_game *game)
 {
@@ -69,5 +84,6 @@ static void	ft_read_map(t_game *game)
 void	ft_places_imgs(t_game *game)
 {
 	ft_get_imgs(game);
+	ft_check_imgs(game);
 	ft_read_map(game);
 }
