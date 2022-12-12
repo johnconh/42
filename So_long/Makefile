@@ -6,7 +6,7 @@
 #    By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 16:26:33 by jdasilva          #+#    #+#              #
-#    Updated: 2022/12/09 18:06:10 by jdasilva         ###   ########.fr        #
+#    Updated: 2022/12/12 16:23:13 by jdasilva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ O = objs/
 
 NAME = so_long
 
-CC = gcc -g3
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra 
 RM = rm -rf
 
@@ -31,9 +31,7 @@ $O:
 	mkdir $@
 	@echo "Carpeta OBJS creada"
 
-$(OBJS): | $O
-
-$(OBJS): $O%.o: $S%.c
+$(OBJS): $O%.o: $S%.c | $O
 	$(CC) $(CFLAGS) -Imlx  -c $< -o $@
 
 $(NAME): $(OBJS)

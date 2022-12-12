@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:35:47 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/09 18:02:39 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:10:12 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_free_map(char **str)
 
 void	ft_invalid_map(t_game *game)
 {
-	write(2, "Invalid map\n", 12);
+	write(2, "Error: Invalid map\n", 19);
 	ft_exit_and_free(game);
 }
 

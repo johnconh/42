@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:35:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/09 20:02:57 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:11:30 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_controlread(char *map)
 	if (r <= 0)
 	{
 		close(fd);
-		write(2, "Mapa vacio\n", 11);
+		write(2, "Error: Mapa vacio\n", 18);
 		exit (-1);
 	}
 	close(fd);
@@ -35,7 +35,7 @@ static void	ft_check_extension(const char *map, const char *ext)
 
 	if (!map)
 	{
-		write(2, "No hay mapa", 11);
+		write(2, "Error: No hay mapa\n", 19);
 		exit(-1);
 	}
 	len = ft_strlen(map) - 4;
@@ -43,7 +43,7 @@ static void	ft_check_extension(const char *map, const char *ext)
 	{
 		if (*(map + len) != *ext)
 		{
-			write(2, "no es extension .ber\n", 21);
+			write(2, "Error: no es extension .ber\n", 28);
 			exit (-1);
 		}
 		len++;
