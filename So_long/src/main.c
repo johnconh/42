@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:27:08 by jdasilva          #+#    #+#             */
-/*   Updated: 2022/12/09 18:58:35 by jdasilva         ###   ########.fr       */
+/*   Updated: 2022/12/16 12:30:37 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_startgame(t_game *game)
 	if (game->win == NULL)
 		ft_end_game(game);
 	ft_places_imgs(game);
-	mlx_key_hook(game->win, ft_key_hook, game);
+	mlx_hook(game->win, 2, (1L << 1),  ft_key_hook, game);
 	mlx_hook(game->win, 17, 1L << 17, ft_end_game, game);
 	mlx_loop(game->mlx);
 }
