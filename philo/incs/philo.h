@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:16:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/02 20:15:41 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:14:36 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <pthread.h>
+#include <limits.h>
 
 typedef struct s_list
 {
@@ -27,8 +28,11 @@ typedef struct s_list
     int t_eat;
     int t_sleep;
     int nb_eat;
-    pthread_t *thread;
+    int dead;
+    long start;
     pthread_mutex_t *mutex;
+    pthread_mutex_t print;
+    pthread_mutex_t dead;
     t_philo *philo;
 } t_list;
 
@@ -37,14 +41,22 @@ typedef struct s_philo
     int id;
     int d_fork;
     int i_fork;
-    int dead;
-    t_list philo_l;
+    int nb_eat;
+    long philo_start;
+    pthread_t thread;
+    t_list *philo_l;
 } t_philo;
 
-int main(int argc, char **argv);
-int ft_init_list(int argc, char **argv, t_list *philo_l);
-int ft_init_philo(t_list *philo_l);
+int     main(int argc, char **argv);
+int     ft_init_list(int argc, char **argv, t_list *philo_l);
+int     ft_init_philo(t_list *philo_l);
+void    ft_philo_thread(t_list *philo_l);
+//****** FREE ********
+void    ft_general_free(t_list *philo_l);
+void    ft_destroy_mutex(t_list *philo_l);
+void    ft_destroy_philo(t_list *philo_l);
 //**** PHILO_UTILS ******
-int ft_atoi(const char *str);
+int     ft_atoi(const char *str);
+long    get_time(void);
 
 #endif

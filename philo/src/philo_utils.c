@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:07:05 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/02 17:07:58 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:35:03 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,12 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (num * sign);
+}
+
+long	get_time(void)
+{
+	static struct timeval t;
+
+	gettimeofday(&t, NULL);
+	return((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
