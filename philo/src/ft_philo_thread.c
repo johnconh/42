@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/05 20:14:54 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:04:29 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int ft_checkdead(t_philo *philo)
         pthread_mutex_unlock(&philo->philo_l->dead);
         return(1);
     }
-    if(get_time() - philo->philo_start >= philo->philo_l->start)
+    if(get_time() - philo->philo_start >= philo->philo_l->t_die)
     {
-        ft_print_dead(philo, "died");
+        ft_print_dead(philo);
         philo->philo_l->dead = 1;
         pthread_mutex_unlock(&philo->philo_l->dead);
         return(1);
@@ -40,7 +40,7 @@ static void ft_eat(t_philo *philo)
         pthread_mutex_unlock(&philo->philo_l->mutex[philo->d_fork]);
         return ;
     }
-    ft_print_fork(philo, "has taken fork");
+    ft_print_fork(philo);
     pthread_mutex_lock(&philo->philo_l->mutex[philo->d_fork]);
     if(ft_checkdead(philo))
     {
@@ -48,8 +48,8 @@ static void ft_eat(t_philo *philo)
         pthread_mutex_unlock(&philo->philo_l->mutex[philo->d_fork]);
         return ;
     }
-    ft_print_fork(philo, "has taken fork");
-    ft_print_eat(philo, "is eating");
+    ft_print_fork(philo);
+    ft_print_eat(philo);
     philo->philo_start = get_time();
     ft_usleep(philo->philo_l->t_eat);
     if(philo->philo_l->nb_eat != -1)
@@ -66,7 +66,7 @@ static void    *ft_routine(void *philo_v)
     philo = (t_philo *)philo_v;
     philo->philo_start = get_time();
     if(philo->id % 2 == 0)
-        usleep(1500);
+        usleep(1000);
     while(philo->philo_l->dead == 0)
     {
         if(ft_checkdead(philo))
@@ -76,12 +76,13 @@ static void    *ft_routine(void *philo_v)
             break ;
         if(ft_checkdead(philo))
             return (0);
-        ft_print_sleeping(philo, "is sleeping");
+        ft_print_sleeping(philo);
         ft_usleep(philo->philo_l->t_sleep);
         if(ft_checkdead(philo))
             return (0);
-        ft_print_thinking(philo, "is thinking");
+        ft_print_thinking(philo);
     }
+    return (0);
 }
 
 void    ft_philo_thread(t_list *philo_l)

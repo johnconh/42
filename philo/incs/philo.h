@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:16:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/05 20:14:36 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:50:33 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <time.h>
 #include <pthread.h>
 #include <limits.h>
+
 
 typedef struct s_list
 {
@@ -52,11 +53,17 @@ int     ft_init_list(int argc, char **argv, t_list *philo_l);
 int     ft_init_philo(t_list *philo_l);
 void    ft_philo_thread(t_list *philo_l);
 //****** FREE ********
-void    ft_general_free(t_list *philo_l);
+void    ft_destroy(t_list *philo_l);
 void    ft_destroy_mutex(t_list *philo_l);
 void    ft_destroy_philo(t_list *philo_l);
 //**** PHILO_UTILS ******
 int     ft_atoi(const char *str);
 long    get_time(void);
-
+void	ft_usleep(int time);
+//***** PRINT *****
+void    ft_print_fork(t_philo *philo);
+void    ft_print_eat(t_philo *philo);
+void    ft_print_sleeping(t_philo *philo);
+void    ft_print_thinking(t_philo *philo);
+void    ft_print_dead(t_philo *philo);
 #endif

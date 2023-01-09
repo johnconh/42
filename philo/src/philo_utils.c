@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:07:05 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/04 18:35:03 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:15:34 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,13 @@ long	get_time(void)
 
 	gettimeofday(&t, NULL);
 	return((t.tv_sec * 1000) + (t.tv_usec / 1000));
+}
+
+void	ft_usleep(int time)
+{
+	int start;
+
+	start = get_time();
+	while(get_time() - start < time)
+		usleep(50);
 }

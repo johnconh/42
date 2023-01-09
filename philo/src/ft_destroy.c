@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   general_free_exit.c                                :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 19:15:28 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/05 19:39:49 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:18:29 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void ft_destroy_mutex(t_list *philo_l)
         return ;
 }
 
-void ft_general_free(t_list *philo_l)
+void ft_destroy(t_list *philo_l)
 {
     ft_destroy_mutex(philo_l);
     ft_destroy_philo(philo_l);
