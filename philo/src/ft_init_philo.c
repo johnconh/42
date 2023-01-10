@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 19:37:09 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/05 20:05:40 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:17:51 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int ft_init_philo(t_list *philo_l)
         philo_l->philo[i].nb_eat = 0;
         philo_l->philo[i].philo_l = philo_l;  
     }
+    return(1);
 }

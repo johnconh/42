@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/09 20:04:29 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:17:10 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 static int ft_checkdead(t_philo *philo)
 {
-    pthread_mutex_lock(&philo->philo_l->dead);
+    pthread_mutex_lock(&philo->philo_l->mdead);
     if(philo->philo_l->dead == 1)
     {
-        pthread_mutex_unlock(&philo->philo_l->dead);
+        pthread_mutex_unlock(&philo->philo_l->mdead);
         return(1);
     }
     if(get_time() - philo->philo_start >= philo->philo_l->t_die)
     {
         ft_print_dead(philo);
         philo->philo_l->dead = 1;
-        pthread_mutex_unlock(&philo->philo_l->dead);
+        pthread_mutex_unlock(&philo->philo_l->mdead);
         return(1);
     }
-    pthread_mutex_unlock(&philo->philo_l->dead);
+    pthread_mutex_unlock(&philo->philo_l->mdead);
     return(0);
 }
 
@@ -93,10 +93,9 @@ void    ft_philo_thread(t_list *philo_l)
     philo_l->start = get_time();
     while(++i < philo_l->nb_philo)
         if(pthread_create(&philo_l->philo[i].thread, NULL, &ft_routine, &philo_l->philo[i]))
-            return (1);
+            return ;
     i = -1;
     while(++i < philo_l->nb_philo)
-        if(pthread_join(&philo_l->philo[i], NULL))
-            return (2);
-    return (0);
+        if(pthread_join(philo_l->philo[i].thread, NULL))
+            return ;
 }
