@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:07:05 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/10 17:51:52 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:26:47 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	num;
+	int			sign;
+	long int	num;
 
 	num = 0;
 	sign = 1;
@@ -32,22 +32,24 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (*str - '0');
 		str++;
 	}
+	if ((num * sign) < INT_MIN || (num * sign) > INT_MAX)
+		return (0);
 	return (num * sign);
 }
 
 int	get_time(void)
 {
-	static struct timeval t;
+	static struct timeval	t;
 
 	gettimeofday(&t, NULL);
-	return((t.tv_sec * 1000) + (t.tv_usec / 1000));
+	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
 
 void	ft_usleep(int time)
 {
-	int start;
+	int	start;
 
 	start = get_time();
-	while(get_time() - start < time)
+	while (get_time() - start < time)
 		usleep(50);
 }
