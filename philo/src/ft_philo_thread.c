@@ -6,13 +6,13 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/11 19:23:15 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:31:09 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philo.h"
 
-static int	ft_checkdead(t_philo *philo)
+int	ft_checkdead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->philo_l->mdead);
 	if (philo->philo_l->dead == 1)
@@ -51,7 +51,7 @@ static void	ft_eat(t_philo *philo)
 	ft_print_fork(philo);
 	ft_print_eat(philo);
 	philo->philo_start = get_time();
-	ft_usleep(philo->philo_l->t_eat);
+	ft_usleep(philo->philo_l->t_eat, philo->philo_l);
 	if (philo->philo_l->nb_eat != -1)
 		philo->nb_eat ++;
 	pthread_mutex_unlock(&philo->philo_l->mutex[philo->i_fork]);
@@ -77,7 +77,7 @@ static void	*ft_routine(void *philo_v)
 		if (ft_checkdead(philo))
 			return (0);
 		ft_print_sleeping(philo);
-		ft_usleep(philo->philo_l->t_sleep);
+		ft_usleep(philo->philo_l->t_sleep, philo->philo_l);
 		if (ft_checkdead(philo))
 			return (0);
 		ft_print_thinking(philo);
@@ -93,7 +93,7 @@ void	ft_philo_thread(t_list *philo_l)
 	philo_l->start = get_time();
 	if (philo_l->nb_philo == 1)
 	{
-		ft_usleep(philo_l->t_sleep);
+		ft_usleep(philo_l->t_sleep, philo_l);
 		ft_print_dead(philo_l->philo);
 		return ;
 	}

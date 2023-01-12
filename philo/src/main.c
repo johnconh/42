@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:17:12 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/11 19:25:34 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:09:11 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static int	ft_check_error(char **argv)
 	i = 0;
 	while (argv[++i])
 	{
-		j = 0;
-		if (argv[i][j] == '\0' || ft_atoi(argv[i]) == 0)
+		if (ft_atoi(argv[i]) == -1 || argv[2] == (char *) '0' \
+			|| argv[5] == (char *) '0')
 			return (0);
-		while (argv[i][j])
+		j = -1;
+		while (argv[i][++j])
 		{
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 				return (0);
-			j++;
 		}
 	}
 	return (1);

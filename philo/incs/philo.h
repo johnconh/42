@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:16:13 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/11 19:35:55 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:19:25 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	ft_destroy_mutex(t_list *philo_l);;
 //**** PHILO_UTILS ******
 int		ft_atoi(const char *str);
 int		get_time(void);
-void	ft_usleep(int time);
+void	ft_usleep(int time, t_list *philo_l);
+int		ft_checkdead(t_philo *philo);
 //***** PRINT *****
 void	ft_print_fork(t_philo *philo);
 void	ft_print_eat(t_philo *philo);
