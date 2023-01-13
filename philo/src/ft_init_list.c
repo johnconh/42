@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:46:36 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/11 19:14:02 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:30:17 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static int	ft_create_mutex(t_list *philo_l)
 	i = -1;
 	while (++i < philo_l->nb_philo)
 		if (pthread_mutex_init(&philo_l->mutex[i], NULL) != 0)
-			return (0);
+			return (printf("Mutex create failed\n"), 0);
 	if (pthread_mutex_init(&philo_l->print, NULL) != 0)
-		return (0);
+		return (printf("Mutex create failed\n"), 0);
 	if (pthread_mutex_init(&philo_l->mdead, NULL) != 0)
-		return (0);
+		return (printf("Mutex create failed\n"), 0);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/12 19:31:09 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:07:01 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,16 @@ void	ft_philo_thread(t_list *philo_l)
 		return ;
 	}
 	while (++i < philo_l->nb_philo)
+	{
 		if (pthread_create(&philo_l->philo[i].thread, NULL, \
-			&ft_routine, &philo_l->philo[i]))
+			&ft_routine, &philo_l->philo[i]) != 0)
+		{
+			printf ("Failed create thread\n");
 			return ;
+		}
+	}
 	i = -1;
 	while (++i < philo_l->nb_philo)
-		if (pthread_join(philo_l->philo[i].thread, NULL))
+		if (pthread_join(philo_l->philo[i].thread, NULL) != 0)
 			return ;
 }
