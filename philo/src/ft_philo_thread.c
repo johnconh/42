@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/13 18:07:01 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:03:15 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ static void	*ft_routine(void *philo_v)
 	philo = (t_philo *)philo_v;
 	philo->philo_start = get_time();
 	if (philo->id % 2 == 0)
-		usleep(1000);
+	{
+		usleep(250);
+		usleep(250);
+	}
 	while (philo->philo_l->dead == 0)
 	{
 		if (ft_checkdead(philo))

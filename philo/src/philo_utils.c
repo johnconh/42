@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:07:05 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/13 16:54:00 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/16 21:03:52 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ void	ft_usleep(int time, t_list *philo_l)
 
 	start = get_time();
 	while (get_time() - start <= time && ft_checkdead(philo_l->philo) == 0)
+	{
+		usleep(100);
 		usleep(50);
+	}
 }
