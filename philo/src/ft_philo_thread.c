@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/19 19:27:05 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/20 19:29:03 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_checkdead(t_philo *philo)
 	}
 	if (get_time() - philo->philo_start >= philo->philo_l->t_die)
 	{
+		usleep(50);
 		ft_print_dead(philo);
 		philo->philo_l->dead = 1;
 		pthread_mutex_unlock(&philo->philo_l->mdead);
@@ -71,7 +72,7 @@ static void	*ft_routine(void *philo_v)
 		usleep(250);
 	}
 	while (philo->philo_l->dead == 0)
-	{
+	{	
 		if (ft_checkdead(philo))
 			return (0);
 		ft_eat(philo);
