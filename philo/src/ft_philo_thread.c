@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:44:14 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/01/20 19:29:03 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:24:04 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	ft_philo_thread(t_list *philo_l)
 	philo_l->start = get_time();
 	if (philo_l->nb_philo == 1)
 	{
+		ft_print_fork(philo_l->philo);
 		ft_usleep(philo_l->t_sleep, philo_l);
 		ft_print_dead(philo_l->philo);
 		return ;
