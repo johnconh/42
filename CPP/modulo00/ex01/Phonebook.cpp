@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:35:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/08 21:03:58 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/08 21:13:12 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void Phonebook::search()
 	for(int i = 0; !contact[i].empty_contact(); i++)
 		contact[i].print_contact(i);
 	std::cout << "--------------------------------------------" << std::endl;
-	std::cout << "Elige un contacto escribiendo su Index o escribe 0 para ir atras" << std::endl;
+	std::cout << "Elige un contacto escribiendo su Index (1 al 8), escribe 0 para ir atras" << std::endl;
 	std::string index;
 	while(1)
 	{
