@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:37:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/04 20:11:44 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/08 20:44:42 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
-#include <string>
+#include <cstring>
+#include <iomanip>
 
 class Contact 
 {
@@ -25,7 +26,15 @@ class Contact
 		std::string phone_number;
 		std::string darkest_secret;
 	public:
-		
+		void contact_first_name(const std::string firstname);
+		void contact_last_name(const std::string lastname);
+		void contact_nickname(const std::string _nickname);
+		void contact_phone_number(const std::string phonenumber);
+		void contact_darkest_secret(const std::string darkestsecret);
+		bool empty_contact();
+		void print_contact(int i);
+		void printselect();
+		std::string f_resize(std::string s);
 };
 
 class Phonebook
@@ -35,6 +44,8 @@ class Phonebook
 	public:
 		void add();
 		void search();
+		bool check_space(std::string s);
+		bool check_number(std::string s);
 };
 
 #endif
