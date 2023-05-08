@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:35:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/08 20:57:47 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/08 21:03:58 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,7 @@ void Phonebook::search()
 			if (index > "0" && index <= "8")
 			{
 				if (contact[index[0] - '0' - 1].empty_contact())
-				{
 					std::cout << ">>> El contacto no existe<<<" << std::endl << std::endl;
-					break;
-				}
 				else
 				{
 					contact[index[0] - '0' - 1].printselect();
