@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:37:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/08 20:44:42 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:08:18 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@
 class Contact 
 {
 	private:
-		std::string first_name;
-		std::string last_name;
-		std::string nickname;
-		std::string phone_number;
-		std::string darkest_secret;
+		std::string first_name, last_name, nickname, phone_number, darkest_secret;
 	public:
 		void contact_first_name(const std::string firstname);
 		void contact_last_name(const std::string lastname);

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:35:41 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/08 20:59:17 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:10:49 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void Contact::contact_darkest_secret(const std::string darkestsecret)
 
 bool Contact::empty_contact()
 {
-	if (this->first_name.length() == 0)
+	if (this->first_name.empty())
 		return true;
 	return false;
 }
