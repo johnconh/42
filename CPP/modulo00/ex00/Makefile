@@ -1,17 +1,12 @@
 NAME = megaphone
 SRC = mehaphone.cpp
 OBJ = megaphone.o
-CC = c++ -Wall -Werror -Wextra  -std=c++98 --pedantic
-
-.SILENT:
+CXX = c++ -Wall -Werror -Wextra  -std=c++98 --pedantic
 
 all: $(NAME)
 
-megaphone.o: megaphone.cpp
-	$(CC) -c $< -o $@
-
 $(NAME): $(OBJ)
-	$(CC) $^ -o $@
+	$(CXX) $^ -o $@
 	@echo "Compilado $@"
 
 clean:

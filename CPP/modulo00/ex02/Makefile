@@ -3,17 +3,12 @@ FILES = Account tests
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 
-CC = c++ -Wall -Werror -Wextra  -std=c++98 --pedantic
-
-.SILENT:
+CXX = c++ -Wall -Werror -Wextra  -std=c++98 --pedantic
 
 all: $(NAME)
 
-%.o: %.cpp
-	$(CC) -c $< -o $@
-
 $(NAME): $(OBJ)
-	$(CC) $^ -o $@
+	$(CXX) $^ -o $@
 	@echo "Compilado $@"
 
 clean:
