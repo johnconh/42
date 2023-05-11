@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:37:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/09 16:08:18 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:59:06 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Contact
 class Phonebook
 {
 	private:
-		Contact contact[8];
+		Contact contact[9];
 	public:
 		void add();
 		void search();
