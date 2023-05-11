@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:21:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/10 20:50:57 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:12:14 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Account::Account(int initial_deposit)
 	std::cout << " index:"<< _accountIndex << ";amount:"<< _amount << ";created"<<std::endl;
 	
 }
+
 Account::~Account()
 {
 	_displayTimestamp();
@@ -38,7 +39,7 @@ Account::~Account()
 void Account::displayAccountsInfos()
 {
 	_displayTimestamp();
-	std::cout<<" accounts:"<< _nbAccounts<<";total:"<< _totalAmount<< ";deposits:"<<_totalNbDeposits<<";withdrawals:"<<_totalNbWithdrawals<<std::endl;
+	std::cout<<" accounts:"<<getNbAccounts()<<";total:"<< getTotalAmount()<< ";deposits:"<<getNbDeposits()<<";withdrawals:"<<getNbWithdrawals()<<std::endl;
 }
 
 void Account::makeDeposit(int deposit)
@@ -51,6 +52,7 @@ void Account::makeDeposit(int deposit)
 	_displayTimestamp();
 	std::cout<<" index:"<<_accountIndex<<";p_amount:"<<p_amount<<";deposits:"<<deposit<<";amount:"<<_amount<<";nb_deposit:"<<_nbDeposits<<std::endl;
 }
+
 bool Account::makeWithdrawal(int withdrawal)
 {
 	int p_amount = _amount;
@@ -84,4 +86,24 @@ void Account::_displayTimestamp()
 	tstruct = *localtime(&now);
 	strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S]", &tstruct);
 	std::cout << buf;
+}
+
+int Account::getNbAccounts()
+{
+	return(_nbAccounts);	
+}
+
+int Account::getTotalAmount()
+{
+	return(_totalAmount);
+}
+
+int Account::getNbDeposits()
+{
+	return(_totalNbDeposits);
+}
+
+int Account::getNbWithdrawals()
+{
+	return(_totalNbWithdrawals);
 }
