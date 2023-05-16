@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:21:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/11 16:12:14 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:19:34 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void Account::makeDeposit(int deposit)
 	_nbDeposits += 1;
 	_totalNbDeposits += 1;
 	_displayTimestamp();
-	std::cout<<" index:"<<_accountIndex<<";p_amount:"<<p_amount<<";deposits:"<<deposit<<";amount:"<<_amount<<";nb_deposit:"<<_nbDeposits<<std::endl;
+	std::cout<<" index:"<<_accountIndex<<";p_amount:"<<p_amount<<";deposit:"<<deposit<<";amount:"<<_amount<<";nb_deposit:"<<_nbDeposits<<std::endl;
 }
 
 bool Account::makeWithdrawal(int withdrawal)

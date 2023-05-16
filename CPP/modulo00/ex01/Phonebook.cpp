@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:35:38 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/11 17:04:28 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:56:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool Phonebook::check_space(std::string s)
 {
 	for(int i = 0; s[i]; i++)	
-		if(!isspace(s[i]))
+		if(!isalpha(s[i]))
 			return true;
 	return false;
 }
@@ -23,9 +23,9 @@ bool Phonebook::check_space(std::string s)
 bool Phonebook::check_number(std::string s)
 {
 	for(int i = 0; s[i]; i++)
-		if(isnumber(s[i]))
-			return true;
-	return false;
+		if(!isnumber(s[i]))
+			return false;
+	return true;
 }
 
 void Phonebook::add()

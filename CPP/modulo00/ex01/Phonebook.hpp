@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:37:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/11 17:08:24 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:54:39 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,26 @@
 #include <cstring>
 #include <iomanip>
 
+using std::string;
+
 class Contact 
 {
 	private:
-		std::string first_name, last_name, nickname, phone_number, darkest_secret;
+		string first_name; 
+		string last_name; 
+		string nickname; 
+		string phone_number;
+		string darkest_secret;
 	public:
-		void contact_first_name(const std::string firstname);
-		void contact_last_name(const std::string lastname);
-		void contact_nickname(const std::string _nickname);
-		void contact_phone_number(const std::string phonenumber);
-		void contact_darkest_secret(const std::string darkestsecret);
+		void contact_first_name(const string firstname);
+		void contact_last_name(const string lastname);
+		void contact_nickname(const string _nickname);
+		void contact_phone_number(const string phonenumber);
+		void contact_darkest_secret(const string darkestsecret);
 		bool empty_contact();
 		void print_contact(int i);
 		void printselect();
-		std::string f_resize(std::string s);
+		string f_resize( string s);
 };
 
 class Phonebook
@@ -40,8 +46,8 @@ class Phonebook
 	public:
 		void add();
 		void search();
-		bool check_space(std::string s);
-		bool check_number(std::string s);
+		bool check_space(string s);
+		bool check_number(string s);
 };
 
 #endif
