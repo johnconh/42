@@ -1,4 +1,4 @@
-NAME = Moar_brainz!
+NAME = Moar
 FILES = main Zombie zombieHorde
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))

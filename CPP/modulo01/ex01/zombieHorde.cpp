@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:23 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/16 21:14:38 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:35:23 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 Zombie* zombieHorde( int N, string name )
 {
 	Zombie *z = new Zombie[N];
-	
-	for(int i = 0; i <= N; i++)
-		z[N].nameZombie(name);
+
+	for(int i = 0; i < N; i++)
+		z[i].nameZombie(name);
 	return z;
 }

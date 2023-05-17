@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:18:27 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/16 21:14:23 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:36:32 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int main()
 {
-	int N = 5;
+	int N = 4;
 	Zombie *z;
+
 	z = zombieHorde(N, "John");
-	for(int i = 0; i <= N; i++)
-		z[N].announce();
+	for(int i = 0; i < N; i++)
+		z[i].announce();
 	delete[] z;
 }

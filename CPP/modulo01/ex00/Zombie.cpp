@@ -6,13 +6,13 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:34:31 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/17 16:24:47 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:14:26 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void Zombie::nameZombie(std::string name)
+Zombie::Zombie(std::string name)
 {
 	this->_name = name;
 	std::cout << "Zombie "<< this->_name << " creado"<< std::endl;
