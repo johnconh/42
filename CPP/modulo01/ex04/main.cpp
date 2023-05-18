@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:34:31 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/17 18:46:41 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/05/18 18:57:01 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/05/18 20:37:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Replace.hpp"
 
-void Zombie::nameZombie(string name)
+int main(int argc, char **argv)
 {
-	this->_name = name;
-	std::cout << "Zombie "<< this->_name << " creado"<< std::endl;
+	if (argc != 4)
+	{
+		cout << "Error. Usa <nombre_archivo> <palabra_1> <palabra_2>\n";
+		return -1;
+	}
+	replace(argv[1], argv[2], argv[3]);
+	return 0;
 }
-
-Zombie::~Zombie()
-{
-	std::cout << "Zombie "<< this->_name << " destruido"<< std::endl;
-}
-
-void Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
-}
-
-Zombie::Zombie(){}

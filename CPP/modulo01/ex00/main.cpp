@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:18:27 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/16 20:13:15 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:08:51 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ int main()
 	z->announce();
 	randomChump("john");
 	delete z;
+	return 0;
 }

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:34:31 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/17 18:46:41 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/05/17 17:48:10 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/05/18 17:45:01 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-void Zombie::nameZombie(string name)
+
+HumanA::HumanA(string name, Weapon &weapon): _name(name), _weapon(&weapon){}
+
+void HumanA::attack()
 {
-	this->_name = name;
-	std::cout << "Zombie "<< this->_name << " creado"<< std::endl;
+	cout << this->_name << " attacks with their " << _weapon->getType() << endl;
 }
 
-Zombie::~Zombie()
-{
-	std::cout << "Zombie "<< this->_name << " destruido"<< std::endl;
-}
-
-void Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
-}
-
-Zombie::Zombie(){}
+HumanA::~HumanA(){}

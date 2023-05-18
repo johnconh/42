@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:34:31 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/17 18:46:41 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/05/18 19:03:16 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/05/18 21:01:38 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef REPLACE_HPP
+#define REPLACE_HPP
 
-void Zombie::nameZombie(string name)
-{
-	this->_name = name;
-	std::cout << "Zombie "<< this->_name << " creado"<< std::endl;
-}
+#include <iostream>
+#include <fstream>
+#include <string>
 
-Zombie::~Zombie()
-{
-	std::cout << "Zombie "<< this->_name << " destruido"<< std::endl;
-}
+using std::cout;
+using std::string;
+using std::endl;
 
-void Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
-}
-
-Zombie::Zombie(){}
+void replace(string filename, string s1, string s2);
+#endif

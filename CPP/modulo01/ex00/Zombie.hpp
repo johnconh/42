@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:13:35 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/16 20:13:45 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:47:44 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 
 using std::string;
+
 class Zombie
 {
 	private:
