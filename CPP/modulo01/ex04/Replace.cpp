@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:23:24 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/18 21:09:07 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/18 21:34:58 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void replace(string filename, string s1,  string s2)
 	string line;
 	while(std::getline(file, line))
 	{
-		size_t pos = line.find(s1);
-		while(pos != std::string::npos)
+		size_t pos = 0;
+		while((pos = line.find(s1, pos)) != std::string::npos)
 		{
 			line.replace(pos, s1.length(), s2);
-			pos = line.find(s1, pos += s2.length());
+			pos += s2.length();
 		}
 		output << line << endl;
 	}

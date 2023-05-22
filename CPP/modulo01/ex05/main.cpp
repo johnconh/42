@@ -5,26 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:57:01 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/22 16:22:30 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/05/22 16:32:40 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/05/22 17:56:04 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 4)
+	Harl h;
+	string cmd;
+	cout << "Level: ";
+	while(1)
 	{
-		cout << "Error. Usa <nombre_archivo> <palabra_1> <palabra_2>\n";
-		return -1;
+		std::cin >> cmd;
+		if(cmd == "EXIT")
+			break ;
+		h.complain(cmd);
+		cout << "Level : ";
 	}
-	string control = argv[2];
-	if(control.empty())
-	{
-		cout << "Error. La primera palabra a sustituir esta vacia\n";
-		return -1;
-	}
-	replace(argv[1], argv[2], argv[3]);
 	return 0;
 }
