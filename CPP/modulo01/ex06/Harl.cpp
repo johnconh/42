@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:36:30 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/22 18:39:08 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:09:36 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void Harl::error(void)
 	cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-int Harl::getindex(string level)
+int Harl::getindex(const string& level)
 {
 	string harlfunct[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
