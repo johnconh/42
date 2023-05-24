@@ -6,17 +6,28 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:04:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/24 20:22:44 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/24 20:10:43 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
 
 Fixed::Fixed(): _numb(0)
 {
 	cout << "Default constructor called\n";
 }
 
+Fixed::Fixed(const int numb): _numb(numb << _bit)
+{
+	cout << "Int constructor called\n";
+}
+
+Fixed::Fixed(const float numb)
+{
+	_numb = roundf(numb * (1 << _bit));
+	cout << "Float constructor called\n";
+}
 
 Fixed::Fixed(const Fixed& copy)
 {
@@ -35,14 +46,35 @@ Fixed& Fixed::operator=(const Fixed& assing)
 	this->_numb = assing.getRawBits();
 	return *this;
 }
+
 int Fixed::getRawBits() const
 {
-	cout << "getRawBits member function called\n";
 	return(this->_numb);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	cout << "setRawBits member function called\n";
 	this->_numb = raw;
+}
+
+int Fixed::toInt(void) const
+{
+	return (this->_numb >> _bit);
+}
+
+float Fixed::toFloat(void) const
+{
+	return(static_cast<float>(_numb) / (1 << _bit));
+}
+
+int Fixed:: get_numb() const
+{
+	return(this->_numb);
+}
+
+std::ostream& operator << (std::ostream& os, const Fixed& fix)
+{
+	float floatvalue = fix.toFloat();
+	os << floatvalue;
+	return (os);
 }
