@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:04:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/24 20:10:43 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:31:21 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-	return(static_cast<float>(_numb) / (1 << _bit));
+	return((float)_numb / (1 << _bit));
 }
 
 int Fixed:: get_numb() const
