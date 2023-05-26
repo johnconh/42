@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:53:54 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/25 20:33:28 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:20:41 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ int main( void )
 	std::cout << c - d << std::endl;
 	std::cout << c * d << std::endl;
 	std::cout << c / d << std::endl;
-	std::cout << c << std::endl;
-	std::cout << d << std::endl;
-	std::cout << Fixed::min(c, d) << std::endl;
 
 	if(c > d)
 		cout << "es mayor\n";

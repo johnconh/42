@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:04:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/25 20:27:14 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:16:16 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 Fixed::Fixed(): _numb(0)
 {
-	//cout << "Default constructor called\n";
+	cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const int numb): _numb(numb << _bit)
 {
-	//cout << "Int constructor called\n";
+	cout << "Int constructor called\n";
 }
 
 Fixed::Fixed(const float numb)
 {
 	_numb = roundf(numb * (1 << _bit));
-	//cout << "Float constructor called\n";
+	cout << "Float constructor called\n";
 }
 
 Fixed::Fixed(const Fixed& copy)
 {
-	//cout << "Copy constructor called\n";
+	cout << "Copy constructor called\n";
 	*this = copy;
 }
 
 Fixed::~Fixed()
 {
-	//cout << "Destructor called\n";
+	cout << "Destructor called\n";
 }
 
 //  operadores aritméticos:
