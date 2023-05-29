@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 16:53:09 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/29 19:56:07 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:05:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ using std::endl;
 class ClapTrap
 {
 	private:
-		string			_name;
-		int	_hp;
-		int	_energy;
-		int	_atkdmg;
+		string	_name;
+		int		_hp;
+		int		_energy;
+		int		_atkdmg;
 	public:
 		ClapTrap();
 		ClapTrap(const string& name);
