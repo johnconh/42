@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:48:46 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/31 17:17:35 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:18:27 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& assig)
 	ClapTrap::operator=(assig);
 	return *this;
 }
-
 
 void ScavTrap::inithp()
 {

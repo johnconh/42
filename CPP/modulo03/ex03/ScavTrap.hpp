@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:34:45 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/31 17:17:39 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:07:19 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
-	private:
-		void inithp();
+	protected:
 		void initenergy();
+	private:
+		void assigname(const string& name);
+		void inithp();
 		void initdmg();
 	public:
 	ScavTrap();

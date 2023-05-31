@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 18:34:45 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/31 17:17:39 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/05/29 18:04:51 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/05/30 20:41:18 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+int main ()
 {
-	private:
-		void inithp();
-		void initenergy();
-		void initdmg();
-	public:
-	ScavTrap();
-	ScavTrap(const string& name);
-	ScavTrap(const ScavTrap& copy);
-	~ScavTrap();
-
-	ScavTrap& operator=(const ScavTrap& assig);
+	FragTrap A("Tiny Tina");
+	FragTrap B("Moxxi");
+	ScavTrap D;
+	FragTrap C (B);
+	FragTrap E;
 	
-	void attack(const string& target);
-	void guardGate();
-};
 
-#endif
+	A.attack("Moxxi");
+	B.takeDamage(5);
+	B.beRepaired(3);
+	B.attack("Tiny Tina");
+	A.takeDamage(112);
+	A.attack("Moxxi");
+	C.attack("Tiny Tina");
+	D.attack("Claptrap");
+	E.attack("Claptrap");
+	E.highFivesGuys();
+}

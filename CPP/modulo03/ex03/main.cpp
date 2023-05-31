@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 18:34:45 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/05/31 17:17:39 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/05/29 18:04:51 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/05/31 17:20:58 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "DiamondTrap.hpp"
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int main ()
 {
-	private:
-		void inithp();
-		void initenergy();
-		void initdmg();
-	public:
-	ScavTrap();
-	ScavTrap(const string& name);
-	ScavTrap(const ScavTrap& copy);
-	~ScavTrap();
+	DiamonTrap A("Moxxi");
 
-	ScavTrap& operator=(const ScavTrap& assig);
-	
-	void attack(const string& target);
-	void guardGate();
-};
+	cout << "hp: "<< A.gethp() << endl;
+	cout << "energy: " << A.getenergy()<< endl;
+	cout << "Atak: " << A.getatkdmg() << endl;
+	A.attack("Tiny");
+	A.whoAmI();
+}
 
-#endif
