@@ -6,13 +6,13 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:28:36 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/07 20:05:13 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:08:42 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(): _name("john"), _grade(1)
 {
 	cout << "Bureaucrat: Deafult construtor called\n";
 }
