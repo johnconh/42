@@ -1,5 +1,5 @@
-NAME = Materia Cure Ice 
-FILES = main 
+NAME = Materia
+FILES = main AMateria Character Cure Ice MateriaSource
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 19:02:03 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/02 19:18:00 by jdasilva         ###   ########.fr       */
+/*   Created: 2023/06/06 18:11:41 by jdasilva          #+#    #+#             */
+/*   Updated: 2023/06/06 18:40:22 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define ICHARACTER_HPP
 
 #include "AMateria.hpp"
+
+class AMateria; // Declaración anticipada de la clase AMateria
 
 class ICharacter
 {
