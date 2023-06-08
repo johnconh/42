@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:28:36 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/07 20:08:42 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/08 16:05:52 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& assig)
 void Bureaucrat::validateGrade() const
 {
 	if (this->_grade < 1)
-		throw GradeTooLowException();
-	else if (this->_grade > 150)
 		throw GradeTooHighException();
+	else if (this->_grade > 150)
+		throw GradeTooLowException();
 }
 
 int Bureaucrat::getGrade() const
