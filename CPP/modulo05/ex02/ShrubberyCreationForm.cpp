@@ -6,14 +6,14 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:35:10 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 19:27:12 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:32:03 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(const string& target): AForm(target, 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const string& target):_target(target), AForm(_target, 145, 137)
 {
 	cout << "ShrubberyCreationForm target " << target << " contructor called\n";
 }
