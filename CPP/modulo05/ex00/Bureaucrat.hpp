@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:53:02 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/07 20:04:27 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:43:07 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ using std::ostream;
 class Bureaucrat
 {
 	private:
-		string 	_name;
+		const string 	_name;
 		int 	_grade;
 	public:
 		Bureaucrat();

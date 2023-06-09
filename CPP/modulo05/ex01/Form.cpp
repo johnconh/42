@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:56:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/08 19:28:54 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:55:11 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ Form::Form(): _name("john"), _status(false), _sign(1), _execute(1)
 
 Form::Form(const string& name, int sign, int execute): _name(name), _status(false), _sign(sign), _execute(execute)
 {
-	cout << "Form name: "<< _name << " constructor called\n";
 	validateGrade();
+	cout << "Form name: "<< _name << " constructor called\n";
 }
 
 Form::Form(const Form& copy): _name(copy.getName()), _status(copy.isStatus()), _sign(copy.getSign()), _execute(copy.getExecute())
@@ -40,8 +40,9 @@ Form& Form::operator=(const Form& assig)
 	{
 		(string)this->_name = assig.getName();
 		this->_status = assig.isStatus();
-		// (int)this->_sign = assig.getSign();
-		// (int)this->_execute = assig.getExecute();
+		validateGrade();
+		//(int)this->_sign = assig.getSign();
+		//(int)this->_execute = assig.getExecute();
 	}
 	return (*this);
 }
@@ -51,12 +52,12 @@ const string Form::getName() const
 	return this->_name;
 }
 
-const int Form::getSign() const
+int Form::getSign() const
 {
 	return this->_sign;
 }
 
-const int Form::getExecute() const 
+int Form::getExecute() const 
 {
 	return this->_execute;
 }

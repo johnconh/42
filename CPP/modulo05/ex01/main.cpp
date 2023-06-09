@@ -6,27 +6,48 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:47:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/07 20:05:40 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:51:47 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
-    try {
-        Bureaucrat bureaucrat("John", 150);
-        std::cout << bureaucrat << std::endl;
+    try{
+        // Crear un Bureaucrat
+        Bureaucrat bureaucrat("John", 3);
 
-        bureaucrat.incrementGrade();
-        std::cout << bureaucrat.getGrade() << std::endl;
+        //bureaucrat.incrementGrade();
+        //bureaucrat.decrementGrade();
+        
+        // Crear un Formulario
+        Form form("Formulario 1", 5, 100);
+        //Form2(form);
+        //Form f;
 
-        bureaucrat.decrementGrade();
-        std::cout << bureaucrat.getGrade() << std::endl;
+        //f = form;
+        //Form form2(form);
+        //cout << form << endl;
+        //cout << f << endl;
+
+        // Intentar firmar el formulario
+        bureaucrat.signForm(form);
+        //cout << form << std::endl;
     } catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << "Error: " << e.what() << std::endl;
+        cout << "Bureaucrat Error: " << e.what() << endl;
     } catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << "Error: " << e.what() << std::endl;
+        cout << "Bureaucrat Error: " << e.what() << endl;
+    } catch (const Form::GradeTooLowException& e) {
+        cout << "Form Error: " << e.what() << endl;
+    } catch (const Form::GradeTooHighException& e){
+        cout << "Form Error: " << e.what() << endl;
     }
 
+    // pilla todas las excepciones.
+    //catch (const std::exception& e){
+    //     cout << "Error: " << e.what() <<endl;
+    // }
+    
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:53:02 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/08 19:35:50 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:43:35 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form;
 class Bureaucrat
 {
 	private:
-		string 	_name;
+		const string 	_name;
 		int 	_grade;
 	public:
 		Bureaucrat();

@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:28:36 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/08 19:50:56 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:43:56 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& assig)
 {
 	if( this != &assig)
 	{
-		this->_name = assig._name;
+		(string)this->_name = assig._name;
 		this->_grade = assig._grade;
 	}
 	return *this;
