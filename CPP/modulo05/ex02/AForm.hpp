@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:39:05 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 17:14:30 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:14:57 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Form_HPP
-#define Form_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -22,7 +22,7 @@ using std::ostream;
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const string	_name;
@@ -31,12 +31,12 @@ class Form
 		const int		_execute;
 		
 	public:
-		Form();
-		Form(const string& name, int sing, int execute);
-		Form(const Form& copy);
-		virtual ~Form();
+		AForm();
+		AForm(const string& name, int sing, int execute);
+		AForm(const AForm& copy);
+		virtual ~AForm();
 
-		Form& operator=(const Form& assig);
+		AForm& operator=(const AForm& assig);
 
 		const string getName() const;
 		bool isStatus() const;
@@ -44,7 +44,8 @@ class Form
 		int getExecute() const;
 		void validateGrade() const;
 		void beSigned(const Bureaucrat& b);
-		
+		virtual void execute(Bureaucrat const & executor) const = 0;
+
 		class GradeTooLowException: public std::exception
 		{
 			public:
@@ -61,9 +62,27 @@ class Form
 				{
 					return "Grade Too High Exception";
 				}
-		};	
+		};
+
+		class NoSigned: public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Signature not executed";
+				}
+		};
+
+		class Openfailed: public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Open failed";
+				}
+		};
 };
 
-ostream& operator<<(ostream& os, const Form& f);
+ostream& operator<<(ostream& os, const AForm& f);
 
 #endif

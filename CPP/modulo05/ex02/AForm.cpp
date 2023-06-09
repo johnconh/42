@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AAForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:56:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 17:14:30 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:15:14 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(): _name("john"), _status(false), _sign(1), _execute(1)
+AForm::AForm(): _name("john"), _status(false), _sign(1), _execute(1)
 {
-	cout << "Form default constructor called\n";
+	cout << "AForm default constructor called\n";
 }
 
-Form::Form(const string& name, int sign, int execute): _name(name), _status(false), _sign(sign), _execute(execute)
+AForm::AForm(const string& name, int sign, int execute): _name(name), _status(false), _sign(sign), _execute(execute)
 {
 	validateGrade();
-	cout << "Form name: "<< _name << " constructor called\n";
+	cout << "AForm name: "<< _name << " constructor called\n";
 }
 
-Form::Form(const Form& copy): _name(copy.getName()), _status(copy.isStatus()), _sign(copy.getSign()), _execute(copy.getExecute())
+AForm::AForm(const AForm& copy): _name(copy.getName()), _status(copy.isStatus()), _sign(copy.getSign()), _execute(copy.getExecute())
 {
-	cout << "Form copy contructor called\n";
+	cout << "AForm copy contructor called\n";
 	validateGrade();
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	cout << "Form destructor called\n";
+	cout << "AForm destructor called\n";
 }
 
-Form& Form::operator=(const Form& assig)
+AForm& AForm::operator=(const AForm& assig)
 {
 	if (this != &assig)
 	{
@@ -47,27 +47,27 @@ Form& Form::operator=(const Form& assig)
 	return (*this);
 }
 
-const string Form::getName() const
+const string AForm::getName() const
 {
 	return this->_name;
 }
 
-int Form::getSign() const
+int AForm::getSign() const
 {
 	return this->_sign;
 }
 
-int Form::getExecute() const 
+int AForm::getExecute() const 
 {
 	return this->_execute;
 }
 
-bool Form::isStatus() const 
+bool AForm::isStatus() const 
 {
 	return this->_status;
 }
 
-void Form::validateGrade() const
+void AForm::validateGrade() const
 {
 	if (this->_sign < 1 || this->_execute < 1)
 		throw GradeTooHighException();
@@ -75,7 +75,7 @@ void Form::validateGrade() const
 		throw GradeTooLowException();
 }
 
-void Form::beSigned(const Bureaucrat& b)
+void AForm::beSigned(const Bureaucrat& b)
 {
 	if (b.getGrade() <= this->_sign)
 		this->_status = true;
@@ -83,9 +83,9 @@ void Form::beSigned(const Bureaucrat& b)
 		throw GradeTooLowException();
 }
 
-ostream& operator<<(ostream& os, const Form& f)
+ostream& operator<<(ostream& os, const AForm& f)
 {
-	os << "Form: " <<  f.getName() <<", Signed: " << (f.isStatus() ? "YES" : "NO")
+	os << "AForm: " <<  f.getName() <<", Signed: " << (f.isStatus() ? "YES" : "NO")
 		<<", Grade Required to sign: " << f.getSign()
 		<<", Grade Required to execute: " << f.getExecute();
 	return os;

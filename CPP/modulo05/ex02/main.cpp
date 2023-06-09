@@ -6,12 +6,12 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:47:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 17:14:30 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:09:14 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main() {
     try{
@@ -21,24 +21,27 @@ int main() {
         //bureaucrat.incrementGrade();
         //bureaucrat.decrementGrade();
         
-        // Crear un Formulario
-        Form Form("Formulario 1", 5, 100);
-        //Form2(Form);
-        //Form Form2(Form);
-        //cout << Form << endl;
-        //cout << Form2 << endl;
+        // Crear un AFormulario
+       // AForm AForm("AFormulario 1", 5, 100);
+        //AForm2(AForm);
+        //AForm f;
 
-        // Intentar firmar el Formulario
-        bureaucrat.signForm(Form);
-        //cout << Form << std::endl;
+        //f = AForm;
+        //AForm AForm2(AForm);
+        //cout << AForm << endl;
+        //cout << f << endl;
+
+        // Intentar firmar el AFormulario
+        //bureaucrat.signAForm(AForm);
+        //cout << AForm << std::endl;
     } catch (const Bureaucrat::GradeTooHighException& e) {
         cout << "Bureaucrat Error: " << e.what() << endl;
     } catch (const Bureaucrat::GradeTooLowException& e) {
         cout << "Bureaucrat Error: " << e.what() << endl;
-    } catch (const Form::GradeTooLowException& e) {
-        cout << "Form Error: " << e.what() << endl;
-    } catch (const Form::GradeTooHighException& e){
-        cout << "Form Error: " << e.what() << endl;
+    } catch (const AForm::GradeTooLowException& e) {
+        cout << "AForm Error: " << e.what() << endl;
+    } catch (const AForm::GradeTooHighException& e){
+        cout << "AForm Error: " << e.what() << endl;
     }
 
     // pilla todas las excepciones.
