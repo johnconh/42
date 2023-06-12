@@ -1,5 +1,5 @@
 NAME = Burocrata
-FILES = main Bureaucrat AForm ShrubberyCreationForm
+FILES = main Bureaucrat AForm PresidentialPardonForm ShrubberyCreationForm RobotomyRequestForm
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 

@@ -6,19 +6,24 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:35:10 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 19:32:03 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:22:33 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(const string& target):_target(target), AForm(_target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), _target("john") 
+{
+	cout << "ShrubberyCreationForm default constructor called\n";
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const string& target): AForm("ShrubberyCreationForm", 145, 137), _target(target) 
 {
 	cout << "ShrubberyCreationForm target " << target << " contructor called\n";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy): AForm(copy._target, 145, 137), _target(copy._target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy): AForm("ShrubberyCreationForm", 145, 137), _target(copy._target)
 {
 	cout << "ShrubberyCreationForm copy constructor called\n";
 }
@@ -30,7 +35,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& assig)
 {
-	this->_target = assig._target;
+	if (this != &assig)
+	{
+		this->_target = assig._target;
+		AForm::operator=(assig);
+	}
 	return *this;
 }
 
@@ -39,7 +48,7 @@ string ShrubberyCreationForm::getTarget() const
 	return this->_target;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor)
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	if(!this->isStatus())
 		throw AForm::NoSigned();

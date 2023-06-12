@@ -6,48 +6,38 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:47:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 19:09:14 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:23:01 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main() {
-    try{
-        // Crear un Bureaucrat
-        Bureaucrat bureaucrat("John", 3);
+    try {
+        // Crear un burócrata
+        Bureaucrat bureaucrat("John", 1);
+        std::cout << bureaucrat << std::endl;
 
-        //bureaucrat.incrementGrade();
-        //bureaucrat.decrementGrade();
-        
-        // Crear un AFormulario
-       // AForm AForm("AFormulario 1", 5, 100);
-        //AForm2(AForm);
-        //AForm f;
+        // Crear los formularios
+        ShrubberyCreationForm shrubberyForm("garden");
+        RobotomyRequestForm robotomyForm("target");
+        PresidentialPardonForm pardonForm("victim");
 
-        //f = AForm;
-        //AForm AForm2(AForm);
-        //cout << AForm << endl;
-        //cout << f << endl;
+        // Firmar los formularios por el burócrata
+        shrubberyForm.beSigned(bureaucrat);
+        robotomyForm.beSigned(bureaucrat);
+        pardonForm.beSigned(bureaucrat);
 
-        // Intentar firmar el AFormulario
-        //bureaucrat.signAForm(AForm);
-        //cout << AForm << std::endl;
-    } catch (const Bureaucrat::GradeTooHighException& e) {
-        cout << "Bureaucrat Error: " << e.what() << endl;
-    } catch (const Bureaucrat::GradeTooLowException& e) {
-        cout << "Bureaucrat Error: " << e.what() << endl;
-    } catch (const AForm::GradeTooLowException& e) {
-        cout << "AForm Error: " << e.what() << endl;
-    } catch (const AForm::GradeTooHighException& e){
-        cout << "AForm Error: " << e.what() << endl;
+        // Ejecutar los formularios
+        bureaucrat.executeForm(shrubberyForm);
+        bureaucrat.executeForm(robotomyForm);
+        bureaucrat.executeForm(pardonForm);
+    } catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
     }
-
-    // pilla todas las excepciones.
-    //catch (const std::exception& e){
-    //     cout << "Error: " << e.what() <<endl;
-    // }
-    
     return 0;
 }

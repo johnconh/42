@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:28:36 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 17:16:03 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:10:48 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,15 @@ void Bureaucrat::signAForm(AForm& f) const
 		cout << this->_name << " couldn’t sign " << f.getName() <<" because " << e.what() << endl;
 	}
 }
+
+void Bureaucrat::executeForm(AForm const& form)
+{
+	try
+	{
+		form.execute(*this);
+		cout << getName() << " executed " << form << endl;
+	}catch(std::exception& e)
+	{
+		cout << getName() << " couldn´t no executed " << form.getName() << " because " << e.what() << endl;
+	}
+ }
