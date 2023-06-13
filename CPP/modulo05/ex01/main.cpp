@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:47:48 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/09 17:14:30 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:56:17 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main() {
         
         // Crear un Formulario
         Form Form("Formulario 1", 5, 100);
-        //Form2(Form);
         //Form Form2(Form);
         //cout << Form << endl;
         //cout << Form2 << endl;
