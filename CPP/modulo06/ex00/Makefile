@@ -1,5 +1,5 @@
 NAME = convert
-FILES = main
+FILES = main convert
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 
