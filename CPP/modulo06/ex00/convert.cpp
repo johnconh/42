@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:39:06 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/15 19:05:00 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:49:23 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ bool isPseudo(const string& str)
 	if(str.empty())
 		return false;
 	
-	if(str.compare("nan") == 0 || str.compare("+inf") == 0 || str.compare("-inf") == 0)
+	if(!str.compare("nan") || !str.compare("+inf") || !str.compare("-inf") ||
+		!str.compare("nanf") || !str.compare("+inff") || !str.compare("-inff"))
 		return true;
 	else
 		return false;
@@ -75,7 +76,7 @@ void convertoChar(char *argv)
 	{
 		int valor = std::atoi(argv);
 		char car = 0;
-		if (valor >=33 && valor <= 126)
+		if (valor >= 33 && valor <= 126)
 		{
 			car = static_cast<char>(valor);
 			cout << "Char: " << '\'' << car << '\'' << endl;
@@ -87,7 +88,7 @@ void convertoChar(char *argv)
 	{
 		int valor = std::atof(argv);
 		char car = 0;
-		if (valor >=33 && valor <= 126)
+		if (valor >= 33 && valor <= 126)
 		{
 			car = static_cast<char>(valor);
 			cout << "Char: " << '\'' << car << '\'' << endl;
@@ -144,7 +145,10 @@ void convertoFloat(char *argv)
 
 	if(isPseudo(arg))
 	{
-		cout << "Float: " << arg <<"f\n";
+		if(!arg.compare("nanf") || !arg.compare("+inff") || !arg.compare("-inff"))
+			cout << "Float: " << arg << endl;
+		else
+			cout << "Float: " << arg <<"f\n";
 	}
 	else if(isNumber(arg))
 	{
@@ -175,6 +179,8 @@ void convertoDouble(char *argv)
 
 	if(isPseudo(arg))
 	{
+		if(!arg.compare("nanf") || !arg.compare("+inff") || !arg.compare("-inff"))
+			arg = arg.substr(0, arg.length() - 1);
 		cout << "Double: " << arg << endl;
 	}
 	else if(isNumber(arg))
