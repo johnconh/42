@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 20:28:12 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/19 18:17:59 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:56:57 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,21 @@ void identify(Base& p)
 	try
 	{
 		A& a = dynamic_cast<A&>(p);
+		(void)a;
 		cout << "A\n";
 	}catch(const std::bad_cast&)
 	{
 		try
 		{
 			B& b = dynamic_cast<B&>(p);
+			(void)b;
 			cout << "B\n";
 		}catch (const std::bad_cast&)
 		{
 			try
 			{
 				C& c = dynamic_cast<C&>(p);
+				(void)c;
 				cout << "C\n";
 			}catch (const std::bad_cast&)
 			{
