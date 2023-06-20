@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 19:26:25 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/06/19 20:10:05 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:09:23 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,20 @@ class Array
 		t& operator[](unsigned int index)
 		{
 			if(index >= _size)
-				throw std::exception();
+				throw  Indexout();
 			return _elements[index];
 		}
 		
-		unsigned int size() const{ return this->_size;}		
+		unsigned int size() const{ return this->_size;}
+		
+		class Indexout: public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Index out of bounds";
+				}
+		};
 };
 
 #endif
