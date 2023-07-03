@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:28:47 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/03 20:24:04 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:27:55 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int Span::shortestSpan()
 	int mindiff = std::numeric_limits<int>::max(); //Inicializamos con un valor max.
 	for (size_t i = 1; i < this->_numbers.size(); i++)
 	{
-		int diff = std::abs(this->_numbers[i] - this->_numbers[i -1]);
+		int diff = std::abs(this->_numbers[i] - this->_numbers[i -1]);//valor absoluto siempre sea positivo.
 		if (diff < mindiff)
 			mindiff = diff;
 	}
