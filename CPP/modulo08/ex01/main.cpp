@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:18:54 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/03 20:26:02 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:05:14 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 		cout << sp.longestSpan() << std::endl;
 	} catch (const exception& e)
 	{
-		cout << "Error: " << e.what();
+		cout << "Error: " << e.what() << endl;
 	}
 	
 	return 0;

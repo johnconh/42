@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:02:58 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/03 20:23:50 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:05:44 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <stdexcept>
 
 using std::cout;
 using std::endl;
 using std::vector;
-using std::runtime_error;
 using std::exception;
 
 class Span
@@ -42,6 +40,23 @@ class Span
 		void addRange(vector<int>::iterator begin, vector<int>::iterator end);
 		int shortestSpan();
 		int longestSpan();
-		
+
+		class Maximun_number: public exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Maximum number reached";
+				}
+ 		};
+
+		class Insufficient: public exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Insufficient numbers";
+				}
+		};
 };
 #endif
