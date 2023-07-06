@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:28:47 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/06 19:06:02 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:31:43 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int Span::shortestSpan()
 		{
 			int diff = std::abs(this->_numbers[j] - this->_numbers[i]);//valor absoluto siempre sea positivo.
 			if (diff < mindiff)
-					mindiff = diff;
+				mindiff = diff;
 		}
 	}
 	return mindiff;
