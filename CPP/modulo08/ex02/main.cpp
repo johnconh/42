@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 19:55:23 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/04 20:22:06 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/06 17:34:17 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main()
 		mstack.push_back(5);
 		mstack.push_back(17);
 		
-		mstack.pop_back(); //pop.front elimina el prinmer elemento.
+		mstack.pop_back(); //pop_front elimina el primer elemento.
 		
 		std::cout <<"Size: " << mstack.size() << std::endl << std::endl;
 		
