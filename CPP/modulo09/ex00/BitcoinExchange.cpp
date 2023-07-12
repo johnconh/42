@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:56:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/11 20:38:33 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:44:28 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,11 @@ float BitcoinExchange::getData(const string& date) const
 	if(it == this->_data.end())
 		--it; // No se encontro una fecha igual o superior, uso la ultima fecha.
 	else if(it !=this->_data.begin() && it->first != date)
-	{
-		map<string, float>::const_iterator prevIt = it;
-		-- prevIt;
-		if(date.compare(prevIt->first) - date.compare(it->first) < 0) // se compara para saber cual es la fecha mas cercana a la anterior.
-			it = prevIt;
-	}
-
+		-- it;
 	return it->second;
 }
 
-void processFile(const string& filename, const BitcoinExchange& db)
+void BitcoinExchange::processFile(const string& filename, const BitcoinExchange& db)
 {
 	ifstream file(filename.c_str());
 	if(!file)
@@ -77,7 +71,6 @@ void processFile(const string& filename, const BitcoinExchange& db)
 	string line;
 	while(getline(file, line))
 	{
-
 		stringstream ss(line);
 		string dateStr, valueStr;
 		if(getline(ss, dateStr, '|') && getline(ss,valueStr))
@@ -87,44 +80,37 @@ void processFile(const string& filename, const BitcoinExchange& db)
 			if(getline(dateStream, year, '-') && getline(dateStream, month, '-') && getline(dateStream, day))  
 			{
 				day.erase(day.find_last_not_of(' ') + 1);
-				if (isValidDate(year, month, day))
+				if (isValidDate(year, month, day) && !isFloat(valueStr))
 				{
 					float value;
 					istringstream valueStream(valueStr);
-					if(valueStream >> value)
-					{
-						if(value > 1000)
-							cout << "Error: too large number.\n";
-						else if (value < 0)
+					valueStream >> value;
+					
+					if(value > 1000)
+						cout << "Error: too large number.\n";
+					else if (value < 0)
 							cout << "Error: not a positive number\n";
-						else
-						{
-							float data = db.getData(year + '-' + month + "-" + day);
-							cout << year << "-" << month << "-" << day <<": "<< value << endl;
-							
-						}
-						
-					}
 					else
-						cout << "Error: Bad input => " << line << endl;
+					{
+						float data = db.getData(year + '-' + month + "-" + day);
+						cout << dateStr << " => " << value << " = " << std::fixed << std::setprecision(2) << std::showpoint << value * data << endl;
+					}
+						
 				}
+				else
 					cout << "Error: Bad input => " << line << endl;
 			}
 		}
 		else
-		{
 			cout << "Error: Bad input => " << line << endl;
-		}
-		
 	}
-	
 }
 
-bool isValidDate(string yearStr, string monthStr, string dayStr)
+bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr, const string& dayStr)
 {
-	int year = stoi(yearStr);
-	int month = stoi(monthStr);
-	int day  = stoi(dayStr);
+	const int year = stoi(yearStr);
+	const int month = stoi(monthStr);
+	const int day  = stoi(dayStr);
 
 	if( year < 2009 || year > 2022 ||  month < 1 || month > 12 || day < 1)
 		return false;
@@ -144,4 +130,12 @@ bool isValidDate(string yearStr, string monthStr, string dayStr)
 	else if (day > 31)
 		return false;
 	return true;
+}
+
+bool BitcoinExchange::isFloat(const string& value)
+{
+	char *end;
+
+	strtod(value.c_str(), &end);
+	return(value.c_str() &&  *end != '\0');
 }

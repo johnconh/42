@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 18:15:49 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/11 19:21:39 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:44:34 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 	BitcoinExchange db;
 	db.loadPrices("data.csv");
 
-	processFile(filename);
-
+	db.processFile(filename, db);
+	
 	return 0;
 }

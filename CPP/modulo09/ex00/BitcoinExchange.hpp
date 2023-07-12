@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:12:04 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/11 20:24:05 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:44:55 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-
+#include <cstdlib>
 
 using std::string;
 using std::cout;
@@ -29,6 +29,7 @@ using std::stringstream;
 using std::istringstream;
 using std::ifstream;
 using std::stoi;
+using std::strtod;
 
 class BitcoinExchange
 {
@@ -44,8 +45,11 @@ class BitcoinExchange
 		
 		void loadPrices(const string& file);
 	 	float getData(const string& date) const;
+		void processFile(const string& file, const BitcoinExchange& db);
+		
+	private:
+		bool isValidDate(const string& yearStr, const string& monthStr, const string& dayStr);
+		bool isFloat(const string& value);
 };
-void processFile(const string& file, const BitcoinExchange& db);
-bool isValidDate(string yearStr, string monthStr, string dayStr);
 
 #endif
