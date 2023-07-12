@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:56:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/12 18:44:28 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:15:53 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 	}
 }
 
-bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr, const string& dayStr)
+bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr, const string& dayStr) const
 {
 	const int year = stoi(yearStr);
 	const int month = stoi(monthStr);
@@ -132,7 +132,7 @@ bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr,
 	return true;
 }
 
-bool BitcoinExchange::isFloat(const string& value)
+bool BitcoinExchange::isFloat(const string& value) const
 {
 	char *end;
 

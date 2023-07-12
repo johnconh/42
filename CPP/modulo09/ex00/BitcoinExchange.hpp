@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:12:04 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/12 18:44:55 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:15:42 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class BitcoinExchange
 		void processFile(const string& file, const BitcoinExchange& db);
 		
 	private:
-		bool isValidDate(const string& yearStr, const string& monthStr, const string& dayStr);
-		bool isFloat(const string& value);
+		bool isValidDate(const string& yearStr, const string& monthStr, const string& dayStr) const;
+		bool isFloat(const string& value) const ;
 };
 
 #endif
