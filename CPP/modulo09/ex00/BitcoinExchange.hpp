@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:12:04 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/12 19:15:42 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:24:03 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <iomanip>
-#include <cstdlib>
 
 using std::string;
 using std::cout;

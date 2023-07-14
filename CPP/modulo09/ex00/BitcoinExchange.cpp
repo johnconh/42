@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:56:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/12 19:15:53 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:26:07 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ void BitcoinExchange::loadPrices(const string& filename)
 float BitcoinExchange::getData(const string& date) const 
 {
 	map<string, float>::const_iterator it =this->_data.lower_bound(date);
-	if(it == this->_data.end())
-		--it; // No se encontro una fecha igual o superior, uso la ultima fecha.
-	else if(it !=this->_data.begin() && it->first != date)
+	if (it !=this->_data.begin() && it->first != date)
 		-- it;
 	return it->second;
 }
@@ -64,10 +62,19 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 	ifstream file(filename.c_str());
 	if(!file)
 	{
-		cout << "Error: coud not open file\n";
+		cout << "Error: could not open file\n";
 		return;
 	}
-
+	
+	file.seekg(0, std::ios::end); //coloco el puntero de lectura al final del archivo.
+	if (file.tellg() == 0) //verifico si el archivo esta vacio.
+	{
+		cout << "Error: file is empty\n";
+		file.close();
+		return;
+	}
+	file.seekg(0, std::ios::beg); //restablezco el puntero de lectura al inicio.
+	
 	string line;
 	while(getline(file, line))
 	{
@@ -93,9 +100,8 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 					else
 					{
 						float data = db.getData(year + '-' + month + "-" + day);
-						cout << dateStr << " => " << value << " = " << std::fixed << std::setprecision(2) << std::showpoint << value * data << endl;
-					}
-						
+						cout << dateStr << " => " << value << " = " << value * data << endl;
+					}	
 				}
 				else
 					cout << "Error: Bad input => " << line << endl;
@@ -112,7 +118,7 @@ bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr,
 	const int month = stoi(monthStr);
 	const int day  = stoi(dayStr);
 
-	if( year < 2009 || year > 2022 ||  month < 1 || month > 12 || day < 1)
+	if( year < 1 ||  month < 1 || month > 12 || day < 1)
 		return false;
 
 	if(month == 2)

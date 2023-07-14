@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:58:26 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/12 21:19:34 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:21:02 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ RPN& RPN::operator=(const RPN& assig)
 		this->_stack = assig._stack;
 	return *this;
 }
-
 
 bool RPN::isOperator(const string& op) const{return (op == "+" || op == "-" || op == "*" || op ==  "/");}
 bool RPN::isNumber(const string& numb) const{return (numb.length() == 1 && std::isdigit(numb[0]));}
@@ -61,7 +60,7 @@ int RPN::evaluateRPN(const string& str)
 			_stack.push(stoi(token));
 		else if(isOperator(token))
 		{
-			if(_stack.size() < 2 && _stack.size() >= 4)
+			if(_stack.size() < 2)
 				throw Invalid();
 			
 			int numb2 = _stack.top();
@@ -69,12 +68,13 @@ int RPN::evaluateRPN(const string& str)
 			int numb1 =_stack.top();
 			_stack.pop();
 			
-			
 			int result = makeOperation(token, numb1, numb2);
 			_stack.push(result);
 		}
 		else
 			throw Invalid();
 	}
+	if (_stack.size() > 1 || _stack.size() == 0)
+		throw  Invalid();
 	return _stack.top();
 }
