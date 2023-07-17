@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:12:04 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/13 19:24:03 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:28:49 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ class BitcoinExchange
 
 		BitcoinExchange& operator=(const BitcoinExchange& assig);
 		
-		void loadPrices(const string& file);
+		bool loadPrices(const string& file);
 	 	float getData(const string& date) const;
 		void processFile(const string& file, const BitcoinExchange& db);
 		
 	private:
 		bool isValidDate(const string& yearStr, const string& monthStr, const string& dayStr) const;
 		bool isFloat(const string& value) const ;
+		bool isNumeric(const string& date) const;
 };
 
 #endif

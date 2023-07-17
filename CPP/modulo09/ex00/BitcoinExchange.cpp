@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:56:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/13 18:26:07 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:54:56 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,23 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& assig)
 	return *this;
 }
 
-void BitcoinExchange::loadPrices(const string& filename)
+bool BitcoinExchange::loadPrices(const string& filename)
 {
 	ifstream file(filename.c_str());
 	if(!file)
 	{
 		cout << "Error: could not open file\n";
-		return;
+		return false;
 	}
+	
+	file.seekg(0, std::ios::end); 
+	if (file.tellg() == 0) 
+	{
+		cout << "Error: Data is empty\n";
+		file.close();
+		return false;
+	}
+	file.seekg(0, std::ios::beg);
 	
 	string line;
 	while(std::getline(file, line))
@@ -47,6 +56,7 @@ void BitcoinExchange::loadPrices(const string& filename)
 		}
 	}
 	file.close();
+	return true;
 }
 
 float BitcoinExchange::getData(const string& date) const 
@@ -78,6 +88,9 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 	string line;
 	while(getline(file, line))
 	{
+		if(line == "date | value")
+			continue;
+	
 		stringstream ss(line);
 		string dateStr, valueStr;
 		if(getline(ss, dateStr, '|') && getline(ss,valueStr))
@@ -106,6 +119,8 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 				else
 					cout << "Error: Bad input => " << line << endl;
 			}
+			else
+				cout << "Error: Bad input => " << line << endl;
 		}
 		else
 			cout << "Error: Bad input => " << line << endl;
@@ -114,6 +129,12 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 
 bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr, const string& dayStr) const
 {
+	if(yearStr.empty() || monthStr.empty() || dayStr.empty())
+		return false;
+		
+	if(!isNumeric(yearStr) || !isNumeric(monthStr) || !isNumeric(dayStr))
+		return false;
+		
 	const int year = stoi(yearStr);
 	const int month = stoi(monthStr);
 	const int day  = stoi(dayStr);
@@ -144,4 +165,12 @@ bool BitcoinExchange::isFloat(const string& value) const
 
 	strtod(value.c_str(), &end);
 	return(value.c_str() &&  *end != '\0');
+}
+
+bool BitcoinExchange::isNumeric(const string& date) const
+{
+	for(string::const_iterator it = date.begin(); it != date.end(); it++)
+		if(!std::isdigit(*it))
+			return false;
+	return true;
 }

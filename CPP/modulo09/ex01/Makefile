@@ -3,7 +3,7 @@ FILES = main RPN
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 
-CXX = c++ -Wall -Werror -Wextra  -std=c++98 --pedantic -fsanitize=address -g3
+CXX = c++ -Wall -Werror -Wextra  -std=c++98 
 SANI_CXX = $(CXX) -g3 -fsanitize=address
 
 all: $(NAME)
