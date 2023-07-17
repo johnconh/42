@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 19:20:45 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/14 21:15:56 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:45:31 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ using std::deque;
 using std::endl;
 using std::atoi;
 using std::clock;
+using std::cerr;
+using std::string;
 
 class PmergeMe
 {
@@ -34,6 +36,8 @@ class PmergeMe
 		
 		template<typename C>
 		void showSequence(const C& c) const;
+		
+		bool isValidnumber(char *argv);
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe& copy);
@@ -48,10 +52,11 @@ class PmergeMe
 			public:
 				const char *what() const throw()
 				{
-					return "Error";
+					return "Error :C";
 				}
 		};
 };
+
 
 template<typename C>
 void mergeInsertSort(C& sequence)
@@ -59,7 +64,7 @@ void mergeInsertSort(C& sequence)
 	if (sequence.size()<= 1)
 		return;
 		
-	typename C:iterator mid = sequence.begin() + sequence.size() / 2;
+	typename C::iterator mid = sequence.begin() + sequence.size() / 2;
 	
 	C left(sequence.begin(), mid);
 	C rigth(mid, sequence.end());
@@ -83,5 +88,4 @@ void mergeInsertSort(C& sequence)
 		*(j + 1) = *it;
 	}
 }
-
 #endif

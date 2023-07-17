@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 20:24:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/14 21:15:20 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:51:49 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,18 @@ void PmergeMe::showSequence(const C& c) const
 
 void PmergeMe::sort(int argc, char **argv)
 {
-	if (argc <= 1)
-		throw Error();
-		
 	for(int i =  1; i < argc; i++)
 	{
+		if (!isValidnumber(argv[i]))
+			throw Error();
 		int num = atoi(argv[i]);
 		if(num > 0)
 		{
 			this->_deque.push_back(num);
 			this->_vector.push_back(num);
 		}
-		else	
-		 throw Error();
+		else
+		 	throw Error();
 	}
 	
 	clock_t VtimeStart = clock();
@@ -67,6 +66,22 @@ void PmergeMe::sort(int argc, char **argv)
 		cout << argv[i] << " ";
 	cout << endl;
 	showSequence(this->_vector);
-	cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: " << (VtimeEnd - VtimeEnd) / CLOCKS_PER_SEC << " us\n"; 
-	cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque: " << (DtimeEnd - DtimeEnd) / CLOCKS_PER_SEC << " us\n"; 
+	cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: " << (VtimeEnd - VtimeStart) * 1000.0 / CLOCKS_PER_SEC << " us\n"; 
+	cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque: " << (DtimeEnd - DtimeStart) * 1000.0 / CLOCKS_PER_SEC << " us\n"; 
+}
+
+bool PmergeMe::isValidnumber(char *argv)
+{
+	string numb = argv;
+	
+	if(numb.empty())
+		return false;
+
+	for(size_t i = 0; i < numb.length(); i++)
+	{
+		if(!std::isdigit(numb[i]) && !(i == 0 && (numb[i] == '+' || numb[i]== '-')))
+		return false;
+	}
+	
+	return true;
 }
