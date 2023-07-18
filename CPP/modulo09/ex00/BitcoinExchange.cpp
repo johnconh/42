@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:56:32 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/17 20:54:56 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:23:07 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,9 +129,6 @@ void BitcoinExchange::processFile(const string& filename, const BitcoinExchange&
 
 bool BitcoinExchange::isValidDate(const string& yearStr, const string& monthStr, const string& dayStr) const
 {
-	if(yearStr.empty() || monthStr.empty() || dayStr.empty())
-		return false;
-		
 	if(!isNumeric(yearStr) || !isNumeric(monthStr) || !isNumeric(dayStr))
 		return false;
 		

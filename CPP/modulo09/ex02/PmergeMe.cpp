@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 20:24:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/17 17:51:49 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:28:16 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void PmergeMe::sort(int argc, char **argv)
 	}
 	
 	clock_t VtimeStart = clock();
-	mergeInsertSort(this->_vector);
+	mergeInsertSort(this->_vector.begin(), this->_vector.end());
 	clock_t VtimeEnd = clock();
 
 	clock_t DtimeStart = clock();
-	mergeInsertSort(this->_deque);
+	mergeInsertSort(this->_deque.begin(), this->_deque.end());
 	clock_t DtimeEnd = clock();
 	
 	cout << "Before: ";

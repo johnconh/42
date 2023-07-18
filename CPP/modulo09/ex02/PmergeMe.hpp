@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 19:20:45 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/17 17:45:31 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:28:10 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,25 @@ class PmergeMe
 };
 
 
-template<typename C>
-void mergeInsertSort(C& sequence)
+template<typename I>
+void mergeInsertSort(I begin, I end)
 {
-	if (sequence.size()<= 1)
+	const size_t size = std::distance(begin, end);
+	
+	if(size <= 1)
 		return;
-		
-	typename C::iterator mid = sequence.begin() + sequence.size() / 2;
 	
-	C left(sequence.begin(), mid);
-	C rigth(mid, sequence.end());
-
-	mergeInsertSort(left);
-	mergeInsertSort(rigth);
-
-	sequence.clear();
-
-	std::merge(left.begin(), left.end(), rigth.begin(), rigth.end(), std::back_inserter(sequence));
+	I mid = begin + size / 2;
 	
-	typename C::iterator it;
-	for(it = sequence.begin() + 1; it != sequence.end(); ++it)
+	mergeInsertSort(begin, mid);
+	mergeInsertSort(mid, end);
+
+	std::inplace_merge(begin, mid, end);
+	
+	for(I it = begin + 1; it != end; ++it)
 	{	
-		typename C::iterator j = it - 1;
-		while(j >= sequence.begin() && *j > *it)
+		I j = it - 1;
+		while(j >= begin && *j > *it)
 		{
 			*(j + 1) = *j;
 			--j;
