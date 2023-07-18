@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 19:20:45 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/18 17:28:10 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:15:07 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class PmergeMe
 			public:
 				const char *what() const throw()
 				{
-					return "Error :C";
+					return "Error";
 				}
 		};
 };
