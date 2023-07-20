@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 18:15:49 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/18 16:59:25 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:03:31 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	if (doExt != string::npos)
 		extension = filename.substr(doExt + 1);
 
-	if (extension != "csv" || extension != "txt")
+	if (extension != "csv" && extension != "txt")
 	{
 		cout << "Error: invalid file extension.\n";
 		return 1;
