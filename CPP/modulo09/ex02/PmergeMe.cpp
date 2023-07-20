@@ -6,7 +6,7 @@
 /*   By: jdasilva <jdasilva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 20:24:42 by jdasilva          #+#    #+#             */
-/*   Updated: 2023/07/18 17:28:16 by jdasilva         ###   ########.fr       */
+/*   Updated: 2023/07/20 20:52:58 by jdasilva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void PmergeMe::sort(int argc, char **argv)
 		if (!isValidnumber(argv[i]))
 			throw Error();
 		int num = atoi(argv[i]);
-		if(num > 0)
+		if(num >= 0)
 		{
 			this->_deque.push_back(num);
 			this->_vector.push_back(num);
