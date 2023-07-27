@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx/.
+    image: nginx
+    restart: always
+    ports:
+      - "443:443"
+    volumes:
+      - WP_Volume:/usr/share/nginx/html/index.html
+    networks:
+      - DockerNet
+
+volumes:
+  WP_Volume:
+    name: wordpress
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/jdasilva/data
+      o: bind
+
+networks:
+  DockerNet:
+    driver: bridge
