@@ -13,4 +13,4 @@ COPY ./conf/www.conf  /etc/php/7.3/fpm/pool.d/
 EXPOSE 9000
 
 
-CMD [ "sh -c", "./tmp/setup.sh && /usr/sbin/php-fpm7.3 -F" ]
+CMD [ "sh", "-c", "./tmp/setup.sh && /usr/sbin/php-fpm7.3 -F" ]
