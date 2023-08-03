@@ -8,4 +8,4 @@ RUN apt-get update && apt-get -y install mariadb-server \
 
 EXPOSE 3306
 
-CMD [ "mysql" ]
+CMD [ "sh", "-c", "./tmp/create.sh > /tmp/create.sql && mysql --init-file=/tmp/create.sql"]
