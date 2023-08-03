@@ -11,7 +11,7 @@ done
 cd /var/www/html
 rm -rf *
 # Descargar WP en español.
-wp core download --locale=es_ES--allow-root
+wp core download --locale=es_ES --allow-root
 #Asegura que WordPress se conecte correctamente a la base de datos de MariaDB durante el proceso de instalación y configuración.
 wp --path=/var/www/html  config create --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbpass=${MYSQL_PASSWORD} --dbhost=${MYSQL_HOST} --locale=es_ES --allow-root --skip-check
 # Por ejemplo, puedes usar WP-CLI para configurar WordPress en este punto
