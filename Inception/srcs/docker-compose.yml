@@ -1,27 +1,60 @@
-version: '3.8'
+version: '3'
 
 services:
   nginx:
     container_name: nginx
+    depends_on:
+      - wordpress
     build: ./requirements/nginx/.
     image: nginx
     restart: always
     ports:
       - "443:443"
     volumes:
-      - WP_Volume:/usr/share/nginx/html/index.html
+      - WP_Volume:/var/www/html
     networks:
       - DockerNet
-
+  wordpress:
+    container_name: wordpress
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress/.
+    image: wordpress
+    restart: always
+    expose:
+      - 9000
+    volumes:
+      - WP_Volume:/var/www/html
+    networks:
+      - DockerNet
+    env_file:
+      - .env
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb/.
+    image: mariadb
+    restart: always
+    expose:
+      - 3306
+    volumes:
+     - DB_Volume:/var/lib/mysql
+    networks:
+      - DockerNet
+    env_file:
+      - .env
 volumes:
   WP_Volume:
-    name: wordpress
     driver: local
     driver_opts:
       type: volume
-      device: /home/jdasilva/data
+      device: /home/jdasilva/data/wordpress
       o: bind
-
+  DB_Volume:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/jdasilva/data/mariadb
+      o: bind
 networks:
   DockerNet:
     driver: bridge
