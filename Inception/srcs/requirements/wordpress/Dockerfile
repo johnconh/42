@@ -10,7 +10,8 @@ RUN apt-get update && apt -y install curl wget netcat tar \
 
 COPY ./conf/www.conf  /etc/php/7.3/fpm/pool.d/
 
-EXPOSE 9000
+RUN sed -i 's/^pid = \/run\/php\/php7\.3-fpm\.pid$/pid = \/var\/run\/php-fpm7.3.pid/' /etc/php/7.3/fpm/php-fpm.conf
 
+EXPOSE 9000
 
 CMD [ "sh", "-c", "./tmp/setup.sh && /usr/sbin/php-fpm7.3 -F" ]
