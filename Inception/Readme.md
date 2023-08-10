@@ -43,13 +43,21 @@ La configuracion que tengo de mi maquina virtual es la siguiente:
 - Docker-compose es una herramienta para definir y ejecutar aplicaciones Docker de varios contenedores.
 
 **`version:`**: Indica la versión de la sintaxis del archivo de composición de Docker.
-**`services`**: Esta seccion define los servicios de contenedor que se ejecutarán.
-**`container_name`**: Establece el nombre del contenedor.
-**`build`**: Indica que la imagen de este servicio debe construirse a partir de un Dockerfile.
-**`image`**: La imagen Docker que se utilizara para el servicio.
-**`restart: always`**: Configura l servicio para que siempre se reinicie si se detiene.
-**`expose`**: Expone el puerto que seran expuesto en la red interna de los servicios dentro de la red del contenedor.
-**`volumes`**: Esto permite que los datos sean persistentes incluso si el contenedor se detiene o se elimina.
-**`networks`**: Asigna el servicio a una red.
-**`env_file`**: Perminte cargar variables de entorno desde un archivo .env
 
+**`services`**: Esta seccion define los servicios de contenedor que se ejecutarán.
+
+**`container_name`**: Establece el nombre del contenedor.
+
+**`build`**: Indica que la imagen de este servicio debe construirse a partir de un Dockerfile.
+
+**`image`**: La imagen Docker que se utilizara para el servicio.
+
+**`restart: always`**: Configura l servicio para que siempre se reinicie si se detiene.
+
+**`expose`**: Expone el puerto que seran expuesto en la red interna de los servicios dentro de la red del contenedor.
+
+**`volumes`**: Esto permite que los datos sean persistentes incluso si el contenedor se detiene o se elimina.
+
+**`networks`**: Asigna el servicio a una red.
+
+**`env_file`**: Perminte cargar variables de entorno desde un archivo .env
