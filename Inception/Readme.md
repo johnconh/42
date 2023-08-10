@@ -61,7 +61,7 @@ Configuracion:
 
 **`image`**: La imagen Docker que se utilizara para el servicio.
 
-**`restart: always`**: Configura l servicio para que siempre se reinicie si se detiene.
+**`restart: always`**: Configura el servicio para que siempre se reinicie si se detiene.
 
 **`expose`**: Expone el puerto que seran expuesto en la red interna de los servicios dentro de la red del contenedor.
 
