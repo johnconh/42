@@ -29,10 +29,15 @@ La configuracion que tengo de mi maquina virtual es la siguiente:
 - Un Dockerfile es un documento de texto que contiene todos los comandos que un usuario podría llamar en la línea de comandos para ensamblar una imagen.
 
 **`FROM`**: Este comando especifica la imagen base desde la cual se construirá la nueva imagen. Es el punto de partida para tu imagen.
+
 **`RUN`**: Este comando ejecuta comandos dentro de la imagen mientras se está construyendo. Se utiliza para instalar paquetes, configurar software, o realizar otras acciones durante la construcción.
+
 **`COPY o ADD`**: Estos comandos copian archivos desde el sistema de archivos local al sistema de archivos de la imagen. COPY se usa para copiar archivos locales, mientras que ADD puede también descargar archivos desde una URL o extraer archivos comprimidos.
+
 **`EXPOSE`**: Este comando indica los puertos en los que la imagen estará escuchando en tiempo de ejecución.
+
 **`CMD`**: Este comando define el comando predeterminado que se ejecutará cuando se inicie un contenedor basado en la imagen. Puede ser sobrescrito al iniciar el contenedor.
+
 
 ## Docker-compose
 - Docker-compose es una herramienta para definir y ejecutar aplicaciones Docker de varios contenedores.
