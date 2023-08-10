@@ -11,7 +11,7 @@ La configuracion que tengo de mi maquina virtual es la siguiente:
 - CPU 4 nucleos / 4098 RAM / 128MB en la tarjeta de video / 30GB.
 - La red conectado a: Adaptador puente.
 - sudo apt install vim / ssh /make, instalar en el sistema programas para trabajar en la maquina, tambien puedes instalar el git para subir el trabajo desde la maquina o cualquier otro programa que te facilite tu tabajo, yo opte por estos.
-- Instalar del docker compose : [https://docs.docker.com/engine/install/debian/](https://docs.docker.com/engine/install/debian/)
+- [Instalar del docker compose](https://docs.docker.com/engine/install/debian/)
 - Instalar el docker-compose: sudo apt intall docker-compose
 ### Usar el SSH para trabajar desde la terminal
 - Conexion por SSH: sudo networkctl status (obtener ip) y desde la terminal: ssh jdasilva@10.xx.xxx.xx
