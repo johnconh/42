@@ -10,6 +10,7 @@ Configuracion:
 - sudo apt install vim / ssh /make, instalar en el sistema programas para trabajar en la maquina, tambien puedes instalar el git para subir el trabajo desde la maquina o cualquier otro programa que te facilite tu tabajo.
 - [Instalar docker](https://docs.docker.com/engine/install/debian/)
 - Instalar el docker-compose: sudo apt intall docker-compose
+
 ### Usar el SSH para trabajar desde la terminal
 - Conexion por SSH: sudo networkctl status (obtener ip) y desde la terminal: ssh jdasilva@10.xx.xxx.xx
 - Copiar ficheros entre las maquinas: scp [opciones] origen destino. ejemplo: spc -r /Users/jdasilva/42/Inception jdasilva@10.xx.xxx.xx:/home/jdasilva
@@ -96,7 +97,7 @@ Configuracion:
 ### Archivo de conf de Nginx
 Este bloque de configuración de Nginx se utiliza para configurar un servidor web que escucha en el puerto 443 (HTTPS) y proporciona una configuración básica para alojar un sitio web con un contenedor de WordPress y PHP-FPM.
 
-**`server{...}`**: Define un bloqye de servidor de configuración.
+**`server{...}`**: Define un bloque de servidor de configuración.
 
 **`listen 443 ssl`**: Indica que este servidor debe escuchar en el puerto 443 (HTTPS) y habilita SSL.
 
@@ -118,3 +119,4 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 - `fastcgi_pass wordpress:9000`: dirige las solicitudes de archivos PHP al contenedor de WordPress a través del puerto 9000 donde se encuentra PHP-FPM.
 
 - Las líneas siguientes (`fastcgi_index`, `fastcgi_param`, `include fastcgi_params`) son configuraciones específicas de PHP-FPM para el procesamiento de archivos PHP.
+
