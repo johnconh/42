@@ -1,8 +1,8 @@
 
-#Inceptio-42
+# Inception-42
 Esta es una guía completa del proyecto de inicio en esta página, aprenderá qué es el contenedor docker y para qué se usa y por qué lo necesitamos y también aprenderá cómo usar imágenes docker y también creará su propia imagen docker desde cero.
 
-##¿Qué son los Contenedores?
+## ¿Qué son los Contenedores?
 Los contenedores son una abstracción en la capa de la aplicación que empaqueta el código y las dependencias juntos. Varios contenedores pueden ejecutarse en la misma máquina y compartir el kernel del sistema operativo con otros contenedores, cada uno ejecutándose como procesos aislados en el espacio del usuario. Los contenedores ocupan menos espacio que las máquinas virtuales (las imágenes de contenedores suelen tener un tamaño de decenas de MB), pueden manejar más aplicaciones y requieren menos máquinas virtuales y sistemas operativos.
 
 ¿Qué son las Máquinas Virtuales?
