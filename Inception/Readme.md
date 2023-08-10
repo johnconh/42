@@ -16,13 +16,21 @@ La configuracion que tengo de mi maquina virtual es la siguiente:
 
 ### Comandos Docker
 **`docker run`**: Crea y ejecuta un contenedor a partir de una imagen.
+
 **`docker ps`**: Muestra la lista de todos los contenedores que estan en ejecución.
-**`docker ps -a`**: Muestra las lista de todos los contenedores, incluidos los detenidos 
+
+**`docker ps -a`**: Muestra las lista de todos los contenedores, incluidos los detenidos.
+
 **`docker logs`**: Muestra  los registros de un contenedor en ejecución.
+
 **`docker rm`**: Elimina el contendor.
+
 **`docker rmi`**: Elimina una imagen local.
+
 **`docker volume rm`**: Elimina un volumen.
+
 **`docker network rm`**: Elimina la red.
+
 **`docker exec`**: Ejecuta un comando en un contenedor en ejecución
 
 ### Docker file
