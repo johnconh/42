@@ -148,13 +148,13 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 
  - Descarga el wp-cli.phar desde el repositorio de GitHub de WP-CLI. WP-CLI es una herramienta de línea de comandos para administrar instalaciones de WordPress. no olvides de darle los permiso para que sea ejecutable.
 
- - Crear un script para crear el directorio /var/www/html acceder a el, descargar el WP en español, configurar el WP para que trabaje con mariadb y usar WP-CLI para configurarlo. Que el script tenga los permisos paea que pueda ser ejecutado.
+ - Crear un script para crear el directorio /var/www/html acceder a el, descargar el WP en español, configurar el WP para que trabaje con mariadb y usar WP-CLI para configurarlo. Que el script tenga los permisos para que pueda ser ejecutado.
 
 - Posiblemente en el archivo /etc/php/7.3/fpm/php-fpm.conf, tengas que cabiar la ruta del pid para poder reniciar el servicio por /var/run/php-fpm7.3.pid/ 
 
-- Bajate algun tema de wordpress para poder ver si la pagina cambia de diseño, vendra bien para la correción, esto es optativo.
+- Bajate algun tema de wordpress para poder ver si la pagina cambia de diseño, vendra bien para la correción.
 
-- En el dockerfile ejecutar el script y luego ejecutar el script, inicia el proceso `php-fpm7.3` en modo continuo (-F), lo que significa que el proceso se ejecutará en primer plano y no se desvinculará del terminal.
+- En el dockerfile ejecutar el script y luego al ejecutar el script, inicia el proceso `php-fpm7.3` en modo continuo (-F), lo que significa que el proceso se ejecutará en primer plano y no se desvinculará del terminal.
 
 ### www.conf
 El archivo www.conf permite ajustar la configuración del servidor PHP-FPM para optimizar el rendimiento y la eficiencia en el procesamiento de solicitudes de PHP generadas por WordPress. Copiar el archivo www.conf en /etc/php/7.3/fpm/pool.d/
