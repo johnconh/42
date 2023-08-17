@@ -152,9 +152,9 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 
 - Posiblemente en el archivo /etc/php/7.3/fpm/php-fpm.conf, tengas que cabiar la ruta del pid para poder reniciar el servicio por /var/run/php-fpm7.3.pid/ 
 
-### www.conf
-El archivo www.conf permite ajustar la configuración del servidor PHP-FPM para optimizar el rendimiento y la eficiencia en el procesamiento de solicitudes de PHP generadas por WordPress. Copiar el archivo www.conf en /etc/php/7.3/fpm/pool.d/
-
 - Bajate algun tema de wordpress para poder ver si la pagina cambia de diseño, vendra bien para la correción, esto es optativo.
 
 - En el dockerfile ejecutar el script y luego ejecutar el script, inicia el proceso `php-fpm7.3` en modo continuo (-F), lo que significa que el proceso se ejecutará en primer plano y no se desvinculará del terminal.
+
+### www.conf
+El archivo www.conf permite ajustar la configuración del servidor PHP-FPM para optimizar el rendimiento y la eficiencia en el procesamiento de solicitudes de PHP generadas por WordPress. Copiar el archivo www.conf en /etc/php/7.3/fpm/pool.d/
