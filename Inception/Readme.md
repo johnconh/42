@@ -126,7 +126,7 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
  # [Mariadb](https://hub.docker.com/_/mariadb)
  - Mariadb será la base de datos para almacenar la información sibre nuestros usuarios y configuraciones de wordpress
 
- - Crea un script para cambiar lineas en el archivo /etc/mysql/mariadb.conf.d/50-server.cnf correspondientes, establece el puerto 3306 y ortogue el derecho de ejecutar mysql
+ - Crea un script para cambiar lineas en el archivo /etc/mysql/mariadb.conf.d/50-server.cnf correspondientes, establece el puerto 3306.
 
  - Crea otro script para generar la base de datos y nuestro usuario, darle acceso a la base de datos y FLUSH PRIVILEGES que aplica todos lo cambios en los permisos sean efectivos de inmediato.
 
