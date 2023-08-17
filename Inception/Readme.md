@@ -71,6 +71,9 @@ Configuracion:
 
 **`env_file`**: Perminte cargar variables de entorno desde un archivo .env
 
+**`depends_on`**: Esta sección permite definir qué servicios deben iniciarse antes de que un servicio en particular pueda iniciarse.
+
+
 # [Nginx](https://hub.docker.com/_/nginx)
 - Nginx puede actuar como un servidor web que maneja solicitudes HTTP y HTTPS.
 
@@ -120,3 +123,38 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 
 - Las líneas siguientes (`fastcgi_index`, `fastcgi_param`, `include fastcgi_params`) son configuraciones específicas de PHP-FPM para el procesamiento de archivos PHP.
 
+ # [Mariadb](https://hub.docker.com/_/mariadb)
+ - Mariadb será la base de datos para almacenar la información sibre nuestros usuarios y configuraciones de wordpress
+
+ - Crea un script para cambiar lineas en el archivo /etc/mysql/mariadb.conf.d/50-server.cnf correspondientes, establece el puerto 3306 y ortogue el derecho de ejecutar mysql
+
+ - Crea otro script para generar la base de datos y nuestro usuario, darle acceso a la base de datos y FLUSH PRIVILEGES que aplica todos lo cambios en los permisos sean efectivos de inmediato.
+
+ - En el dockerfile ejecutar el script que modifica el archivo 50-server.cnf y con el CMD, usar el script de la base de datos para generar un archivo .sql que se iniciara con el comando myqlsd --init-file=
+
+ # [Wordpress](https://hub.docker.com/_/wordpress)
+ - WordPress es una plataforma de gestión de contenido basado en PHP y MySQL que te permite crear y administrar sitios web, bloqs y aplicaciones de manera fácil y rápida.
+
+ - PHP-FPM (PHP FastCGI Process Manager) es una implementación del protocolo FastCGI para PHP, que permite manejar eficientemente las solicitudes de PHP en un servidor web. En el contexto de WordPress, PHP-FPM se utiliza para gestionar y ejecutar scripts PHP de manera más eficiente y escalable.
+
+ - Instalar los paquetes curl wget netcat tar
+	- `curl`: Es una herramienta de línea de comandos para transferir datos con URL. Puedes usarlo para descargar archivos desde la web, realizar solicitudes HTTP, realizar pruebas de conectividad y más.
+	
+	- `wget`: Es otra herramienta para descargar archivos desde la web. Es similar a cURL pero más especializado en descargas.
+
+	- `netcat`: También conocido como nc, es una utilidad de red que puede utilizarse para leer o escribir datos a través de conexiones de red, como sockets TCP o UDP. Es muy versátil y se utiliza para pruebas de conectividad, transferencias de archivos, escaneo de puertos y más.
+
+	- `tar`: Es una herramienta para crear, ver y extraer archivos comprimidos y archivados en formato tar. Se usa comúnmente para comprimir y descomprimir archivos y directorios.
+
+ - Descarga el wp-cli.phar desde el repositorio de GitHub de WP-CLI. WP-CLI es una herramienta de línea de comandos para administrar instalaciones de WordPress. no olvides de darle los permiso para que sea ejecutable.
+
+ - Crear un script para crear el directorio /var/www/html acceder a el, descargar el WP en español, configurar el WP para que trabaje con mariadb y usar WP-CLI para configurarlo. Que el script tenga los permisos paea que pueda ser ejecutado.
+
+- Posiblemente en el archivo /etc/php/7.3/fpm/php-fpm.conf, tengas que cabiar la ruta del pid para poder reniciar el servicio por /var/run/php-fpm7.3.pid/ 
+
+### www.conf
+El archivo www.conf permite ajustar la configuración del servidor PHP-FPM para optimizar el rendimiento y la eficiencia en el procesamiento de solicitudes de PHP generadas por WordPress. Copiar el archivo www.conf en /etc/php/7.3/fpm/pool.d/
+
+- Bajate algun tema de wordpress para poder ver si la pagina cambia de diseño, vendra bien para la correción, esto es optativo.
+
+- En el dockerfile ejecutar el script y luego ejecutar el script, inicia el proceso `php-fpm7.3` en modo continuo (-F), lo que significa que el proceso se ejecutará en primer plano y no se desvinculará del terminal.
