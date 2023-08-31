@@ -4,4 +4,4 @@ down:
 	docker-compose -f srcs/docker-compose.yml  down
 clean: down
 	yes | docker system prune -a
-.PHONY: all down clean3
+.PHONY: all down clean
