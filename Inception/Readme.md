@@ -139,20 +139,20 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
  - login:
     mysql -u dgerwig- -puserpw
 
-        show databases;
+    show databases;
 
-        use [database];
+    use [database];
 
-        show tables;
+    show tables;
 
-        show columns from [table] from [database];
+    show columns from [table] from [database];
 
-        select [field] from [table];  (* = all fields)
+    select [field] from [table];  (* = all fields)
 
-        quit;  (for exit)
+    quit;  (for exit)
 
     exit  (to return)
-	
+
 
  # [Wordpress](https://hub.docker.com/_/wordpress)
  - WordPress es una plataforma de gestión de contenido basado en PHP y MySQL que te permite crear y administrar sitios web, bloqs y aplicaciones de manera fácil y rápida.
