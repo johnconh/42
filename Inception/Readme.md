@@ -132,6 +132,19 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 
  - En el dockerfile ejecutar el script que modifica el archivo 50-server.cnf y con el CMD, usar el script de la base de datos para generar un archivo .sql que se iniciara con el comando myqlsd --init-file=
 
+ ## Ver la bases de datos
+ - run:
+    docker exec -it mariadb bash
+ - login:
+    mysql -u dgerwig- -puserpw
+        show databases;
+        use [database];
+        show tables;
+        show columns from [table] from [database];
+        select [field] from [table];  (* = all fields)
+        quit;  (for exit)
+    exit  (to return)
+
  # [Wordpress](https://hub.docker.com/_/wordpress)
  - WordPress es una plataforma de gestión de contenido basado en PHP y MySQL que te permite crear y administrar sitios web, bloqs y aplicaciones de manera fácil y rápida.
 
