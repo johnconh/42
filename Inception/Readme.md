@@ -132,7 +132,7 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 
  - En el dockerfile ejecutar el script que modifica el archivo 50-server.cnf y con el CMD, usar el script de la base de datos para generar un archivo .sql que se iniciara con el comando myqlsd --init-file=
 
- ## Ver la bases de datos
+ ## Ver la base de datos
  - run:
     docker exec -it mariadb bash
 
