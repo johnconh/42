@@ -174,8 +174,6 @@ Este bloque de configuración de Nginx se utiliza para configurar un servidor we
 
 - Posiblemente en el archivo /etc/php/7.3/fpm/php-fpm.conf, tengas que cabiar la ruta del pid para poder reniciar el servicio por /var/run/php-fpm7.3.pid/ 
 
-- Bajate algun tema de wordpress para poder ver si la pagina cambia de diseño, vendra bien para la correción.
-
 - En el dockerfile ejecutar el script y luego al ejecutar el script, inicia el proceso `php-fpm7.3` en modo continuo (-F), lo que significa que el proceso se ejecutará en primer plano y no se desvinculará del terminal.
 
 ### www.conf
