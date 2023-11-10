@@ -12,7 +12,7 @@ int printf(const char *format, ...)
 
 - ...: Indica que la función puede tomar un número variable de argumentos después de la cadena de formato. Estos argumentos son los valores que se imprimirán según las conversiones especificadas en la cadena de formato.
 
-## Parametros y formato
+## Parametros
 <table>
 <thead>
   <tr>
