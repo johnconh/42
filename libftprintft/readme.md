@@ -28,48 +28,28 @@ Opcionalmente, puede contener etiquetas de formato que se reemplazan por los val
 <tbody>
   <tr>
     <td>%c</td>
-    <td><a href=src/ft_print_cs.c>ft_print_c</a></td>
+    <td><a href=ft_putchar.c>ft_print_c</a></td>
     <td>Imprime un solo carácter</td>
   </tr>
   <tr>
     <td>%s</td>
-    <td><a href=src/ft_print_cs.c>ft_print_s</a></td>
-    <td>Imprime un string (como se define por defecto en C)</td>
-  </tr>
-  <tr>
-    <td>%p</td>
-    <td><a href=src/ft_print_hex.c>ft_print_p</a></td>
-    <td>La dirección del puntero `void *` dado como argumento se imprime en formato hexadecimal</td>
-  </tr>
-  <tr>
-    <td>%d</td>
-    <td><a href=src/ft_print_nbr.c>ft_print_nbr</a></td>
-    <td>Imprime un número decimal</td>
+    <td><a href=ft_putstr.c>ft_print_s</a></td>
+    <td>Imprime un string </td>
   </tr>
   <tr>
     <td>%i</td>
-    <td><a href=src/ft_print_nbr.c>ft_print_nbr</a></td>
+    <td><a href=ft_putnbr.c>ft_print_nbr</a></td>
     <td>Imprime un entero en base 10</td>
   </tr>
   <tr>
     <td>%u</td>
-    <td><a href=src/ft_print_nbr.c>ft_print_ulnbr</a></td>
-    <td>Imprime un número decimal sin signo</td>
+    <td><a href=ft_putunbr.c>ft_print_ulnbr</a></td>
+    <td>Imprime un número en base 10 sin signo</td>
   </tr>
   <tr>
     <td>%x</td>
-    <td><a href=src/ft_print_hex.c>ft_putnbr</a></td>
-    <td>Imprime un número hexadecimal en minúsculas</td>
-  </tr>
-  <tr>
-    <td>%X</td>
-    <td><a href=src/ft_print_hex.c>ft_putnbr</a></td>
-    <td>Imprime un número hexadecimal en mayúsculas</td>
-  </tr>
-  <tr>
-    <td>%%</td>
-    <td><a href=src/ft_print_cs.c>ft_print_c</a></td>
-    <td>Para imprimir el símbolo del porcentaje</td>
+    <td><a href=ft_puthex.c>ft_putnbr</a></td>
+    <td>Imprime un número hexadecimal en minúsculas y en mayusculas</td>
   </tr>
 </tbody>
 <thead>
