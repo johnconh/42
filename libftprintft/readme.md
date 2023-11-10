@@ -5,7 +5,7 @@
 - Especificadores a implementar: %c, %s, %p, %d, %i, %u, %x, %X, %%
 
 ## Descripción, Declaración y Valor de salida
-<[ft_printf.c](printf()) Es una función variádicas que envía la salida formateada a *stdout*. Su propotipo es:
+[printf()](ft_printf.c) Es una función variádicas que envía la salida formateada a *stdout*. Su propotipo es:
 ```c
 int printf(const char *format, ...)
 ```
