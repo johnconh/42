@@ -1,5 +1,5 @@
 ## Funciones incluidas
-[Makefile](Makefile), [main.c](/main.c), [libft.h](libft.h)
+[Makefile](Makefile), [libft.h](libft.h)
 
 
 <table>
