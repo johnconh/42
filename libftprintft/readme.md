@@ -1,17 +1,16 @@
-## Requisitos del ejercicio
-- No implementar la gestión del buffer del `printf()` original
-- Hay que usar el comando `ar` para crear la librería. El uso de `libtool` está prohibido
-- `libftprintf.a` deberá ser creado en la raíz de tu repositorio
-- Especificadores a implementar: %c, %s, %p, %d, %i, %u, %x, %X, %%
 
-## Descripción, Declaración y Valor de salida
-[printf()](ft_printf.c) Es una función variádicas que envía la salida formateada a *stdout*. Su propotipo es:
+
+## Descripción
+La función [printf()](ft_printf.c) es una función de salida formateada en muchos lenguajes de programación, especialmente en C y C++. Su nombre significa "print formatted" (imprimir formateado), y se utiliza para imprimir datos en la consola o en otros flujos de salida de manera formateada. Es parte de la biblioteca estándar de entrada/salida en C y C++.
+
+La sintaxis básica de printf() es la siguiente::
 ```c
 int printf(const char *format, ...)
 ```
 
-Donde *format* es el string que contiene el texto que se escribirá en la salida estándar.
-Opcionalmente, puede contener etiquetas de formato que se reemplazan por los valores especificados en argumentos adicionales posteriores y se formatean según lo solicitado.
+- format: Es una cadena de formato que especifica cómo se deben imprimir los datos. Puede contener texto normal y especificadores de formato que empiezan con el carácter %.
+
+- ...: Indica que la función puede tomar un número variable de argumentos después de la cadena de formato. Estos argumentos son los valores que se imprimirán según las conversiones especificadas en la cadena de formato.
 
 ## Parametros y formato
 <table>
