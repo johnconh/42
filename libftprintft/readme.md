@@ -11,7 +11,7 @@ int printf(const char *format, ...)
 ```
 
 Donde *format* es el string que contiene el texto que se escribirá en la salida estándar.
-Opcionalmente, puede contener etiquetas de formato que se reemplazan por los valores especificados en argumentos adicionales posteriores y se formatean según lo solicitado. El prototipo de las etiquetas de formato es el especificador `%[flags][ancho][.precisión]especificador`.
+Opcionalmente, puede contener etiquetas de formato que se reemplazan por los valores especificados en argumentos adicionales posteriores y se formatean según lo solicitado.
 
 ## Parametros y formato
 <table>
