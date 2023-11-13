@@ -7,8 +7,8 @@ Para ordenar las pilas se utilizan los siguientes comandos:
 
 | Comando | Descripcion 																									  |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| sa	  |	Swap a Intercambia los primelos elementos de la pila A.	|
-| sb	  |	Swap b Intercambia los primelos elementos de la pila B.	|
+| sa	  |	Swap a Intercambia los primeros elementos de la pila A.	|
+| sb	  |	Swap b Intercambia los primeros elementos de la pila B.	|
 | ss	  | sa y sb a la vez. |
 | pa	  |	Push a Toma el primer elemento de la pila B y lo coloca encima de la pila A. |
 | pb	  |	Push b Toma el primer elemento de la pila A y lo coloca encima de la pila B. |
