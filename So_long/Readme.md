@@ -18,3 +18,6 @@ Se trata de programar el juego utilizando el lenguaje de programación C y la bi
 	- C es el objeto <img src="https://github.com/johnconh/42/blob/main/So_long/sprites/rupia.png" alt="rupia" />
 	- E salida del mapa <img src="https://github.com/johnconh/42/blob/main/So_long/sprites/exit.png" alt="exit" />
 	- P posicion del jugador <img src="https://github.com/johnconh/42/blob/main/So_long/sprites/link_down.png" alt="link" />
+- Hay que verificar que el map es rectangular y que este rodeado de paredes. Ademas el jugador debe poder coger todos los coleccionables y terminar el juego.
+- Es obligatorio que el mapa tenga al jugador almenos un objeto y la salida.
+- Se debe mostrar los graficas con una ventana nueva, en la que su gestion debe ser limpia(minimizar, moverla, etc..), con el boton x o pulsar la tecla ESC tiene que salirse del juego.
