@@ -19,4 +19,4 @@ Para ordenar las pilas se utilizan los siguientes comandos:
 | rrb	  |	Reverse rotate a Desplaza hacia abajo todos los  elementos de la pila B, el ultimo elemento es el primero. |
 | rrr	  |	rra y rrb a la vez. |
 
-Yo elegido usar el metodo [Radix sort](https://www.geeksforgeeks.org/radix-sort/), es un metodo muy sencillo que en este proyecto sacas el numero de movimientos suficientes para aprovar el proyecto, no es un 100% pero si te ves capaz te dejo un [link](https://github.com/ampuEus/42School/blob/main/cursus/lvl2/push_swap/LEEME.md) de un compañero que tiene hasta el bonus(si tambien te interesa).
+Yo elegido usar el metodo [Radix sort](https://www.geeksforgeeks.org/radix-sort/), es un metodo muy sencillo que en este proyecto sacas el numero de movimientos suficientes para aprobar el proyecto.
