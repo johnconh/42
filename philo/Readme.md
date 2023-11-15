@@ -8,7 +8,7 @@ La solución a este problema generalmente implica el uso de mutex (semaforos bin
 ### Descripcion
 1. Cada filósofo es un hilo separado que puede estar en uno de tres estados: pensando, durmiendo o comiendo.
 2. Se utiliza el mutex para controlar el acceso a los tenedores.
-3. Un filósofo intenta adquirir los tenedores antes de comer. Si no puede obtener ambos tenedores, entra en estado hambriento.
+3. Un filósofo intenta adquirir los tenedores antes de comer. Si no puede obtener ambos tenedores, espera hasta obtenerlos o se muere.
 4. Cuando un filósofo tiene ambos tenedores, come durante un tiempo y luego libera los tenedores.
 5. Se implementan mecanismos para garantizar que los filósofos no entren en deadlock y que todos tengan la oportunidad de comer.
 
