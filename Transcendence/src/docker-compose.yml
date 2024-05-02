@@ -1,0 +1,181 @@
+version: '3.8'
+
+networks:
+  internalNetwork:
+    name: internalNetwork
+    # driver: bridge
+
+volumes:
+  db:
+    name: db
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/data/db
+
+  pgadminvol:
+    name: pgadminvol
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/data/pgadminvol
+  # grafana:
+  #   name: grafana
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     o: bind
+  #     device: $HOME/data/grafana
+  
+  # node-exporter:
+  #   name: node-exporter
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     o: bind
+  #     device: $HOME/data/node-exporter
+
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:16.1-alpine3.18
+    env_file: .env
+    networks:
+      - internalNetwork
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" #Borrar antes de entregare proyecto
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 1s
+      timeout: 1s
+      retries: 50
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    env_file: .env
+    networks:
+      - internalNetwork
+    ports:
+      - "8001:80"
+    volumes:
+      - pgadminvol:/var/lib/pgadmin
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    container_name: frontend
+    image: frontend:custom
+    env_file: .env
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    networks:
+      - internalNetwork
+    # ports:
+    #   - "5173:5173"
+    restart: always
+    volumes:
+      - ./frontend:/frontend
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  backend:
+    container_name: backend
+    image: backend:custom
+    env_file: .env
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    networks:
+      - internalNetwork
+    ports:
+      - "61001:61001"
+    restart: always
+    volumes:
+      - ./backend:/backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  nginx:
+    container_name: nginx
+    image: nginx:custom
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./backend/media:/home/app/media
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - internalNetwork
+    restart: always
+
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: always
+    ports:
+      - '3000:3000'
+    networks:
+      - internalNetwork
+    volumes:
+      - ./resources/grafana:/var/lib/grafana
+    env_file: .env
+    # environment: Usar el protocolo https en grafana
+    # - GF_SERVER_PROTOCOL=https
+    # - GF_SERVER_CERT_FILE=/tools/selfsigned.crt
+    # - GF_SERVER_CERT_KEY=/tools/selfsigned.key
+  
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=30d'
+    restart: always
+    ports:
+      - '9090:9090'
+    networks:
+      - internalNetwork
+    volumes:
+      - ./resources/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./resources/alert.yaml:/etc/prometheus/alert.yaml
+
+  node-exporter:
+    image: quay.io/prometheus/node-exporter
+    container_name: node-exporter
+    command:
+      - '--path.rootfs=/host'
+    pid: host
+    restart: always
+    ports:
+      - '9100:9100'
+    networks:
+      - internalNetwork
+    volumes:
+      - '/:/rootfs:ro'
+
+  pg_exporter:
+    image: wrouesnel/postgres_exporter
+    container_name: pg-exporter
+    env_file: .env
+    restart: always
+    ports:
+      - 9187:9187
+    networks:
+      - internalNetwork

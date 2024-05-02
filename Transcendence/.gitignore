@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__
+node_modules
+package-lock.json
+.DS_Store
+.idea
+*.swp
+migrations/
+!migrations/__init__.py
+media/
+!media/user.png

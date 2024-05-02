@@ -1,0 +1,35 @@
+groups:
+- name: node-exporter
+  rules:
+  - alert: HighMemoryUsage
+    # Expresión para detectar un alto uso de memoria
+    expr: (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 20
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: High Memory usage on {{ $labels.instance }}
+      description: Memory usage is above 80% on instance {{ $labels.instance }} for more than 5 minutes.
+
+- name: postgresql
+  rules:
+  - alert: HighConnections
+    # Expresión para detectar un alto número de conexiones
+    expr: pg_stat_database_numbackends{datname="db"} > 50
+    for: 10m
+    labels:
+      severity: critical
+    annotations:
+      summary: High number of connections to PostgreSQL database
+      description: The number of connections to the PostgreSQL database is above 100 for more than 10 minutes.
+
+- name: example
+  rules:
+  - alert: HighLoadAverage
+    expr: node_load1 > 0.01
+    for: 10s
+    labels:
+      severity: warning
+    annotations:
+      summary: High load average detected
+      description: The load average of the system is greater than 2 for more than 1 minute.

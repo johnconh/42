@@ -1,0 +1,90 @@
+{
+	"/": [
+		"src/routes/+page.ts",
+		"src/routes/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/api/matchmaking/cancelQueue": [
+		"src/routes/api/matchmaking/cancelQueue/+server.ts"
+	],
+	"/api/matchmaking/getRatio": [
+		"src/routes/api/matchmaking/getRatio/+server.ts"
+	],
+	"/api/matchmaking/startQueue": [
+		"src/routes/api/matchmaking/startQueue/+server.ts"
+	],
+	"/api/pong/saveMatchData": [
+		"src/routes/api/pong/saveMatchData/+server.ts"
+	],
+	"/api/userData/getRivalData": [
+		"src/routes/api/userData/getRivalData/+server.ts"
+	],
+	"/ftVerify": [
+		"src/routes/ftVerify/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/health-check": [
+		"src/routes/+layout.server.ts"
+	],
+	"/local": [
+		"src/routes/local/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/login": [
+		"src/routes/login/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/logout": [
+		"src/routes/logout/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/manual": [
+		"src/routes/+layout.server.ts"
+	],
+	"/matchmaking": [
+		"src/routes/matchmaking/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/pong2": [
+		"src/routes/+layout.server.ts"
+	],
+	"/pong": [
+		"src/routes/+layout.server.ts"
+	],
+	"/pong/[gameid]": [
+		"src/routes/pong/[gameid]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/profile": [
+		"src/routes/profile/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/profile/[user]": [
+		"src/routes/profile/[user]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/pswrd-reset": [
+		"src/routes/pswrd-reset/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/register": [
+		"src/routes/register/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/tournament-local": [
+		"src/routes/tournament-local/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/tournament": [
+		"src/routes/tournament/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/user-checker": [
+		"src/routes/user-checker/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/user-settings": [
+		"src/routes/user-settings/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	]
+}

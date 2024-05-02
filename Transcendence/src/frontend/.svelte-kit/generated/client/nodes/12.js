@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/pong2/+page.svelte";

@@ -1,0 +1,9 @@
+
+<p>Generated TOTP: {{ generated_totp }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="code">Enter the code:</label>
+    <input id="code" type="text" name="code">
+    <input type="submit" value="Verify">
+</form>
